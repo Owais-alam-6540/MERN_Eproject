@@ -1,8 +1,6 @@
 // import logo from './logo.svg';
 import './App.css';
 
-
-
 import Index from './Web_Components/Index';
 import Navbar from './Web_Components/Navbar';
 import Footer from './Web_Components/Footer';
@@ -19,13 +17,11 @@ function App() {
     <div className="App">
     <Navbar/>
      <Routes>
-     
       <Route path="/" element={<Index />}/>
-      {/* <Route path="/contact" element={<Contact />}/>
+      <Route path="/contact" element={<Contact />}/>
       <Route path="/about" element={<About />}/>
       <Route path="/blog" element={<Blog />}/>
       <Route path="/schedule" element={<Schedule />}/>
-       */}
      </Routes>
      <Footer/>
     </div>

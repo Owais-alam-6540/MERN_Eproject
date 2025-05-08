@@ -14,7 +14,7 @@ export default function Navbar() {
         <ul className="navbar-nav ml-auto">
           <li className="nav-item active"><Link to="/" className="nav-link">Home</Link></li>
           <li className="nav-item"><Link to="/about" className="nav-link">About</Link></li>
-          <li className="nav-item"><Link to="/speakers" className="nav-link">Speakers</Link></li>
+          {/* <li className="nav-item"><Link to="/speakers" className="nav-link">Speakers</Link></li> */}
           <li className="nav-item"><Link to="/schedule" className="nav-link">Schedule</Link></li>
           <li className="nav-item"><Link to="/blog" className="nav-link">Blog</Link></li>
           <li className="nav-item"><Link to="/contact" className="nav-link">Contact</Link></li>

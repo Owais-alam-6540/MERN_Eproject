@@ -3,7 +3,7 @@ import React from 'react'
 export default function Schedule() {
   return (
     <div>
-          <section class="hero-wrap hero-wrap-2 js-fullheight" style={"background-image: url('images/bg_2.jpg');" }data-stellar-background-ratio="0.5">
+          <section class="hero-wrap hero-wrap-2 js-fullheight" style={{backgroundImage: `url('images/bg_2.jpg');` }}data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
@@ -35,7 +35,7 @@ export default function Schedule() {
 
 	              <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel" aria-labelledby="day-1-tab">
 	              	<div class="speaker-wrap ftco-animate d-md-flex">
-	              		<div class="img speaker-img" style={"background-image: url(images/staff-1.jpg);"}></div>
+	              		<div class="img speaker-img" style={{backgroundImage: `url(images/staff-1.jpg);`}}></div>
 	              		<div class="text">
 	              			<h2><a href="#">Introduction to Business Leaders</a></h2>
 	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
@@ -46,7 +46,7 @@ export default function Schedule() {
 	              		</div>
 	              	</div>
 	              	<div class="speaker-wrap ftco-animate d-md-flex">
-	              		<div class="img speaker-img" style={"background-image: url(images/staff-2.jpg);"}></div>
+	              		<div class="img speaker-img" style={{backgroundImage: `url(images/staff-2.jpg);`}}></div>
 	              		<div class="text">
 	              			<h2><a href="#">Introduction to Business Leaders</a></h2>
 	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
@@ -57,7 +57,7 @@ export default function Schedule() {
 	              		</div>
 	              	</div>
 	              	<div class="speaker-wrap ftco-animate d-md-flex">
-	              		<div class="img speaker-img" style={"background-image: url(images/staff-3.jpg);"}></div>
+	              		<div class="img speaker-img" style={{backgroundImage: `url(images/staff-3.jpg);`}}></div>
 	              		<div class="text">
 	              			<h2><a href="#">Introduction to Business Leaders</a></h2>
 	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
@@ -71,7 +71,7 @@ export default function Schedule() {
 
 	              <div class="tab-pane fade" id="v-pills-2" role="tabpanel" aria-labelledby="v-pills-day-2-tab">
 	              	<div class="speaker-wrap ftco-animate d-md-flex">
-	              		<div class="img speaker-img" style={"background-image: url(images/staff-4.jpg);"}></div>
+	              		<div class="img speaker-img" style={{backgroundImage: `url(images/staff-4.jpg);`}}></div>
 	              		<div class="text">
 	              			<h2><a href="#">Introduction to Business Leaders</a></h2>
 	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
@@ -82,7 +82,7 @@ export default function Schedule() {
 	              		</div>
 	              	</div>
 	              	<div class="speaker-wrap ftco-animate d-md-flex">
-	              		<div class="img speaker-img" style={"background-image: url(images/staff-1.jpg);"}></div>
+	              		<div class="img speaker-img" style={{backgroundImage: `url(images/staff-1.jpg);`}}></div>
 	              		<div class="text">
 	              			<h2><a href="#">Introduction to Business Leaders</a></h2>
 	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
@@ -93,7 +93,7 @@ export default function Schedule() {
 	              		</div>
 	              	</div>
 	              	<div class="speaker-wrap ftco-animate d-md-flex">
-	              		<div class="img speaker-img" style={"background-image: url(images/staff-2.jpg);"}></div>
+	              		<div class="img speaker-img" style={{backgroundImage: `url(images/staff-2.jpg);`}}></div>
 	              		<div class="text">
 	              			<h2><a href="#">Introduction to Business Leaders</a></h2>
 	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
@@ -106,7 +106,7 @@ export default function Schedule() {
 	              </div>
 	              <div class="tab-pane fade" id="v-pills-3" role="tabpanel" aria-labelledby="v-pills-day-3-tab">
 	              	<div class="speaker-wrap ftco-animate d-md-flex">
-	              		<div class="img speaker-img" style={"background-image: url(images/staff-3.jpg);"}></div>
+	              		<div class="img speaker-img" style={{backgroundImage: `url(images/staff-3.jpg);`}}></div>
 	              		<div class="text">
 	              			<h2><a href="#">Introduction to Business Leaders</a></h2>
 	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
@@ -117,7 +117,7 @@ export default function Schedule() {
 	              		</div>
 	              	</div>
 	              	<div class="speaker-wrap ftco-animate d-md-flex">
-	              		<div class="img speaker-img" style={"background-image: url(images/staff-4.jpg);"}></div>
+	              		<div class="img speaker-img" style={{backgroundImage: `url(images/staff-4.jpg);`}}></div>
 	              		<div class="text">
 	              			<h2><a href="#">Introduction to Business Leaders</a></h2>
 	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
@@ -128,7 +128,7 @@ export default function Schedule() {
 	              		</div>
 	              	</div>
 	              	<div class="speaker-wrap ftco-animate d-md-flex">
-	              		<div class="img speaker-img" style={"background-image: url(images/staff-1.jpg);"}></div>
+	              		<div class="img speaker-img" style={{backgroundImage: `url(images/staff-1.jpg);`}}></div>
 	              		<div class="text">
 	              			<h2><a href="#">Introduction to Business Leaders</a></h2>
 	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
