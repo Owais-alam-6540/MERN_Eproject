@@ -3,7 +3,7 @@ import React from 'react'
 export default function Index() {
   return (
   <div>
-<div class="hero-wrap" style={{backgroundImage: `url('images/bg_1.jpg')`}} data-stellar-background-ratio="0.5">
+<div class="hero-wrap" style={{backgroundImage: `url('web/images/bg_1.jpg')`}} data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-start" data-scrollax-parent="true">
@@ -90,7 +90,7 @@ export default function Index() {
 		<section class="ftco-section ftco-no-pt ftco-no-pb">
 			<div class="container">
 				<div class="row no-gutters">
-					<div class="col-md-5 p-md-5 img img-2 d-flex justify-content-center align-items-center" style={{backgroundimage: `url(images/about.jpg):`}}>
+					<div class="col-md-5 p-md-5 img img-2 d-flex justify-content-center align-items-center" style={{backgroundimage: `url(web/images/about.jpg):`}}>
 					</div>
 					<div class="col-md-7 wrap-about py-md-5 ftco-animate">
 	          <div class="heading-section mb-5 pt-5 pl-md-5">
@@ -133,7 +133,7 @@ export default function Index() {
 
 	              <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel" aria-labelledby="day-1-tab">
 	              	<div class="speaker-wrap ftco-animate d-md-flex">
-	              		<div class="img speaker-img" style={{backgroundImage: `url(images/staff-1.jpg);`}}></div>
+	              		<div class="img speaker-img" style={{backgroundImage: `url(web/images/staff-1.jpg);`}}></div>
 	              		<div class="text">
 	              			<h2><a href="#">Introduction to Business Leaders</a></h2>
 	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
@@ -144,7 +144,7 @@ export default function Index() {
 	              		</div>
 	              	</div>
 	              	<div class="speaker-wrap ftco-animate d-md-flex">
-	              		<div class="img speaker-img" style={{backgroundImage: `url(images/staff-2.jpg);`}}></div>
+	              		<div class="img speaker-img" style={{backgroundImage: `url(web/images/staff-2.jpg);`}}></div>
 	              		<div class="text">
 	              			<h2><a href="#">Introduction to Business Leaders</a></h2>
 	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
@@ -155,7 +155,7 @@ export default function Index() {
 	              		</div>
 	              	</div>
 	              	<div class="speaker-wrap ftco-animate d-md-flex">
-	              		<div class="img speaker-img" style={{backgroundImage: `url(images/staff-3.jpg);`}}></div>
+	              		<div class="img speaker-img" style={{backgroundImage: `url(web/images/staff-3.jpg);`}}></div>
 	              		<div class="text">
 	              			<h2><a href="#">Introduction to Business Leaders</a></h2>
 	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
@@ -169,7 +169,7 @@ export default function Index() {
 
 	              <div class="tab-pane fade" id="v-pills-2" role="tabpanel" aria-labelledby="v-pills-day-2-tab">
 	              	<div class="speaker-wrap ftco-animate d-md-flex">
-	              		<div class="img speaker-img" style={{backgroundImage: `url(images/staff-4.jpg);`}}></div>
+	              		<div class="img speaker-img" style={{backgroundImage: `url(web/images/staff-4.jpg);`}}></div>
 	              		<div class="text">
 	              			<h2><a href="#">Introduction to Business Leaders</a></h2>
 	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
@@ -180,7 +180,7 @@ export default function Index() {
 	              		</div>
 	              	</div>
 	              	<div class="speaker-wrap ftco-animate d-md-flex">
-	              		<div class="img speaker-img" style={{backgroundImage: `url(images/staff-1.jpg);`}}></div>
+	              		<div class="img speaker-img" style={{backgroundImage: `url(web/images/staff-1.jpg);`}}></div>
 	              		<div class="text">
 	              			<h2><a href="#">Introduction to Business Leaders</a></h2>
 	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
@@ -191,7 +191,7 @@ export default function Index() {
 	              		</div>
 	              	</div>
 	              	<div class="speaker-wrap ftco-animate d-md-flex">
-	              		<div class="img speaker-img" style={{backgroundImage: `url(images/staff-2.jpg);`}}></div>
+	              		<div class="img speaker-img" style={{backgroundImage: `url(web/images/staff-2.jpg);`}}></div>
 	              		<div class="text">
 	              			<h2><a href="#">Introduction to Business Leaders</a></h2>
 	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
@@ -204,7 +204,7 @@ export default function Index() {
 	              </div>
 	              <div class="tab-pane fade" id="v-pills-3" role="tabpanel" aria-labelledby="v-pills-day-3-tab">
 	              	<div class="speaker-wrap ftco-animate d-md-flex">
-	              		<div class="img speaker-img" style={{backgroundImage: `url(images/staff-3.jpg);`}}></div>
+	              		<div class="img speaker-img" style={{backgroundImage: `url(web/images/staff-3.jpg);`}}></div>
 	              		<div class="text">
 	              			<h2><a href="#">Introduction to Business Leaders</a></h2>
 	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
@@ -215,7 +215,7 @@ export default function Index() {
 	              		</div>
 	              	</div>
 	              	<div class="speaker-wrap ftco-animate d-md-flex">
-	              		<div class="img speaker-img" style={{backgroundImage: `url(images/staff-4.jpg);`}}></div>
+	              		<div class="img speaker-img" style={{backgroundImage: `url(web/images/staff-4.jpg);`}}></div>
 	              		<div class="text">
 	              			<h2><a href="#">Introduction to Business Leaders</a></h2>
 	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
@@ -226,7 +226,7 @@ export default function Index() {
 	              		</div>
 	              	</div>
 	              	<div class="speaker-wrap ftco-animate d-md-flex">
-	              		<div class="img speaker-img" style={{backgroundImage: `url(images/staff-1.jpg);`}}></div>
+	              		<div class="img speaker-img" style={{backgroundImage: `url(web/images/staff-1.jpg);`}}></div>
 	              		<div class="text">
 	              			<h2><a href="#">Introduction to Business Leaders</a></h2>
 	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
@@ -253,28 +253,28 @@ export default function Index() {
         </div>
     		<div class="row">
 					<div class="col-md-3 ftco-animate">
-						<a href="images/image_1.jpg" class="gallery image-popup img d-flex align-items-center" style={{backgroundImage: `url(images/image_1.jpg);`}}>
+						<a href="images/image_1.jpg" class="gallery image-popup img d-flex align-items-center" style={{backgroundImage: `url(web/images/image_1.jpg);`}}>
 							<div class="icon mb-4 d-flex align-items-center justify-content-center">
     						<span class="icon-instagram"></span>
     					</div>
 						</a>
 					</div>
 					<div class="col-md-3 ftco-animate">
-						<a href="images/image_2.jpg" class="gallery image-popup img d-flex align-items-center" style={{backgroundImage: `url(images/image_2.jpg);`}}>
+						<a href="images/image_2.jpg" class="gallery image-popup img d-flex align-items-center" style={{backgroundImage: `url(web/images/image_2.jpg);`}}>
 							<div class="icon mb-4 d-flex align-items-center justify-content-center">
     						<span class="icon-instagram"></span>
     					</div>
 						</a>
 					</div>
 					<div class="col-md-3 ftco-animate">
-						<a href="images/image_3.jpg" class="gallery image-popup img d-flex align-items-center" style={{backgroundImage: `url(images/image_3.jpg);`}}>
+						<a href="images/image_3.jpg" class="gallery image-popup img d-flex align-items-center" style={{backgroundImage: `url(web/images/image_3.jpg);`}}>
 							<div class="icon mb-4 d-flex align-items-center justify-content-center">
     						<span class="icon-instagram"></span>
     					</div>
 						</a>
 					</div>
 					<div class="col-md-3 ftco-animate">
-						<a href="images/image_4.jpg" class="gallery image-popup img d-flex align-items-center" style={{backgroundImage: `url(images/image_4.jpg);`}}>
+						<a href="images/image_4.jpg" class="gallery image-popup img d-flex align-items-center" style={{backgroundImage: `url(web/images/image_4.jpg);`}}>
 							<div class="icon mb-4 d-flex align-items-center justify-content-center">
     						<span class="icon-instagram"></span>
     					</div>
@@ -296,7 +296,7 @@ export default function Index() {
             <div class="carousel-testimony owl-carousel ftco-owl">
               <div class="item">
                 <div class="testimony-wrap text-center py-4 pb-5">
-                <div class="user-img mb-4" style={{backgroundImage: `url(images/person_1.jpg)`}}>
+                <div class="user-img mb-4" style={{backgroundImage: `url(web/images/person_1.jpg)`}}>
                   </div>
                   <div class="text pt-4">
                     <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
@@ -307,7 +307,7 @@ export default function Index() {
               </div>
               <div class="item">
                 <div class="testimony-wrap text-center py-4 pb-5">
-                  <div class="user-img mb-4" style={{backgroundImage: `url(images/person_2.jpg)`}}>
+                  <div class="user-img mb-4" style={{backgroundImage: `url(web/images/person_2.jpg)`}}>
                   </div>
                   <div class="text pt-4">
                     <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
@@ -318,7 +318,7 @@ export default function Index() {
               </div>
               <div class="item">
                 <div class="testimony-wrap text-center py-4 pb-5">
-                  <div class="user-img mb-4" style={{backgroundImage: `url(images/person_3.jpg)`}}>
+                  <div class="user-img mb-4" style={{backgroundImage: `url(web/images/person_3.jpg)`}}>
                   </div>
                   <div class="text pt-4">
                     <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
@@ -329,7 +329,7 @@ export default function Index() {
               </div>
               <div class="item">
                 <div class="testimony-wrap text-center py-4 pb-5">
-                  <div class="user-img mb-4" style={{backgroundImage: `url(images/person_1.jpg)`}}>
+                  <div class="user-img mb-4" style={{backgroundImage: `url(web/images/person_1.jpg)`}}>
                   </div>
                   <div class="text pt-4">
                     <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
@@ -340,7 +340,7 @@ export default function Index() {
               </div>
               <div class="item">
                 <div class="testimony-wrap text-center py-4 pb-5">
-                  <div class="user-img mb-4" style={{backgroundImage: `url(images/person_1.jpg)`}}>
+                  <div class="user-img mb-4" style={{backgroundImage: `url(web/images/person_1.jpg)`}}>
                   </div>
                   <div class="text pt-4">
                     <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
@@ -448,7 +448,7 @@ export default function Index() {
         <div class="row">
         	<div class="col-md-6 d-flex align-items-stretch">
         		<div class="speaker ftco-animate d-flex align-items-stretch">
-	        		<div class="img" style={{backgroundImage: `url(images/staff-3.jpg);`}}>
+	        		<div class="img" style={{backgroundImage: `url(web/images/staff-3.jpg);`}}>
 	        			<div class="text text-absolute">
 		        			<h3>Robert Bonner</h3>
 		        			<span class="position">Businessmen</span>
@@ -463,7 +463,7 @@ export default function Index() {
         	</div>
         	<div class="col-md-6">
         		<div class="speaker ftco-animate speaker-1 d-flex align-items-center mb-5">
-	        		<div class="img" style={{backgroundImage: `url(images/staff-1.jpg);`}}></div>
+	        		<div class="img" style={{backgroundImage: `url(web/images/staff-1.jpg);`}}></div>
 	        		<div class="text pl-4">
 	        			<h3>Kyle Bochs</h3>
 	        			<span class="position">Businessman</span>
@@ -476,7 +476,7 @@ export default function Index() {
 	        		</div>
 	        	</div>
 	        	<div class="speaker ftco-animate speaker-1 d-flex align-items-center mb-5">
-	        		<div class="img" style={{backgroundImage: `url(images/staff-2.jpg);`}}></div>
+	        		<div class="img" style={{backgroundImage: `url(web/images/staff-2.jpg);`}}></div>
 	        		<div class="text pl-4">
 	        			<h3>Arnold Thompson</h3>
 	        			<span class="position">Businessman</span>
@@ -489,7 +489,7 @@ export default function Index() {
 	        		</div>
 	        	</div>
 	        	<div class="speaker ftco-animate speaker-1 d-flex align-items-center mb-5">
-	        		<div class="img" style={{backgroundImage: `url(images/staff-3.jpg);`}}></div>
+	        		<div class="img" style={{backgroundImage: `url(web/images/staff-3.jpg);`}}></div>
 	        		<div class="text pl-4">
 	        			<h3>Ryan Sy</h3>
 	        			<span class="position">Businessman</span>
@@ -502,7 +502,7 @@ export default function Index() {
 	        		</div>
 	        	</div>
 	        	<div class="speaker ftco-animate speaker-1 d-flex align-items-center mb-5">
-	        		<div class="img" style={{backgroundImage: `url(images/staff-4.jpg);`}}></div>
+	        		<div class="img" style={{backgroundImage: `url(web/images/staff-4.jpg);`}}></div>
 	        		<div class="text pl-4">
 	        			<h3>Alysa Derick</h3>
 	        			<span class="position">Businesswoman</span>
@@ -529,7 +529,7 @@ export default function Index() {
         <div class="row d-flex">
           <div class="col-md-4 d-flex ftco-animate">
           	<div class="blog-entry justify-content-end">
-              <a href="blog-single.html" class="block-20" style={{backgroundImage: `url('images/image_1.jpg');`}}>
+              <a href="blog-single.html" class="block-20" style={{backgroundImage: `url('web/images/image_1.jpg');`}}>
               </a>
               <div class="text pt-4">
               	<div class="meta mb-3">
@@ -544,7 +544,7 @@ export default function Index() {
           </div>
           <div class="col-md-4 d-flex ftco-animate">
           	<div class="blog-entry justify-content-end">
-              <a href="blog-single.html" class="block-20" style={{backgroundImage: `url('images/image_2.jpg');`}}>
+              <a href="blog-single.html" class="block-20" style={{backgroundImage: `url('web/images/image_2.jpg');`}}>
               </a>
               <div class="text pt-4">
               	<div class="meta mb-3">
@@ -559,7 +559,7 @@ export default function Index() {
           </div>
           <div class="col-md-4 d-flex ftco-animate">
           	<div class="blog-entry">
-              <a href="blog-single.html" class="block-20" style={{backgroundImage: `url('images/image_3.jpg');`}}>
+              <a href="blog-single.html" class="block-20" style={{backgroundImage: `url('web/images/image_3.jpg');`}}>
               </a>
               <div class="text pt-4">
               	<div class="meta mb-3">
