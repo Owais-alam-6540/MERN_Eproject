@@ -1,11 +1,17 @@
 import React from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import Sidebar from './Sidebar';
 
 export default function A_Index() {
   return (
     <>
     <div>
+    <div id="wrapper">
+<Sidebar/>
+<div id="content-wrapper" class="d-flex flex-column">
+
+<div id="content">
         <Navbar/>
     <div class="container-fluid">
 
@@ -318,7 +324,12 @@ export default function A_Index() {
                 </div>
 
             </div>
+  </div>
+
+            </div>
             <Footer/>
+  </div>
+
           </>
   );
 }
