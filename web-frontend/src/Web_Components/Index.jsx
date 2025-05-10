@@ -1,8 +1,11 @@
 import React from 'react'
+import Navbar from './Navbar'
+import Footer from './Footer'
 
 export default function Index() {
   return (
   <div>
+	<Navbar/>
 <div class="hero-wrap" style={{backgroundImage: `url('web/images/bg_1.jpg')`}} data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
@@ -598,7 +601,7 @@ export default function Index() {
         </div>
       </div>
     </section>
-	 
+	 <Footer/>
   </div>
   )
 }

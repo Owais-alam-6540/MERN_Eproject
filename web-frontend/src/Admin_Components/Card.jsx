@@ -1,8 +1,11 @@
 import React from 'react'
+import Footer from './Footer'
+import Navbar from './Navbar'
 
 export default function Card() {
   return (
     <div>
+        <Navbar/>
        <div class="row">
 
 <div class="col-lg-6">
@@ -75,6 +78,7 @@ export default function Card() {
 </div>
 
 </div>
+<Footer/>
     </div>
   )
 }

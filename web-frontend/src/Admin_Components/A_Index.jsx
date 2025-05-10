@@ -1,9 +1,12 @@
 import React from 'react';
+import Navbar from './Navbar';
+import Footer from './Footer';
 
 export default function A_Index() {
   return (
     <>
     <div>
+        <Navbar/>
     <div class="container-fluid">
 
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -315,6 +318,7 @@ export default function A_Index() {
                 </div>
 
             </div>
+            <Footer/>
           </>
   );
 }

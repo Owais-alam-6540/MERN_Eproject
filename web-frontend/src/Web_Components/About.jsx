@@ -1,8 +1,12 @@
 import React from 'react'
+import Navbar from './Navbar';
+import Footer from './Footer';
 
 export default function About() {
   return (
+    
     <div>
+      <Navbar/>
        <section class="hero-wrap hero-wrap-2 js-fullheight" style={{backgroundImage:`url('web/images/bg_2.jpg');`}} data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
@@ -219,6 +223,7 @@ export default function About() {
         </div>
       </div>
     </section>
+    <Footer/>
     </div>
   )
 }

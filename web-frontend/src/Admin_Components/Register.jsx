@@ -1,8 +1,11 @@
 import React from 'react'
+import Navbar from './Navbar'
+import Footer from './Footer'
 
 export default function Register() {
   return (
     <div>
+        <Navbar/>
       <div class="container">
 
 <div class="card o-hidden border-0 shadow-lg my-5">
@@ -64,7 +67,7 @@ export default function Register() {
 </div>
 
 </div>
-
+<Footer/>
     </div>
   )
 }

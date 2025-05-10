@@ -1,8 +1,11 @@
 import React from 'react'
+import Navbar from './Navbar'
+import Footer from './Footer'
 
 export default function Login() {
   return (
     <div>
+        <Navbar/>
        <div class="container">
 
 <div class="row justify-content-center">
@@ -64,6 +67,7 @@ export default function Login() {
 </div>
 
 </div>
+<Footer/>
     </div>
   )
 }
