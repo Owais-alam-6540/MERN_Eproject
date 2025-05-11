@@ -1,11 +1,18 @@
 import React from 'react'
 import Navbar from './Navbar'
 import Footer from './Footer'
+import Sidebar from './Sidebar'
+
 
 export default function Login() {
   return (
     <div>
-        <Navbar/>
+        <div id="wrapper">
+        {/* <Sidebar/> */}
+        <div id="content-wrapper" class="d-flex flex-column">
+        
+        <div id="content">
+        {/* <Navbar/> */}
        <div class="container">
 
 <div class="row justify-content-center">
@@ -67,7 +74,10 @@ export default function Login() {
 </div>
 
 </div>
-<Footer/>
+</div>
+</div>
+</div>
+{/* <Footer/> */}
     </div>
   )
 }

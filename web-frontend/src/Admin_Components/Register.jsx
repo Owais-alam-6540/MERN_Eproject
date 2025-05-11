@@ -1,10 +1,17 @@
 import React from 'react'
 import Navbar from './Navbar'
 import Footer from './Footer'
+import Sidebar from './Sidebar'
+
 
 export default function Register() {
   return (
     <div>
+        <div id="wrapper">
+        <Sidebar/>
+        <div id="content-wrapper" class="d-flex flex-column">
+        
+        <div id="content">
         <Navbar/>
       <div class="container">
 
@@ -66,6 +73,9 @@ export default function Register() {
     </div>
 </div>
 
+</div>
+</div>
+</div>
 </div>
 <Footer/>
     </div>

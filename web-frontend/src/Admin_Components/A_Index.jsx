@@ -5,7 +5,7 @@ import Sidebar from './Sidebar';
 
 export default function A_Index() {
   return (
-    <>
+    
     <div>
     <div id="wrapper">
 <Sidebar/>
@@ -330,6 +330,6 @@ export default function A_Index() {
             <Footer/>
   </div>
 
-          </>
+
   );
 }

@@ -1,10 +1,17 @@
 import React from 'react'
 import Navbar from './Navbar'
 import Footer from './Footer'
+import Sidebar from './Sidebar'
+
 
 export default function Table() {
   return (
     <div>
+        <div id="wrapper">
+        <Sidebar/>
+        <div id="content-wrapper" class="d-flex flex-column">
+        
+        <div id="content"></div>
         <Navbar/>
        <div class="container-fluid">
 
@@ -504,6 +511,10 @@ export default function Table() {
 </div>
 
 </div>
+</div>
+</div>
+
+
 <Footer/>
 </div>
   )

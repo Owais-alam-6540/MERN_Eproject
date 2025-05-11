@@ -1,10 +1,17 @@
 import React from 'react'
 import Footer from './Footer'
 import Navbar from './Navbar'
+import Sidebar from './Sidebar'
+
 
 export default function Card() {
   return (
     <div>
+        <div id="wrapper">
+        <Sidebar/>
+        <div id="content-wrapper" class="d-flex flex-column">
+        
+        <div id="content">
         <Navbar/>
        <div class="row">
 
@@ -77,6 +84,9 @@ export default function Card() {
 
 </div>
 
+</div>
+</div>
+</div>
 </div>
 <Footer/>
     </div>
