@@ -1,10 +1,36 @@
-import React from 'react'
-import Navbar from './Navbar'
-import Footer from './Footer'
-import Sidebar from './Sidebar'
+// import React from 'react'
+// import Navbar from './Navbar'
+// import Footer from './Footer'
+// import Sidebar from './Sidebar'
+import {toast,ToastContainer} from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import React, { useState } from 'react'
+import axios from 'axios'
+import {useNavigate } from 'react-router-dom'
 
 
 export default function Login() {
+     let[email,setEmail]=useState("")
+    let[pswd,setPswd]=useState("")
+    let nav=useNavigate();
+
+    async function admin_login(){
+        try {
+            await axios.post("http://localhost:4000/eproject/a_log",{
+                email:email,
+                pswd:pswd
+            }).then((a)=>{
+                toast.success(a.data.msg)
+                localStorage.setItem("users-data",JSON.stringify(a.data.user))
+                setEmail("")
+                setPswd("")
+                nav("/admin")
+            })
+
+        } catch (error) {
+            toast.error(error.response.data.msg)
+        }
+    }
   return (
     <div>
         <div id="wrapper">
@@ -32,11 +58,11 @@ export default function Login() {
                                 <div class="form-group">
                                     <input type="email" class="form-control form-control-user"
                                         id="exampleInputEmail" aria-describedby="emailHelp"
-                                        placeholder="Enter Email Address..."/>
+                                        placeholder="Enter Email Address..." value={email} onChange={(e)=>setEmail(e.target.value)}/>
                                 </div>
                                 <div class="form-group">
                                     <input type="password" class="form-control form-control-user"
-                                        id="exampleInputPassword" placeholder="Password"/>
+                                        id="exampleInputPassword" placeholder="Password" value={pswd} onChange={(e)=>setPswd(e.target.value)}/>
                                 </div>
                                 <div class="form-group">
                                     <div class="custom-control custom-checkbox small">
@@ -45,24 +71,24 @@ export default function Login() {
                                             Me</label>
                                     </div>
                                 </div>
-                                <a href="index.html" class="btn btn-primary btn-user btn-block">
+                                <a class="btn btn-primary btn-user btn-block" onClick={admin_login}>
                                     Login
                                 </a>
-                                <hr/>
+                                {/* <hr/>
                                 <a href="index.html" class="btn btn-google btn-user btn-block">
                                     <i class="fab fa-google fa-fw"></i> Login with Google
                                 </a>
                                 <a href="index.html" class="btn btn-facebook btn-user btn-block">
                                     <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
-                                </a>
+                                </a> */}
                             </form>
                             <hr/>
                             <div class="text-center">
                                 <a class="small" href="forgot-password.html">Forgot Password?</a>
                             </div>
-                            <div class="text-center">
+                            {/* <div class="text-center">
                                 <a class="small" href="register.html">Create an Account!</a>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>
@@ -77,6 +103,7 @@ export default function Login() {
 </div>
 </div>
 </div>
+ <ToastContainer/>
 {/* <Footer/> */}
     </div>
   )
