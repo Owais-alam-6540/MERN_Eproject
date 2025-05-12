@@ -37,7 +37,9 @@ export default function Sidebar() {
         <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Custom Components:</h6> 
             <a class="collapse-item" href="buttons.html">Buttons</a>
-            <Link class="collapse-item" to="/cards">Cards</Link> 
+            <Link class="collapse-item" to="/cards">Cards</Link>
+            <Link class="collapse-item" to="/event">Events Form</Link> 
+
         </div>
     </div>
 </li>
