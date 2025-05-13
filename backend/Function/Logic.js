@@ -1,4 +1,6 @@
 let admin =require("../Collection/Admin")
+let feed = require("../Collection/Feedback")
+let contactUs = require("../Collection/ContactUs")
 let brcypt= require("bcrypt");
 const {use}=require("../Routing/Route");
 let jwt = require("jsonwebtoken");
@@ -24,11 +26,11 @@ let main_func={
     admin_login:async function(req,res){
         try {
             let {email,password}=req.body;
-            let check_email=await user.findOne({email});
+            let check_email=await admin.findOne({email});
             if(!check_email){
                 return res.status(404).json({msg:"Email not found"})
             }
-            let check_password=bcrypt.compareSync(password,check_email.password);
+            let check_password=brcypt.compareSync(password,check_email.password);
             if(!check_password){
                 return res.status(404).json({msg:"Password is incorrect"})
             }
@@ -39,6 +41,33 @@ let main_func={
         } catch (error) {
             return res.status(501).json({msg:error.message})
         }
+    },
+
+    feedback: async function(req,res) {
+        try {
+            let{name,email,msg}=req.body;
+           
+                let feedback_data=new feed({name,email,msg})
+                let save_feedback= await feedback_data.save();
+            res.status(200).json({msg:"Your Feedback Has Been Sent Successfully",data:save_feedback}) 
+        }catch (error) {
+            res.status(501).json({msg:error.message})
+            
+        }
+    },
+
+    contact: async function(req,res) {
+        try {
+            let{name,email,subject,msg}=req.body;
+           
+                let cont_data=new contactUs({name,email,subject,msg})
+                let save_contact= await cont_data.save();
+            res.status(200).json({msg:"Your Contact Message Has Been Sent Successfully",data:save_contact}) 
+        }catch (error) {
+            res.status(501).json({msg:error.message})
+        }
     }
+
+
 }
 module.exports=main_func;

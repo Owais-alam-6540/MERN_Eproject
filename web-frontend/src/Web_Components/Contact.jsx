@@ -1,72 +1,106 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Navbar from './Navbar'
 import Footer from './Footer'
+import {toast,ToastContainer} from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import axios from 'axios';
 
 export default function Contact
 () {
+
+    let[name,setName]=useState("");
+    let[email,setEmail]=useState("");
+    let[sub,setSub]=useState("");
+    let[msg,setMsg]=useState("");
+
+    function clear(){
+      setName("");
+      setEmail("");
+      setSub("");
+      setMsg("");
+  }
+
+  async function save_contact(e) {
+    try {     
+      e.preventDefault();
+        await axios.post("http://localhost:4000/eproject/a_cont", {
+            name:name,
+            email:email,
+            subject:sub,
+            msg:msg
+    })
+    console.log("Thank You For Contacting Us");
+    toast.success("Thank You For Contacting Us");
+    clear();
+ 
+      } catch (error) {
+        toast.error(error)
+      }
+    }
   return (
     <div>
       <Navbar/>
-        <section class="hero-wrap hero-wrap-2 js-fullheight" style={{backgroundImage: `url('web/images/bg_2.jpg');`}} data-stellar-background-ratio="0.5">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
-          <div class="col-md-9 ftco-animate pb-5">
-            <h1 class="mb-3 bread">Contact</h1>
-            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Contact <i class="ion-ios-arrow-forward"></i></span></p>
+        <section className="hero-wrap hero-wrap-2 js-fullheight" style={{backgroundImage: `url('web/images/bg_2.jpg');`}} data-stellar-background-ratio="0.5">
+      <div className="overlay"></div>
+      <div className="container">
+        <div className="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+          <div className="col-md-9 ftco-animate pb-5">
+            <h1 className="mb-3 bread">Contact</h1>
+            <p className="breadcrumbs"><span className="mr-2"><a href="index.html">Home <i className="ion-ios-arrow-forward"></i></a></span> <span>Contact <i className="ion-ios-arrow-forward"></i></span></p>
           </div>
         </div>
       </div>
     </section>
    	
-		<section class="ftco-section contact-section">
-      <div class="container">
-        <div class="row d-flex mb-5 contact-info">
-          <div class="col-md-12 mb-4">
-            <h2 class="h3">Contact Information</h2>
+		<section className="ftco-section contact-section">
+      <div className="container">
+        <div className="row d-flex mb-5 contact-info">
+          <div className="col-md-12 mb-4">
+            <h2 className="h3">Contact Information</h2>
           </div>
-          <div class="w-100"></div>
-          <div class="col-md-3">
+          <div className="w-100"></div>
+          <div className="col-md-3">
             <p><span>Address:</span> 198 West 21th Street, Suite 721 New York NY 10016</p>
           </div>
-          <div class="col-md-3">
+          <div className="col-md-3">
             <p><span>Phone:</span> <a href="tel://1234567920">+ 1235 2355 98</a></p>
           </div>
-          <div class="col-md-3">
+          <div className="col-md-3">
             <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
           </div>
-          <div class="col-md-3">
+          <div className="col-md-3">
             <p><span>Website</span> <a href="#">yoursite.com</a></p>
           </div>
         </div>
-        <div class="row block-9">
-          <div class="col-md-6 order-md-last d-flex">
-            <form action="#" class="bg-light p-5 contact-form">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Your Name"/>
+        <div className="row block-9">
+          <div className="col-md-6 order-md-last d-flex">
+            <form className="bg-light p-5 contact-form">
+              <div className="form-group">
+                <input type="text" className="form-control" placeholder="Your Name" value={name} onChange={(e)=> setName(e.target.value)}/>
               </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Your Email"/>
+              <div className="form-group">
+                <input type="text" className="form-control" placeholder="Your Email" value={email} onChange={(e)=> setEmail(e.target.value)}/>
               </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Subject"/>
+              <div className="form-group">
+                <input type="text" className="form-control" placeholder="Subject" value={sub} onChange={(e)=> setSub(e.target.value)}/>
               </div>
-              <div class="form-group">
-                <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
+              <div className="form-group">
+                <textarea name="" id="" cols="30" rows="7" className="form-control" placeholder="Message" value={msg} onChange={(e)=> setMsg(e.target.value)}></textarea>
               </div>
-              <div class="form-group">
-                <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5"/>
+              <div className="form-group">
+                <input onClick={save_contact} type='button'  value="Send Message" className="btn btn-primary py-3 px-5"/>
               </div>
             </form>
           
           </div>
 
-          <div class="col-md-6 d-flex">
-          	<div id="map" class="bg-white"></div>
+          <div className="col-md-6 d-flex">
+          	<div id="map" className="bg-white"></div>
           </div>
         </div>
       </div>
     </section>
+    <ToastContainer/>
     <Footer/>
     </div>
   )

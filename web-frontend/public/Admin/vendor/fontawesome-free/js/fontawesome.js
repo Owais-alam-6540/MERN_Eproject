@@ -21,7 +21,7 @@
 
   function _classCallCheck(instance, Constructor) {
     if (!(instance instanceof Constructor)) {
-      throw new TypeError("Cannot call a class as a function");
+      throw new TypeError("Cannot call a classNameas a function");
     }
   }
 
@@ -165,13 +165,13 @@
   var NAMESPACE_IDENTIFIER = '___FONT_AWESOME___';
   var UNITS_IN_GRID = 16;
   var DEFAULT_FAMILY_PREFIX = 'fa';
-  var DEFAULT_REPLACEMENT_CLASS = 'svg-inline--fa';
+  var DEFAULT_REPLACEMENT_className= 'svg-inline--fa';
   var DATA_FA_I2SVG = 'data-fa-i2svg';
   var DATA_FA_PSEUDO_ELEMENT = 'data-fa-pseudo-element';
   var DATA_FA_PSEUDO_ELEMENT_PENDING = 'data-fa-pseudo-element-pending';
   var DATA_PREFIX = 'data-prefix';
   var DATA_ICON = 'data-icon';
-  var HTML_CLASS_I2SVG_BASE_CLASS = 'fontawesome-i2svg';
+  var HTML_CLASS_I2SVG_BASE_className= 'fontawesome-i2svg';
   var MUTATION_APPROACH_ASYNC = 'async';
   var TAGNAMES_TO_SKIP_FOR_PSEUDOELEMENTS = ['HTML', 'HEAD', 'STYLE', 'SCRIPT'];
   var PRODUCTION = function () {
@@ -952,8 +952,8 @@
         height = _ref.height;
 
     var isUploadedIcon = prefix === 'fak';
-    var widthClass = isUploadedIcon ? '' : "fa-w-".concat(Math.ceil(width / height * 16));
-    var attrClass = [config.replacementClass, iconName ? "".concat(config.familyPrefix, "-").concat(iconName) : '', widthClass].filter(function (c) {
+    var widthclassName= isUploadedIcon ? '' : "fa-w-".concat(Math.ceil(width / height * 16));
+    var attrclassName= [config.replacementClass, iconName ? "".concat(config.familyPrefix, "-").concat(iconName) : '', widthClass].filter(function (c) {
       return extra.classes.indexOf(c) === -1;
     }).filter(function (c) {
       return c !== '' || !!c;
@@ -1301,7 +1301,7 @@
         var shim = acc.prefix === 'fa' ? byOldName(iconName) : {};
         acc.iconName = shim.iconName || iconName;
         acc.prefix = shim.prefix || acc.prefix;
-      } else if (cls !== config.replacementClass && cls.indexOf('fa-w-') !== 0) {
+      } else if (cls !== config.replacementclassName&& cls.indexOf('fa-w-') !== 0) {
         acc.rest.push(cls);
       }
 
@@ -1377,7 +1377,7 @@
       delete abstract[0].attributes.style;
       delete abstract[0].attributes.id;
       var splitClasses = abstract[0].attributes.class.split(' ').reduce(function (acc, cls) {
-        if (cls === config.replacementClass || cls.match(forSvg)) {
+        if (cls === config.replacementclassName|| cls.match(forSvg)) {
           acc.toSvg.push(cls);
         } else {
           acc.toNode.push(cls);
@@ -1388,7 +1388,7 @@
         toNode: [],
         toSvg: []
       });
-      abstract[0].attributes.class = splitClasses.toSvg.join(' ');
+      abstract[0].attributes.className= splitClasses.toSvg.join(' ');
       var newInnerHTML = abstract.map(function (a) {
         return toHtml(a);
       }).join('\n');
@@ -2010,7 +2010,7 @@
 
       if (alreadyProcessedPseudoElement && !fontFamily) {
         // If we've already processed it but the current computed style does not result in a font-family,
-        // that probably means that a class name that was previously present to make the icon has been
+        // that probably means that a classNamename that was previously present to make the icon has been
         // removed. So we now should delete the icon.
         node.removeChild(alreadyProcessedPseudoElement);
         return resolve();

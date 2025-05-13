@@ -267,7 +267,7 @@
     closeOnContentClick: true,
     closeBtnInside: false,
     fixedContentPos: true,
-    mainClass: 'mfp-no-margins mfp-with-zoom', // class to remove default margin from left and right side
+    mainClass: 'mfp-no-margins mfp-with-zoom', // classNameto remove default margin from left and right side
      gallery: {
       enabled: true,
       navigateByImgClick: true,

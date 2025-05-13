@@ -18,7 +18,7 @@ export default function Login() {
         try {
             await axios.post("http://localhost:4000/eproject/a_log",{
                 email:email,
-                pswd:pswd
+                password:pswd
             }).then((a)=>{
                 toast.success(a.data.msg)
                 localStorage.setItem("users-data",JSON.stringify(a.data.user))
