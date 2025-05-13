@@ -109,7 +109,7 @@ select.form-control {
 
 // Readonly controls as plain text
 //
-// Apply classNameto a readonly input to make it appear like regular plain
+// Apply classNameNameto a readonly input to make it appear like regular plain
 // text (without any border, background color, focus indicator)
 
 .form-control-plaintext {
@@ -117,7 +117,7 @@ select.form-control {
   width: 100%;
   padding-top: $input-padding-y;
   padding-bottom: $input-padding-y;
-  margin-bottom: 0; // match inputs if this classNamecomes on inputs with default margins
+  margin-bottom: 0; // match inputs if this classNameNamecomes on inputs with default margins
   line-height: $input-line-height;
   color: $input-plaintext-color;
   background-color: transparent;
@@ -134,7 +134,7 @@ select.form-control {
 
 // Form control sizing
 //
-// Build on `.form-control` with modifier classes to decrease or increase the
+// Build on `.form-control` with modifier classNamees to decrease or increase the
 // height and font-size of form controls.
 //
 // Repeated in `_input_group.scss` to avoid Sass extend issues.
@@ -171,7 +171,7 @@ textarea.form-control {
 // Form groups
 //
 // Designed to help with the organization and spacing of vertical forms. For
-// horizontal forms, use the predefined grid classes.
+// horizontal forms, use the predefined grid classNamees.
 
 .form-group {
   margin-bottom: $form-group-margin-bottom;
@@ -194,7 +194,7 @@ textarea.form-control {
   margin-left: -$form-grid-gutter-width / 2;
 
   > .col,
-  > [class*="col-"] {
+  > [className*="col-"] {
     padding-right: $form-grid-gutter-width / 2;
     padding-left: $form-grid-gutter-width / 2;
   }
@@ -245,7 +245,7 @@ textarea.form-control {
 //
 // Provide feedback to users when form field values are valid or invalid. Works
 // primarily for client-side validation via scoped `:invalid` and `:valid`
-// pseudo-classes but also includes `.is-invalid` and `.is-valid` classes for
+// pseudo-classNamees but also includes `.is-invalid` and `.is-valid` classNamees for
 // server side validation.
 
 @include form-validation-state("valid", $form-feedback-valid-color);
@@ -253,7 +253,7 @@ textarea.form-control {
 
 // Inline forms
 //
-// Make forms appear inline(-block) by adding the `.form-inline` class. Inline
+// Make forms appear inline(-block) by adding the `.form-inline` className. Inline
 // forms begin stacked on extra small (mobile) devices and then go inline when
 // viewports reach <768px.
 //

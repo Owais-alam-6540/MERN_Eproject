@@ -22,7 +22,7 @@
  */
 
 /*jslint evil: true, undef: true, browser: true */
-/*globals $,require,jQuery,define,_selector_run,_selector_opts,_selector_first,_selector_row_indexes,_ext,_Api,_api_register,_api_registerPlural,_re_new_lines,_re_html,_re_formatted_numeric,_re_escape_regex,_empty,_intVal,_numToDecimal,_isNumber,_isHtml,_htmlNumeric,_pluck,_pluck_order,_range,_stripHtml,_unique,_fnBuildAjax,_fnAjaxUpdate,_fnAjaxParameters,_fnAjaxUpdateDraw,_fnAjaxDataSrc,_fnAddColumn,_fnColumnOptions,_fnAdjustColumnSizing,_fnVisibleToColumnIndex,_fnColumnIndexToVisible,_fnVisbleColumns,_fnGetColumns,_fnColumnTypes,_fnApplyColumnDefs,_fnHungarianMap,_fnCamelToHungarian,_fnLanguageCompat,_fnBrowserDetect,_fnAddData,_fnAddTr,_fnNodeToDataIndex,_fnNodeToColumnIndex,_fnGetCellData,_fnSetCellData,_fnSplitObjNotation,_fnGetObjectDataFn,_fnSetObjectDataFn,_fnGetDataMaster,_fnClearTable,_fnDeleteIndex,_fnInvalidate,_fnGetRowElements,_fnCreateTr,_fnBuildHead,_fnDrawHead,_fnDraw,_fnReDraw,_fnAddOptionsHtml,_fnDetectHeader,_fnGetUniqueThs,_fnFeatureHtmlFilter,_fnFilterComplete,_fnFilterCustom,_fnFilterColumn,_fnFilter,_fnFilterCreateSearch,_fnEscapeRegex,_fnFilterData,_fnFeatureHtmlInfo,_fnUpdateInfo,_fnInfoMacros,_fnInitialise,_fnInitComplete,_fnLengthChange,_fnFeatureHtmlLength,_fnFeatureHtmlPaginate,_fnPageChange,_fnFeatureHtmlProcessing,_fnProcessingDisplay,_fnFeatureHtmlTable,_fnScrollDraw,_fnApplyToChildren,_fnCalculateColumnWidths,_fnThrottle,_fnConvertToWidth,_fnGetWidestNode,_fnGetMaxLenString,_fnStringToCss,_fnSortFlatten,_fnSort,_fnSortAria,_fnSortListener,_fnSortAttachListener,_fnSortingClasses,_fnSortData,_fnSaveState,_fnLoadState,_fnSettingsFromNode,_fnLog,_fnMap,_fnBindAction,_fnCallbackReg,_fnCallbackFire,_fnLengthOverflow,_fnRenderer,_fnDataSource,_fnRowAttributes*/
+/*globals $,require,jQuery,define,_selector_run,_selector_opts,_selector_first,_selector_row_indexes,_ext,_Api,_api_register,_api_registerPlural,_re_new_lines,_re_html,_re_formatted_numeric,_re_escape_regex,_empty,_intVal,_numToDecimal,_isNumber,_isHtml,_htmlNumeric,_pluck,_pluck_order,_range,_stripHtml,_unique,_fnBuildAjax,_fnAjaxUpdate,_fnAjaxParameters,_fnAjaxUpdateDraw,_fnAjaxDataSrc,_fnAddColumn,_fnColumnOptions,_fnAdjustColumnSizing,_fnVisibleToColumnIndex,_fnColumnIndexToVisible,_fnVisbleColumns,_fnGetColumns,_fnColumnTypes,_fnApplyColumnDefs,_fnHungarianMap,_fnCamelToHungarian,_fnLanguageCompat,_fnBrowserDetect,_fnAddData,_fnAddTr,_fnNodeToDataIndex,_fnNodeToColumnIndex,_fnGetCellData,_fnSetCellData,_fnSplitObjNotation,_fnGetObjectDataFn,_fnSetObjectDataFn,_fnGetDataMaster,_fnClearTable,_fnDeleteIndex,_fnInvalidate,_fnGetRowElements,_fnCreateTr,_fnBuildHead,_fnDrawHead,_fnDraw,_fnReDraw,_fnAddOptionsHtml,_fnDetectHeader,_fnGetUniqueThs,_fnFeatureHtmlFilter,_fnFilterComplete,_fnFilterCustom,_fnFilterColumn,_fnFilter,_fnFilterCreateSearch,_fnEscapeRegex,_fnFilterData,_fnFeatureHtmlInfo,_fnUpdateInfo,_fnInfoMacros,_fnInitialise,_fnInitComplete,_fnLengthChange,_fnFeatureHtmlLength,_fnFeatureHtmlPaginate,_fnPageChange,_fnFeatureHtmlProcessing,_fnProcessingDisplay,_fnFeatureHtmlTable,_fnScrollDraw,_fnApplyToChildren,_fnCalculateColumnWidths,_fnThrottle,_fnConvertToWidth,_fnGetWidestNode,_fnGetMaxLenString,_fnStringToCss,_fnSortFlatten,_fnSort,_fnSortAria,_fnSortListener,_fnSortAttachListener,_fnSortingclassNamees,_fnSortData,_fnSaveState,_fnLoadState,_fnSettingsFromNode,_fnLog,_fnMap,_fnBindAction,_fnCallbackReg,_fnCallbackFire,_fnLengthOverflow,_fnRenderer,_fnDataSource,_fnRowAttributes*/
 
 (function( factory ) {
 	"use strict";
@@ -70,7 +70,7 @@
 	 * to `jQuery.fn.DataTable` and `jQuery.fn.dataTable` through which it may
 	 * be  accessed.
 	 *
-	 *  @class
+	 *  @className
 	 *  @param {object} [init={}] Configuration object for DataTables. Options
 	 *    are defined by {@link DataTable.defaults}
 	 *  @requires jQuery 1.7+
@@ -635,7 +635,7 @@
 		 * particular record should be deleted.
 		 *  @param {node} nTr The table row to 'open'
 		 *  @param {string|node|jQuery} mHtml The HTML to put into the row
-		 *  @param {string} sClass Class to give the new TD cell
+		 *  @param {string} sclassName className to give the new TD cell
 		 *  @returns {node} The row opened. Note that if the table row passed in as the
 		 *    first parameter, is not found in the table, this method will silently
 		 *    return.
@@ -658,11 +658,11 @@
 		 *      oTable = $('#example').dataTable();
 		 *    } );
 		 */
-		this.fnOpen = function( nTr, mHtml, sClass )
+		this.fnOpen = function( nTr, mHtml, sclassName )
 		{
 			return this.api( true )
 				.row( nTr )
-				.child( mHtml, sClass )
+				.child( mHtml, sclassName )
 				.show()
 				.child()[0];
 		};
@@ -994,12 +994,12 @@
 				"bInfo",
 				"bProcessing",
 				"bAutoWidth",
-				"bSortClasses",
+				"bSortclassNamees",
 				"bServerSide",
 				"bDeferRender"
 			] );
 			_fnMap( oSettings, oInit, [
-				"asStripeClasses",
+				"asStripeclassNamees",
 				"ajax",
 				"fnServerData",
 				"fnFormatNumber",
@@ -1050,10 +1050,10 @@
 			/* Browser support detection */
 			_fnBrowserDetect( oSettings );
 			
-			var oClasses = oSettings.oClasses;
+			var oclassNamees = oSettings.oclassNamees;
 			
-			$.extend( oClasses, DataTable.ext.classes, oInit.oClasses );
-			$this.addClass( oClasses.sTable );
+			$.extend( oclassNamees, DataTable.ext.classNamees, oInit.oclassNamees );
+			$this.addclassName( oclassNamees.sTable );
 			
 			
 			if ( oSettings.iInitDisplayStart === undefined )
@@ -1106,22 +1106,22 @@
 			/*
 			 * Stripes
 			 */
-			if ( oInit.asStripeClasses === null )
+			if ( oInit.asStripeclassNamees === null )
 			{
-				oSettings.asStripeClasses =[
-					oClasses.sStripeOdd,
-					oClasses.sStripeEven
+				oSettings.asStripeclassNamees =[
+					oclassNamees.sStripeOdd,
+					oclassNamees.sStripeEven
 				];
 			}
 			
-			/* Remove row stripe classes if they are already on the table row */
-			var stripeClasses = oSettings.asStripeClasses;
+			/* Remove row stripe classNamees if they are already on the table row */
+			var stripeclassNamees = oSettings.asStripeclassNamees;
 			var rowOne = $this.children('tbody').find('tr').eq(0);
-			if ( $.inArray( true, $.map( stripeClasses, function(el, i) {
-				return rowOne.hasClass(el);
+			if ( $.inArray( true, $.map( stripeclassNamees, function(el, i) {
+				return rowOne.hasclassName(el);
 			} ) ) !== -1 ) {
-				$('tbody tr', this).removeClass( stripeClasses.join(' ') );
-				oSettings.asDestroyStripes = stripeClasses.slice();
+				$('tbody tr', this).removeclassName( stripeclassNamees.join(' ') );
+				oSettings.asDestroyStripes = stripeclassNamees.slice();
 			}
 			
 			/*
@@ -1207,10 +1207,10 @@
 					}
 				}
 			
-				/* Do a first pass on the sorting classes (allows any size changes to be taken into
-				 * account, and also will apply sorting disabled classes if disabled
+				/* Do a first pass on the sorting classNamees (allows any size changes to be taken into
+				 * account, and also will apply sorting disabled classNamees if disabled
 				 */
-				_fnSortingClasses( oSettings );
+				_fnSortingclassNamees( oSettings );
 			
 				if ( features.bSort ) {
 					_fnCallbackReg( oSettings, 'aoDrawCallback', function () {
@@ -1230,7 +1230,7 @@
 			
 				_fnCallbackReg( oSettings, 'aoDrawCallback', function () {
 					if ( oSettings.bSorted || _fnDataSource( oSettings ) === 'ssp' || features.bDeferRender ) {
-						_fnSortingClasses( oSettings );
+						_fnSortingclassNamees( oSettings );
 					}
 				}, 'sc' );
 			
@@ -1265,7 +1265,7 @@
 				}
 			
 				if ( tfoot.length === 0 || tfoot.children().length === 0 ) {
-					$this.addClass( oClasses.sNoFooter );
+					$this.addclassName( oclassNamees.sNoFooter );
 				}
 				else if ( tfoot.length > 0 ) {
 					oSettings.nTFoot = tfoot[0];
@@ -1830,7 +1830,7 @@
 	{
 		_fnCompatMap( init, 'ordering',      'bSort' );
 		_fnCompatMap( init, 'orderMulti',    'bSortMulti' );
-		_fnCompatMap( init, 'orderClasses',  'bSortClasses' );
+		_fnCompatMap( init, 'orderclassNamees',  'bSortclassNamees' );
 		_fnCompatMap( init, 'orderCellsTop', 'bSortCellsTop' );
 		_fnCompatMap( init, 'order',         'aaSorting' );
 		_fnCompatMap( init, 'orderFixed',    'aaSortingFixed' );
@@ -2021,7 +2021,7 @@
 		var searchCols = oSettings.aoPreSearchCols;
 		searchCols[ iCol ] = $.extend( {}, DataTable.models.oSearch, searchCols[ iCol ] );
 	
-		// Use the default column options function to initialise classes etc
+		// Use the default column options function to initialise classNamees etc
 		_fnColumnOptions( oSettings, iCol, $(nTh).data() );
 	}
 	
@@ -2036,7 +2036,7 @@
 	function _fnColumnOptions( oSettings, iCol, oOptions )
 	{
 		var oCol = oSettings.aoColumns[ iCol ];
-		var oClasses = oSettings.oClasses;
+		var oclassNamees = oSettings.oclassNamees;
 		var th = $(oCol.nTh);
 	
 		// Try to get width information from the DOM. We can't get it from CSS
@@ -2072,14 +2072,14 @@
 				oCol._sManualType = oOptions.sType;
 			}
 	
-			// `class` is a reserved word in Javascript, so we need to provide
+			// `className` is a reserved word in Javascript, so we need to provide
 			// the ability to use a valid name for the camel case input
-			if ( oOptions.className && ! oOptions.sClass )
+			if ( oOptions.classNameName && ! oOptions.sclassName )
 			{
-				oOptions.sClass = oOptions.className;
+				oOptions.sclassName = oOptions.classNameName;
 			}
-			if ( oOptions.sClass ) {
-				th.addClass( oOptions.sClass );
+			if ( oOptions.sclassName ) {
+				th.addclassName( oOptions.sclassName );
 			}
 	
 			$.extend( oCol, oOptions );
@@ -2129,31 +2129,31 @@
 		if ( !oSettings.oFeatures.bSort )
 		{
 			oCol.bSortable = false;
-			th.addClass( oClasses.sSortableNone ); // Have to add class here as order event isn't called
+			th.addclassName( oclassNamees.sSortableNone ); // Have to add className here as order event isn't called
 		}
 	
-		/* Check that the class assignment is correct for sorting */
+		/* Check that the className assignment is correct for sorting */
 		var bAsc = $.inArray('asc', oCol.asSorting) !== -1;
 		var bDesc = $.inArray('desc', oCol.asSorting) !== -1;
 		if ( !oCol.bSortable || (!bAsc && !bDesc) )
 		{
-			oCol.sSortingClass = oClasses.sSortableNone;
-			oCol.sSortingClassJUI = "";
+			oCol.sSortingclassName = oclassNamees.sSortableNone;
+			oCol.sSortingclassNameJUI = "";
 		}
 		else if ( bAsc && !bDesc )
 		{
-			oCol.sSortingClass = oClasses.sSortableAsc;
-			oCol.sSortingClassJUI = oClasses.sSortJUIAscAllowed;
+			oCol.sSortingclassName = oclassNamees.sSortableAsc;
+			oCol.sSortingclassNameJUI = oclassNamees.sSortJUIAscAllowed;
 		}
 		else if ( !bAsc && bDesc )
 		{
-			oCol.sSortingClass = oClasses.sSortableDesc;
-			oCol.sSortingClassJUI = oClasses.sSortJUIDescAllowed;
+			oCol.sSortingclassName = oclassNamees.sSortableDesc;
+			oCol.sSortingclassNameJUI = oclassNamees.sSortJUIDescAllowed;
 		}
 		else
 		{
-			oCol.sSortingClass = oClasses.sSortable;
-			oCol.sSortingClassJUI = oClasses.sSortJUI;
+			oCol.sSortingclassName = oclassNamees.sSortable;
+			oCol.sSortingclassNameJUI = oclassNamees.sSortJUI;
 		}
 	}
 	
@@ -2385,11 +2385,11 @@
 					}
 					else if ( typeof aTargets[j] === 'string' )
 					{
-						/* Class name matching on TH element */
+						/* className name matching on TH element */
 						for ( k=0, kLen=columns.length ; k<kLen ; k++ )
 						{
 							if ( aTargets[j] == "_all" ||
-							     $(columns[k].nTh).hasClass( aTargets[j] ) )
+							     $(columns[k].nTh).hasclassName( aTargets[j] ) )
 							{
 								fn( k, def );
 							}
@@ -3156,10 +3156,10 @@
 					nTd.innerHTML = _fnGetCellData( oSettings, iRow, i, 'display' );
 				}
 	
-				/* Add user defined class */
-				if ( oCol.sClass )
+				/* Add user defined className */
+				if ( oCol.sclassName )
 				{
-					nTd.className += ' '+oCol.sClass;
+					nTd.classNameName += ' '+oCol.sclassName;
 				}
 	
 				// Visibility - add or remove as required
@@ -3204,16 +3204,16 @@
 				tr.id = id;
 			}
 	
-			if ( data.DT_RowClass ) {
-				// Remove any classes added by DT_RowClass before
-				var a = data.DT_RowClass.split(' ');
+			if ( data.DT_RowclassName ) {
+				// Remove any classNamees added by DT_RowclassName before
+				var a = data.DT_RowclassName.split(' ');
 				row.__rowc = row.__rowc ?
 					_unique( row.__rowc.concat( a ) ) :
 					a;
 	
 				$(tr)
-					.removeClass( row.__rowc.join(' ') )
-					.addClass( data.DT_RowClass );
+					.removeclassName( row.__rowc.join(' ') )
+					.addclassName( data.DT_RowclassName );
 			}
 	
 			if ( data.DT_RowAttr ) {
@@ -3238,7 +3238,7 @@
 		var thead = oSettings.nTHead;
 		var tfoot = oSettings.nTFoot;
 		var createHeader = $('th, td', thead).length === 0;
-		var classes = oSettings.oClasses;
+		var classNamees = oSettings.oclassNamees;
 		var columns = oSettings.aoColumns;
 	
 		if ( createHeader ) {
@@ -3247,7 +3247,7 @@
 	
 		for ( i=0, ien=columns.length ; i<ien ; i++ ) {
 			column = columns[i];
-			cell = $( column.nTh ).addClass( column.sClass );
+			cell = $( column.nTh ).addclassName( column.sclassName );
 	
 			if ( createHeader ) {
 				cell.appendTo( row );
@@ -3255,7 +3255,7 @@
 	
 			// 1.11 move into sorting
 			if ( oSettings.oFeatures.bSort ) {
-				cell.addClass( column.sSortingClass );
+				cell.addclassName( column.sSortingclassName );
 	
 				if ( column.bSortable !== false ) {
 					cell
@@ -3271,7 +3271,7 @@
 			}
 	
 			_fnRenderer( oSettings, 'header' )(
-				oSettings, cell, column, classes
+				oSettings, cell, column, classNamees
 			);
 		}
 	
@@ -3282,9 +3282,9 @@
 		/* ARIA role for the rows */
 		$(thead).children('tr').attr('role', 'row');
 	
-		/* Deal with the footer - add classes if required */
-		$(thead).children('tr').children('th, td').addClass( classes.sHeaderTH );
-		$(tfoot).children('tr').children('th, td').addClass( classes.sFooterTH );
+		/* Deal with the footer - add classNamees if required */
+		$(thead).children('tr').children('th, td').addclassName( classNamees.sHeaderTH );
+		$(tfoot).children('tr').children('th, td').addclassName( classNamees.sFooterTH );
 	
 		// Cache the footer cells. Note that we only take the cells from the first
 		// row in the footer. If there is more than one row the user wants to
@@ -3297,8 +3297,8 @@
 				column = columns[i];
 				column.nTf = cells[i].cell;
 	
-				if ( column.sClass ) {
-					$(column.nTf).addClass( column.sClass );
+				if ( column.sclassName ) {
+					$(column.nTf).addclassName( column.sclassName );
 				}
 			}
 		}
@@ -3429,8 +3429,8 @@
 		var i, iLen, n;
 		var anRows = [];
 		var iRowCount = 0;
-		var asStripeClasses = oSettings.asStripeClasses;
-		var iStripes = asStripeClasses.length;
+		var asStripeclassNamees = oSettings.asStripeclassNamees;
+		var iStripes = asStripeclassNamees.length;
 		var iOpenRows = oSettings.aoOpenRows.length;
 		var oLang = oSettings.oLanguage;
 		var iInitDisplayStart = oSettings.iInitDisplayStart;
@@ -3486,13 +3486,13 @@
 	
 				var nRow = aoData.nTr;
 	
-				/* Remove the old striping classes and then add the new one */
+				/* Remove the old striping classNamees and then add the new one */
 				if ( iStripes !== 0 )
 				{
-					var sStripe = asStripeClasses[ iRowCount % iStripes ];
+					var sStripe = asStripeclassNamees[ iRowCount % iStripes ];
 					if ( aoData._sRowStripe != sStripe )
 					{
-						$(nRow).removeClass( aoData._sRowStripe ).addClass( sStripe );
+						$(nRow).removeclassName( aoData._sRowStripe ).addclassName( sStripe );
 						aoData._sRowStripe = sStripe;
 					}
 				}
@@ -3520,11 +3520,11 @@
 				sZero = oLang.sEmptyTable;
 			}
 	
-			anRows[ 0 ] = $( '<tr/>', { 'class': iStripes ? asStripeClasses[0] : '' } )
+			anRows[ 0 ] = $( '<tr/>', { 'className': iStripes ? asStripeclassNamees[0] : '' } )
 				.append( $('<td />', {
 					'valign':  'top',
 					'colSpan': _fnVisbleColumns( oSettings ),
-					'class':   oSettings.oClasses.sRowEmpty
+					'className':   oSettings.oclassNamees.sRowEmpty
 				} ).html( sZero ) )[0];
 		}
 	
@@ -3597,7 +3597,7 @@
 	 */
 	function _fnAddOptionsHtml ( oSettings )
 	{
-		var classes = oSettings.oClasses;
+		var classNamees = oSettings.oclassNamees;
 		var table = $(oSettings.nTable);
 		var holding = $('<div/>').insertBefore( table ); // Holding element for speed
 		var features = oSettings.oFeatures;
@@ -3605,7 +3605,7 @@
 		// All DataTables are wrapped in a div
 		var insert = $('<div/>', {
 			id:      oSettings.sTableId+'_wrapper',
-			'class': classes.sWrapper + (oSettings.nTFoot ? '' : ' '+classes.sNoFooter)
+			'className': classNamees.sWrapper + (oSettings.nTFoot ? '' : ' '+classNamees.sNoFooter)
 		} );
 	
 		oSettings.nHolding = holding[0];
@@ -3625,7 +3625,7 @@
 				/* New container div */
 				nNewNode = $('<div/>')[0];
 	
-				/* Check to see if we should append an id and/or a class name to the container */
+				/* Check to see if we should append an id and/or a className name to the container */
 				cNext = aDom[i+1];
 				if ( cNext == "'" || cNext == '"' )
 				{
@@ -3640,21 +3640,21 @@
 					/* Replace jQuery UI constants @todo depreciated */
 					if ( sAttr == "H" )
 					{
-						sAttr = classes.sJUIHeader;
+						sAttr = classNamees.sJUIHeader;
 					}
 					else if ( sAttr == "F" )
 					{
-						sAttr = classes.sJUIFooter;
+						sAttr = classNamees.sJUIFooter;
 					}
 	
-					/* The attribute can be in the format of "#id.class", "#id" or "class" This logic
+					/* The attribute can be in the format of "#id.className", "#id" or "className" This logic
 					 * breaks the string into parts and applies them as needed
 					 */
 					if ( sAttr.indexOf('.') != -1 )
 					{
 						var aSplit = sAttr.split('.');
 						nNewNode.id = aSplit[0].substr(1, aSplit[0].length-1);
-						nNewNode.className = aSplit[1];
+						nNewNode.classNameName = aSplit[1];
 					}
 					else if ( sAttr.charAt(0) == "#" )
 					{
@@ -3662,7 +3662,7 @@
 					}
 					else
 					{
-						nNewNode.className = sAttr;
+						nNewNode.classNameName = sAttr;
 					}
 	
 					i += j; /* Move along the position array */
@@ -4210,12 +4210,12 @@
 	 */
 	function _fnFeatureHtmlFilter ( settings )
 	{
-		var classes = settings.oClasses;
+		var classNamees = settings.oclassNamees;
 		var tableId = settings.sTableId;
 		var language = settings.oLanguage;
 		var previousSearch = settings.oPreviousSearch;
 		var features = settings.aanFeatures;
-		var input = '<input type="search" class="'+classes.sFilterInput+'"/>';
+		var input = '<input type="search" className="'+classNamees.sFilterInput+'"/>';
 	
 		var str = language.sSearch;
 		str = str.match(/_INPUT_/) ?
@@ -4224,7 +4224,7 @@
 	
 		var filter = $('<div/>', {
 				'id': ! features.f ? tableId+'_filter' : null,
-				'class': classes.sFilter
+				'className': classNamees.sFilter
 			} )
 			.append( $('<label/>' ).append( str ) );
 	
@@ -4639,7 +4639,7 @@
 			tid = settings.sTableId,
 			nodes = settings.aanFeatures.i,
 			n = $('<div/>', {
-				'class': settings.oClasses.sInfo,
+				'className': settings.oclassNamees.sInfo,
 				'id': ! nodes ? tid+'_info' : null
 			} );
 	
@@ -4852,7 +4852,7 @@
 	function _fnFeatureHtmlLength ( settings )
 	{
 		var
-			classes  = settings.oClasses,
+			classNamees  = settings.oclassNamees,
 			tableId  = settings.sTableId,
 			menu     = settings.aLengthMenu,
 			d2       = Array.isArray( menu[0] ),
@@ -4862,7 +4862,7 @@
 		var select = $('<select/>', {
 			'name':          tableId+'_length',
 			'aria-controls': tableId,
-			'class':         classes.sLengthSelect
+			'className':         classNamees.sLengthSelect
 		} );
 	
 		for ( var i=0, ien=lengths.length ; i<ien ; i++ ) {
@@ -4874,7 +4874,7 @@
 			);
 		}
 	
-		var div = $('<div><label/></div>').addClass( classes.sLength );
+		var div = $('<div><label/></div>').addclassName( classNamees.sLength );
 		if ( ! settings.aanFeatures.l ) {
 			div[0].id = tableId+'_length';
 		}
@@ -4924,7 +4924,7 @@
 			redraw = function( settings ) {
 				_fnDraw( settings );
 			},
-			node = $('<div/>').addClass( settings.oClasses.sPaging + type )[0],
+			node = $('<div/>').addclassName( settings.oclassNamees.sPaging + type )[0],
 			features = settings.aanFeatures;
 	
 		if ( ! modern ) {
@@ -5053,7 +5053,7 @@
 	{
 		return $('<div/>', {
 				'id': ! settings.aanFeatures.r ? settings.sTableId+'_processing' : null,
-				'class': settings.oClasses.sProcessing
+				'className': settings.oclassNamees.sProcessing
 			} )
 			.html( settings.oLanguage.sProcessing )
 			.insertBefore( settings.nTable )[0];
@@ -5097,7 +5097,7 @@
 	
 		var scrollX = scroll.sX;
 		var scrollY = scroll.sY;
-		var classes = settings.oClasses;
+		var classNamees = settings.oclassNamees;
 		var caption = table.children('caption');
 		var captionSide = caption.length ? caption[0]._captionSide : null;
 		var headerClone = $( table[0].cloneNode(false) );
@@ -5128,9 +5128,9 @@
 		 *        table - scroll foot table
 		 *          tfoot - tfoot
 		 */
-		var scroller = $( _div, { 'class': classes.sScrollWrapper } )
+		var scroller = $( _div, { 'className': classNamees.sScrollWrapper } )
 			.append(
-				$(_div, { 'class': classes.sScrollHead } )
+				$(_div, { 'className': classNamees.sScrollHead } )
 					.css( {
 						overflow: 'hidden',
 						position: 'relative',
@@ -5138,7 +5138,7 @@
 						width: scrollX ? size(scrollX) : '100%'
 					} )
 					.append(
-						$(_div, { 'class': classes.sScrollHeadInner } )
+						$(_div, { 'className': classNamees.sScrollHeadInner } )
 							.css( {
 								'box-sizing': 'content-box',
 								width: scroll.sXInner || '100%'
@@ -5155,7 +5155,7 @@
 					)
 			)
 			.append(
-				$(_div, { 'class': classes.sScrollBody } )
+				$(_div, { 'className': classNamees.sScrollBody } )
 					.css( {
 						position: 'relative',
 						overflow: 'auto',
@@ -5166,14 +5166,14 @@
 	
 		if ( footer ) {
 			scroller.append(
-				$(_div, { 'class': classes.sScrollFoot } )
+				$(_div, { 'className': classNamees.sScrollFoot } )
 					.css( {
 						overflow: 'hidden',
 						border: 0,
 						width: scrollX ? size(scrollX) : '100%'
 					} )
 					.append(
-						$(_div, { 'class': classes.sScrollFootInner } )
+						$(_div, { 'className': classNamees.sScrollFootInner } )
 							.append(
 								footerClone
 									.removeAttr('id')
@@ -5417,7 +5417,7 @@
 		// both match, but we want to hide it completely. We want to also fix their
 		// width to what they currently are
 		_fnApplyToChildren( function(nSizer, i) {
-			nSizer.innerHTML = '<div class="dataTables_sizing">'+headerContent[i]+'</div>';
+			nSizer.innerHTML = '<div className="dataTables_sizing">'+headerContent[i]+'</div>';
 			nSizer.childNodes[0].style.height = "0";
 			nSizer.childNodes[0].style.overflow = "hidden";
 			nSizer.style.width = headerWidths[i];
@@ -5426,7 +5426,7 @@
 		if ( footer )
 		{
 			_fnApplyToChildren( function(nSizer, i) {
-				nSizer.innerHTML = '<div class="dataTables_sizing">'+footerContent[i]+'</div>';
+				nSizer.innerHTML = '<div className="dataTables_sizing">'+footerContent[i]+'</div>';
 				nSizer.childNodes[0].style.height = "0";
 				nSizer.childNodes[0].style.overflow = "hidden";
 				nSizer.style.width = footerWidths[i];
@@ -6259,27 +6259,27 @@
 	
 	
 	/**
-	 * Set the sorting classes on table's body, Note: it is safe to call this function
-	 * when bSort and bSortClasses are false
+	 * Set the sorting classNamees on table's body, Note: it is safe to call this function
+	 * when bSort and bSortclassNamees are false
 	 *  @param {object} oSettings dataTables settings object
 	 *  @memberof DataTable#oApi
 	 */
-	function _fnSortingClasses( settings )
+	function _fnSortingclassNamees( settings )
 	{
 		var oldSort = settings.aLastSort;
-		var sortClass = settings.oClasses.sSortColumn;
+		var sortclassName = settings.oclassNamees.sSortColumn;
 		var sort = _fnSortFlatten( settings );
 		var features = settings.oFeatures;
 		var i, ien, colIdx;
 	
-		if ( features.bSort && features.bSortClasses ) {
-			// Remove old sorting classes
+		if ( features.bSort && features.bSortclassNamees ) {
+			// Remove old sorting classNamees
 			for ( i=0, ien=oldSort.length ; i<ien ; i++ ) {
 				colIdx = oldSort[i].src;
 	
 				// Remove column sorting
 				$( _pluck( settings.aoData, 'anCells', colIdx ) )
-					.removeClass( sortClass + (i<2 ? i+1 : 3) );
+					.removeclassName( sortclassName + (i<2 ? i+1 : 3) );
 			}
 	
 			// Add new column sorting
@@ -6287,7 +6287,7 @@
 				colIdx = sort[i].src;
 	
 				$( _pluck( settings.aoData, 'anCells', colIdx ) )
-					.addClass( sortClass + (i<2 ? i+1 : 3) );
+					.addclassName( sortclassName + (i<2 ? i+1 : 3) );
 			}
 		}
 	
@@ -6873,17 +6873,17 @@
 	
 	
 	/**
-	 * DataTables API class - used to control and interface with  one or more
+	 * DataTables API className - used to control and interface with  one or more
 	 * DataTables enhanced tables.
 	 *
-	 * The API class is heavily based on jQuery, presenting a chainable interface
-	 * that you can use to interact with tables. Each instance of the API class has
+	 * The API className is heavily based on jQuery, presenting a chainable interface
+	 * that you can use to interact with tables. Each instance of the API className has
 	 * a "context" - i.e. the tables that it will operate on. This could be a single
 	 * table, all tables on a page or a sub-set thereof.
 	 *
 	 * Additionally the API is designed to allow you to easily work with the data in
 	 * the tables, retrieving and manipulating it as required. This is done by
-	 * presenting the API class as an array like interface. The contents of the
+	 * presenting the API className as an array like interface. The contents of the
 	 * array depend upon the actions requested by each method (for example
 	 * `rows().nodes()` will return an array of nodes, while `rows().data()` will
 	 * return an array of objects or arrays depending upon your table's
@@ -6902,7 +6902,7 @@
 	 *     // Chained
 	 *     api.row.add( {...} ).draw();
 	 *
-	 * @class DataTable.Api
+	 * @className DataTable.Api
 	 * @param {array|object|string|jQuery} context DataTable identifier. This is
 	 *   used to define which DataTables enhanced tables this API will operate on.
 	 *   Can be one of:
@@ -8266,9 +8266,9 @@
 			}
 			else {
 				// Otherwise create a row with a wrapper
-				var created = $('<tr><td></td></tr>').addClass( k );
+				var created = $('<tr><td></td></tr>').addclassName( k );
 				$('td', created)
-					.addClass( k )
+					.addclassName( k )
 					.html( r )
 					[0].colSpan = _fnVisbleColumns( ctx );
 	
@@ -9388,7 +9388,7 @@
 	
 		return this.iterator( 'table', function ( settings ) {
 			var orig      = settings.nTableWrapper.parentNode;
-			var classes   = settings.oClasses;
+			var classNamees   = settings.oclassNamees;
 			var table     = settings.nTable;
 			var tbody     = settings.nTBody;
 			var thead     = settings.nTHead;
@@ -9430,19 +9430,19 @@
 	
 			settings.aaSorting = [];
 			settings.aaSortingFixed = [];
-			_fnSortingClasses( settings );
+			_fnSortingclassNamees( settings );
 	
-			$( rows ).removeClass( settings.asStripeClasses.join(' ') );
+			$( rows ).removeclassName( settings.asStripeclassNamees.join(' ') );
 	
-			$('th, td', thead).removeClass( classes.sSortable+' '+
-				classes.sSortableAsc+' '+classes.sSortableDesc+' '+classes.sSortableNone
+			$('th, td', thead).removeclassName( classNamees.sSortable+' '+
+				classNamees.sSortableAsc+' '+classNamees.sSortableDesc+' '+classNamees.sSortableNone
 			);
 	
 			// Add the TR elements back into the table in their original order
 			jqTbody.children().detach();
 			jqTbody.append( rows );
 	
-			// Remove the DataTables generated nodes, events and classes
+			// Remove the DataTables generated nodes, events and classNamees
 			var removedMethod = remove ? 'remove' : 'detach';
 			jqTable[ removedMethod ]();
 			jqWrapper[ removedMethod ]();
@@ -9456,16 +9456,16 @@
 				// so we can restore directly to that
 				jqTable
 					.css( 'width', settings.sDestroyWidth )
-					.removeClass( classes.sTable );
+					.removeclassName( classNamees.sTable );
 	
-				// If the were originally stripe classes - then we add them back here.
+				// If the were originally stripe classNamees - then we add them back here.
 				// Note this is not fool proof (for example if not all rows had stripe
-				// classes - but it's a good effort without getting carried away
+				// classNamees - but it's a good effort without getting carried away
 				ien = settings.asDestroyStripes.length;
 	
 				if ( ien ) {
 					jqTbody.children().each( function (i) {
-						$(this).addClass( settings.asDestroyStripes[i % ien] );
+						$(this).addclassName( settings.asDestroyStripes[i % ien] );
 					} );
 				}
 			}
@@ -9669,9 +9669,9 @@
 		"_sFilterRow": null,
 	
 		/**
-		 * Cache of the class name that DataTables has applied to the row, so we
+		 * Cache of the className name that DataTables has applied to the row, so we
 		 * can quickly look at this variable rather than needing to do a DOM check
-		 * on className for the nTr property.
+		 * on classNameName for the nTr property.
 		 *  @type string
 		 *  @default <i>Empty string</i>
 		 *  @private
@@ -9858,11 +9858,11 @@
 		"nTf": null,
 	
 		/**
-		 * The class to apply to all TD elements in the table's TBODY for the column
+		 * The className to apply to all TD elements in the table's TBODY for the column
 		 *  @type string
 		 *  @default null
 		 */
-		"sClass": null,
+		"sclassName": null,
 	
 		/**
 		 * When DataTables calculates the column widths to assign to each column,
@@ -9902,19 +9902,19 @@
 		"sSortDataType": 'std',
 	
 		/**
-		 * Class to be applied to the header element when sorting on this column
+		 * className to be applied to the header element when sorting on this column
 		 *  @type string
 		 *  @default null
 		 */
-		"sSortingClass": null,
+		"sSortingclassName": null,
 	
 		/**
-		 * Class to be applied to the header element when sorting on this column -
+		 * className to be applied to the header element when sorting on this column -
 		 * when jQuery UI theming is used.
 		 *  @type string
 		 *  @default null
 		 */
-		"sSortingClassJUI": null,
+		"sSortingclassNameJUI": null,
 	
 		/**
 		 * Title of the column - what is seen in the TH element (nTh).
@@ -10289,7 +10289,7 @@
 		 * have `targets` defined in each object in the array. Values in the `targets`
 		 * array may be:
 		 *   <ul>
-		 *     <li>a string - class name will be matched on the TH for the column</li>
+		 *     <li>a string - className name will be matched on the TH for the column</li>
 		 *     <li>0 or a positive integer - column index counting from the left</li>
 		 *     <li>a negative integer - column index counting from the right</li>
 		 *     <li>the string "_all" - all columns (i.e. assign a default)</li>
@@ -10329,24 +10329,24 @@
 	
 	
 		/**
-		 * An array of CSS classes that should be applied to displayed rows. This
-		 * array may be of any length, and DataTables will apply each class
+		 * An array of CSS classNamees that should be applied to displayed rows. This
+		 * array may be of any length, and DataTables will apply each className
 		 * sequentially, looping when required.
 		 *  @type array
-		 *  @default null <i>Will take the values determined by the `oClasses.stripe*`
+		 *  @default null <i>Will take the values determined by the `oclassNamees.stripe*`
 		 *    options</i>
 		 *
 		 *  @dtopt Option
-		 *  @name DataTable.defaults.stripeClasses
+		 *  @name DataTable.defaults.stripeclassNamees
 		 *
 		 *  @example
 		 *    $(document).ready( function() {
 		 *      $('#example').dataTable( {
-		 *        "stripeClasses": [ 'strip1', 'strip2', 'strip3' ]
+		 *        "stripeclassNamees": [ 'strip1', 'strip2', 'strip3' ]
 		 *      } );
 		 *    } )
 		 */
-		"asStripeClasses": null,
+		"asStripeclassNamees": null,
 	
 	
 		/**
@@ -10666,25 +10666,25 @@
 	
 	
 		/**
-		 * Enable or disable the addition of the classes `sorting\_1`, `sorting\_2` and
+		 * Enable or disable the addition of the classNamees `sorting\_1`, `sorting\_2` and
 		 * `sorting\_3` to the columns which are currently being sorted on. This is
 		 * presented as a feature switch as it can increase processing time (while
-		 * classes are removed and added) so for large data sets you might want to
+		 * classNamees are removed and added) so for large data sets you might want to
 		 * turn this off.
 		 *  @type boolean
 		 *  @default true
 		 *
 		 *  @dtopt Features
-		 *  @name DataTable.defaults.orderClasses
+		 *  @name DataTable.defaults.orderclassNamees
 		 *
 		 *  @example
 		 *    $(document).ready( function () {
 		 *      $('#example').dataTable( {
-		 *        "orderClasses": false
+		 *        "orderclassNamees": false
 		 *      } );
 		 *    } );
 		 */
-		"bSortClasses": true,
+		"bSortclassNamees": true,
 	
 	
 		/**
@@ -10715,7 +10715,7 @@
 		/**
 		 * This function is called when a TR element is created (and all TD child
 		 * elements have been inserted), or registered if using a DOM source, allowing
-		 * manipulation of the TR element (adding classes etc).
+		 * manipulation of the TR element (adding classNamees etc).
 		 *  @type function
 		 *  @param {node} row "TR" element for the current row
 		 *  @param {array} data Raw data array for this row
@@ -10937,7 +10937,7 @@
 		/**
 		 * This function allows you to 'post process' each row after it have been
 		 * generated for each table draw, but before it is rendered on screen. This
-		 * function might be used for setting the row class name etc.
+		 * function might be used for setting the row className name etc.
 		 *  @type function
 		 *  @param {node} row "TR" element for the current row
 		 *  @param {array} data Raw data array for this row
@@ -11316,14 +11316,14 @@
 	
 	
 		/**
-		 * Classes that DataTables assigns to the various components and features
-		 * that it adds to the HTML table. This allows classes to be configured
+		 * classNamees that DataTables assigns to the various components and features
+		 * that it adds to the HTML table. This allows classNamees to be configured
 		 * during initialisation in addition to through the static
-		 * {@link DataTable.ext.oStdClasses} object).
+		 * {@link DataTable.ext.oStdclassNamees} object).
 		 *  @namespace
-		 *  @name DataTable.defaults.classes
+		 *  @name DataTable.defaults.classNamees
 		 */
-		"oClasses": {},
+		"oclassNamees": {},
 	
 	
 		/**
@@ -11911,7 +11911,7 @@
 		 * This initialisation variable allows you to specify exactly where in the
 		 * DOM you want DataTables to inject the various controls it adds to the page
 		 * (for example you might want the pagination controls at the top of the
-		 * table). DIV elements (with or without a custom class) can also be added to
+		 * table). DIV elements (with or without a custom className) can also be added to
 		 * aid styling. The follow syntax is used:
 		 *   <ul>
 		 *     <li>The following options are allowed:
@@ -11926,14 +11926,14 @@
 		 *     </li>
 		 *     <li>The following constants are allowed:
 		 *       <ul>
-		 *         <li>'H' - jQueryUI theme "header" classes ('fg-toolbar ui-widget-header ui-corner-tl ui-corner-tr ui-helper-clearfix')</li>
-		 *         <li>'F' - jQueryUI theme "footer" classes ('fg-toolbar ui-widget-header ui-corner-bl ui-corner-br ui-helper-clearfix')</li>
+		 *         <li>'H' - jQueryUI theme "header" classNamees ('fg-toolbar ui-widget-header ui-corner-tl ui-corner-tr ui-helper-clearfix')</li>
+		 *         <li>'F' - jQueryUI theme "footer" classNamees ('fg-toolbar ui-widget-header ui-corner-bl ui-corner-br ui-helper-clearfix')</li>
 		 *       </ul>
 		 *     </li>
 		 *     <li>The following syntax is expected:
 		 *       <ul>
 		 *         <li>'&lt;' and '&gt;' - div elements</li>
-		 *         <li>'&lt;"class" and '&gt;' - div with a class</li>
+		 *         <li>'&lt;"className" and '&gt;' - div with a className</li>
 		 *         <li>'&lt;"#id" and '&gt;' - div with an ID</li>
 		 *       </ul>
 		 *     </li>
@@ -12683,11 +12683,11 @@
 	
 	
 		/**
-		 * Class to give to each cell in this column.
+		 * className to give to each cell in this column.
 		 *  @type string
 		 *  @default <i>Empty string</i>
 		 *
-		 *  @name DataTable.defaults.column.class
+		 *  @name DataTable.defaults.column.className
 		 *  @dtopt Columns
 		 *
 		 *  @example
@@ -12695,7 +12695,7 @@
 		 *    $(document).ready( function() {
 		 *      $('#example').dataTable( {
 		 *        "columnDefs": [
-		 *          { "class": "my_class", "targets": [ 0 ] }
+		 *          { "className": "my_className", "targets": [ 0 ] }
 		 *        ]
 		 *      } );
 		 *    } );
@@ -12705,7 +12705,7 @@
 		 *    $(document).ready( function() {
 		 *      $('#example').dataTable( {
 		 *        "columns": [
-		 *          { "class": "my_class" },
+		 *          { "className": "my_className" },
 		 *          null,
 		 *          null,
 		 *          null,
@@ -12714,7 +12714,7 @@
 		 *      } );
 		 *    } );
 		 */
-		"sClass": "",
+		"sclassName": "",
 	
 		/**
 		 * When DataTables calculates the column widths to assign to each column,
@@ -13003,7 +13003,7 @@
 	 * given table, including configuration, data and current application of the
 	 * table options. DataTables does not have a single instance for each DataTable
 	 * with the settings attached to that instance, but rather instances of the
-	 * DataTable "class" are created on-the-fly as needed (typically by a
+	 * DataTable "className" are created on-the-fly as needed (typically by a
 	 * $().dataTable() call) and the settings object is then applied to that
 	 * instance.
 	 *
@@ -13120,14 +13120,14 @@
 			"bSortMulti": null,
 	
 			/**
-			 * Apply a class to the columns which are being sorted to provide a
+			 * Apply a className to the columns which are being sorted to provide a
 			 * visual highlight or not. This can slow things down when enabled since
 			 * there is a lot of DOM interaction.
 			 * Note that this parameter will be set by the initialisation routine. To
 			 * set a default use {@link DataTable.defaults}.
 			 *  @type boolean
 			 */
-			"bSortClasses": null,
+			"bSortclassNamees": null,
 	
 			/**
 			 * State saving enablement flag.
@@ -13356,16 +13356,16 @@
 		"aaSortingFixed": [],
 	
 		/**
-		 * Classes to use for the striping of a table.
+		 * classNamees to use for the striping of a table.
 		 * Note that this parameter will be set by the initialisation routine. To
 		 * set a default use {@link DataTable.defaults}.
 		 *  @type array
 		 *  @default []
 		 */
-		"asStripeClasses": null,
+		"asStripeclassNamees": null,
 	
 		/**
-		 * If restoring a table - we should restore its striping classes as well
+		 * If restoring a table - we should restore its striping classNamees as well
 		 *  @type array
 		 *  @default []
 		 */
@@ -13747,11 +13747,11 @@
 		"_iRecordsDisplay": 0,
 	
 		/**
-		 * The classes to use for the table
+		 * The classNamees to use for the table
 		 *  @type object
 		 *  @default {}
 		 */
-		"oClasses": {},
+		"oclassNamees": {},
 	
 		/**
 		 * Flag attached to the settings object so you can check in the draw
@@ -13946,12 +13946,12 @@
 	
 	
 		/**
-		 * Element class names
+		 * Element className names
 		 *
 		 *  @type object
 		 *  @default {}
 		 */
-		classes: {},
+		classNamees: {},
 	
 	
 		/**
@@ -14427,11 +14427,11 @@
 	
 	
 		/**
-		 * jQuery UI class container
+		 * jQuery UI className container
 		 *  @type object
 		 *  @deprecated Since v1.10
 		 */
-		oJUIClasses: {},
+		oJUIclassNamees: {},
 	
 	
 		/**
@@ -14454,12 +14454,12 @@
 		afnSortData:  _ext.order,
 		aoFeatures:   _ext.feature,
 		oApi:         _ext.internal,
-		oStdClasses:  _ext.classes,
+		oStdclassNamees:  _ext.classNamees,
 		oPagination:  _ext.pager
 	} );
 	
 	
-	$.extend( DataTable.ext.classes, {
+	$.extend( DataTable.ext.classNamees, {
 		"sTable": "dataTable",
 		"sNoFooter": "no-footer",
 	
@@ -14468,7 +14468,7 @@
 		"sPageButtonActive": "current",
 		"sPageButtonDisabled": "disabled",
 	
-		/* Striping classes */
+		/* Striping classNamees */
 		"sStripeOdd": "odd",
 		"sStripeEven": "even",
 	
@@ -14594,14 +14594,14 @@
 	$.extend( true, DataTable.ext.renderer, {
 		pageButton: {
 			_: function ( settings, host, idx, buttons, page, pages ) {
-				var classes = settings.oClasses;
+				var classNamees = settings.oclassNamees;
 				var lang = settings.oLanguage.oPaginate;
 				var aria = settings.oLanguage.oAria.paginate || {};
-				var btnDisplay, btnClass, counter=0;
+				var btnDisplay, btnclassName, counter=0;
 	
 				var attach = function( container, buttons ) {
 					var i, ien, node, button, tabIndex;
-					var disabledClass = classes.sPageButtonDisabled;
+					var disabledclassName = classNamees.sPageButtonDisabled;
 					var clickHandler = function ( e ) {
 						_fnPageChange( settings, e.data.action, true );
 					};
@@ -14616,12 +14616,12 @@
 						}
 						else {
 							btnDisplay = null;
-							btnClass = button;
+							btnclassName = button;
 							tabIndex = settings.iTabIndex;
 	
 							switch ( button ) {
 								case 'ellipsis':
-									container.append('<span class="ellipsis">&#x2026;</span>');
+									container.append('<span className="ellipsis">&#x2026;</span>');
 									break;
 	
 								case 'first':
@@ -14629,7 +14629,7 @@
 	
 									if ( page === 0 ) {
 										tabIndex = -1;
-										btnClass += ' ' + disabledClass;
+										btnclassName += ' ' + disabledclassName;
 									}
 									break;
 	
@@ -14638,7 +14638,7 @@
 	
 									if ( page === 0 ) {
 										tabIndex = -1;
-										btnClass += ' ' + disabledClass;
+										btnclassName += ' ' + disabledclassName;
 									}
 									break;
 	
@@ -14647,7 +14647,7 @@
 	
 									if ( pages === 0 || page === pages-1 ) {
 										tabIndex = -1;
-										btnClass += ' ' + disabledClass;
+										btnclassName += ' ' + disabledclassName;
 									}
 									break;
 	
@@ -14656,20 +14656,20 @@
 	
 									if ( pages === 0 || page === pages-1 ) {
 										tabIndex = -1;
-										btnClass += ' ' + disabledClass;
+										btnclassName += ' ' + disabledclassName;
 									}
 									break;
 	
 								default:
 									btnDisplay = settings.fnFormatNumber( button + 1 );
-									btnClass = page === button ?
-										classes.sPageButtonActive : '';
+									btnclassName = page === button ?
+										classNamees.sPageButtonActive : '';
 									break;
 							}
 	
 							if ( btnDisplay !== null ) {
 								node = $('<a>', {
-										'class': classes.sPageButton+' '+btnClass,
+										'className': classNamees.sPageButton+' '+btnclassName,
 										'aria-controls': settings.sTableId,
 										'aria-label': aria[ button ],
 										'data-dt-idx': counter,
@@ -14914,7 +14914,7 @@
 	
 	$.extend( true, DataTable.ext.renderer, {
 		header: {
-			_: function ( settings, cell, column, classes ) {
+			_: function ( settings, cell, column, classNamees ) {
 				// No additional mark-up required
 				// Attach a sort listener to update on sort - note that using the
 				// `DT` namespace will allow the event to be removed automatically
@@ -14928,24 +14928,24 @@
 					var colIdx = column.idx;
 	
 					cell
-						.removeClass(
-							classes.sSortAsc +' '+
-							classes.sSortDesc
+						.removeclassName(
+							classNamees.sSortAsc +' '+
+							classNamees.sSortDesc
 						)
-						.addClass( columns[ colIdx ] == 'asc' ?
-							classes.sSortAsc : columns[ colIdx ] == 'desc' ?
-								classes.sSortDesc :
-								column.sSortingClass
+						.addclassName( columns[ colIdx ] == 'asc' ?
+							classNamees.sSortAsc : columns[ colIdx ] == 'desc' ?
+								classNamees.sSortDesc :
+								column.sSortingclassName
 						);
 				} );
 			},
 	
-			jqueryui: function ( settings, cell, column, classes ) {
+			jqueryui: function ( settings, cell, column, classNamees ) {
 				$('<div/>')
-					.addClass( classes.sSortJUIWrapper )
+					.addclassName( classNamees.sSortJUIWrapper )
 					.append( cell.contents() )
 					.append( $('<span/>')
-						.addClass( classes.sSortIcon+' '+column.sSortingClassJUI )
+						.addclassName( classNamees.sSortIcon+' '+column.sSortingclassNameJUI )
 					)
 					.appendTo( cell );
 	
@@ -14958,26 +14958,26 @@
 					var colIdx = column.idx;
 	
 					cell
-						.removeClass( classes.sSortAsc +" "+classes.sSortDesc )
-						.addClass( columns[ colIdx ] == 'asc' ?
-							classes.sSortAsc : columns[ colIdx ] == 'desc' ?
-								classes.sSortDesc :
-								column.sSortingClass
+						.removeclassName( classNamees.sSortAsc +" "+classNamees.sSortDesc )
+						.addclassName( columns[ colIdx ] == 'asc' ?
+							classNamees.sSortAsc : columns[ colIdx ] == 'desc' ?
+								classNamees.sSortDesc :
+								column.sSortingclassName
 						);
 	
 					cell
-						.find( 'span.'+classes.sSortIcon )
-						.removeClass(
-							classes.sSortJUIAsc +" "+
-							classes.sSortJUIDesc +" "+
-							classes.sSortJUI +" "+
-							classes.sSortJUIAscAllowed +" "+
-							classes.sSortJUIDescAllowed
+						.find( 'span.'+classNamees.sSortIcon )
+						.removeclassName(
+							classNamees.sSortJUIAsc +" "+
+							classNamees.sSortJUIDesc +" "+
+							classNamees.sSortJUI +" "+
+							classNamees.sSortJUIAscAllowed +" "+
+							classNamees.sSortJUIDescAllowed
 						)
-						.addClass( columns[ colIdx ] == 'asc' ?
-							classes.sSortJUIAsc : columns[ colIdx ] == 'desc' ?
-								classes.sSortJUIDesc :
-								column.sSortingClassJUI
+						.addclassName( columns[ colIdx ] == 'asc' ?
+							classNamees.sSortJUIAsc : columns[ colIdx ] == 'desc' ?
+								classNamees.sSortJUIDesc :
+								column.sSortingclassNameJUI
 						);
 				} );
 			}
@@ -15177,7 +15177,7 @@
 		_fnSortAria: _fnSortAria,
 		_fnSortListener: _fnSortListener,
 		_fnSortAttachListener: _fnSortAttachListener,
-		_fnSortingClasses: _fnSortingClasses,
+		_fnSortingclassNamees: _fnSortingclassNamees,
 		_fnSortData: _fnSortData,
 		_fnSaveState: _fnSaveState,
 		_fnLoadState: _fnLoadState,

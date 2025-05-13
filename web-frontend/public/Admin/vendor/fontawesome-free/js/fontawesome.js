@@ -19,9 +19,9 @@
     return _typeof(obj);
   }
 
-  function _classCallCheck(instance, Constructor) {
+  function _classNameCallCheck(instance, Constructor) {
     if (!(instance instanceof Constructor)) {
-      throw new TypeError("Cannot call a classNameas a function");
+      throw new TypeError("Cannot call a classNameNameas a function");
     }
   }
 
@@ -35,7 +35,7 @@
     }
   }
 
-  function _createClass(Constructor, protoProps, staticProps) {
+  function _createclassName(Constructor, protoProps, staticProps) {
     if (protoProps) _defineProperties(Constructor.prototype, protoProps);
     if (staticProps) _defineProperties(Constructor, staticProps);
     return Constructor;
@@ -165,13 +165,13 @@
   var NAMESPACE_IDENTIFIER = '___FONT_AWESOME___';
   var UNITS_IN_GRID = 16;
   var DEFAULT_FAMILY_PREFIX = 'fa';
-  var DEFAULT_REPLACEMENT_className= 'svg-inline--fa';
+  var DEFAULT_REPLACEMENT_classNameName= 'svg-inline--fa';
   var DATA_FA_I2SVG = 'data-fa-i2svg';
   var DATA_FA_PSEUDO_ELEMENT = 'data-fa-pseudo-element';
   var DATA_FA_PSEUDO_ELEMENT_PENDING = 'data-fa-pseudo-element-pending';
   var DATA_PREFIX = 'data-prefix';
   var DATA_ICON = 'data-icon';
-  var HTML_CLASS_I2SVG_BASE_className= 'fontawesome-i2svg';
+  var HTML_className_I2SVG_BASE_classNameName= 'fontawesome-i2svg';
   var MUTATION_APPROACH_ASYNC = 'async';
   var TAGNAMES_TO_SKIP_FOR_PSEUDOELEMENTS = ['HTML', 'HEAD', 'STYLE', 'SCRIPT'];
   var PRODUCTION = function () {
@@ -198,7 +198,7 @@
     'brands': 'fab',
     'kit': 'fak'
   };
-  var LAYERS_TEXT_CLASSNAME = 'fa-layers-text';
+  var LAYERS_TEXT_classNameNAME = 'fa-layers-text';
   var FONT_FAMILY_PATTERN = /Font Awesome ([5 ]*)(Solid|Regular|Light|Duotone|Brands|Free|Pro|Kit).*/; // TODO: do we need to handle font-weight for kit SVG pseudo-elements?
 
   var FONT_WEIGHT_TO_PREFIX = {
@@ -209,14 +209,14 @@
   };
   var oneToTen = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   var oneToTwenty = oneToTen.concat([11, 12, 13, 14, 15, 16, 17, 18, 19, 20]);
-  var ATTRIBUTES_WATCHED_FOR_MUTATION = ['class', 'data-prefix', 'data-icon', 'data-fa-transform', 'data-fa-mask'];
-  var DUOTONE_CLASSES = {
+  var ATTRIBUTES_WATCHED_FOR_MUTATION = ['className', 'data-prefix', 'data-icon', 'data-fa-transform', 'data-fa-mask'];
+  var DUOTONE_classNameES = {
     GROUP: 'group',
     SWAP_OPACITY: 'swap-opacity',
     PRIMARY: 'primary',
     SECONDARY: 'secondary'
   };
-  var RESERVED_CLASSES = ['xs', 'sm', 'lg', 'fw', 'ul', 'li', 'border', 'pull-left', 'pull-right', 'spin', 'pulse', 'rotate-90', 'rotate-180', 'rotate-270', 'flip-horizontal', 'flip-vertical', 'flip-both', 'stack', 'stack-1x', 'stack-2x', 'inverse', 'layers', 'layers-text', 'layers-counter', DUOTONE_CLASSES.GROUP, DUOTONE_CLASSES.SWAP_OPACITY, DUOTONE_CLASSES.PRIMARY, DUOTONE_CLASSES.SECONDARY].concat(oneToTen.map(function (n) {
+  var RESERVED_classNameES = ['xs', 'sm', 'lg', 'fw', 'ul', 'li', 'border', 'pull-left', 'pull-right', 'spin', 'pulse', 'rotate-90', 'rotate-180', 'rotate-270', 'flip-horizontal', 'flip-vertical', 'flip-both', 'stack', 'stack-1x', 'stack-2x', 'inverse', 'layers', 'layers-text', 'layers-counter', DUOTONE_classNameES.GROUP, DUOTONE_classNameES.SWAP_OPACITY, DUOTONE_classNameES.PRIMARY, DUOTONE_classNameES.SECONDARY].concat(oneToTen.map(function (n) {
     return "".concat(n, "x");
   })).concat(oneToTwenty.map(function (n) {
     return "w-".concat(n);
@@ -243,7 +243,7 @@
   }
 
   if (DOCUMENT && typeof DOCUMENT.querySelector === 'function') {
-    var attrs = [['data-family-prefix', 'familyPrefix'], ['data-replacement-class', 'replacementClass'], ['data-auto-replace-svg', 'autoReplaceSvg'], ['data-auto-add-css', 'autoAddCss'], ['data-auto-a11y', 'autoA11y'], ['data-search-pseudo-elements', 'searchPseudoElements'], ['data-observe-mutations', 'observeMutations'], ['data-mutate-approach', 'mutateApproach'], ['data-keep-original-source', 'keepOriginalSource'], ['data-measure-performance', 'measurePerformance'], ['data-show-missing-icons', 'showMissingIcons']];
+    var attrs = [['data-family-prefix', 'familyPrefix'], ['data-replacement-className', 'replacementclassName'], ['data-auto-replace-svg', 'autoReplaceSvg'], ['data-auto-add-css', 'autoAddCss'], ['data-auto-a11y', 'autoA11y'], ['data-search-pseudo-elements', 'searchPseudoElements'], ['data-observe-mutations', 'observeMutations'], ['data-mutate-approach', 'mutateApproach'], ['data-keep-original-source', 'keepOriginalSource'], ['data-measure-performance', 'measurePerformance'], ['data-show-missing-icons', 'showMissingIcons']];
     attrs.forEach(function (_ref) {
       var _ref2 = _slicedToArray(_ref, 2),
           attr = _ref2[0],
@@ -259,7 +259,7 @@
 
   var _default = {
     familyPrefix: DEFAULT_FAMILY_PREFIX,
-    replacementClass: DEFAULT_REPLACEMENT_CLASS,
+    replacementclassName: DEFAULT_REPLACEMENT_className,
     autoReplaceSvg: true,
     autoAddCss: true,
     autoA11y: true,
@@ -471,7 +471,7 @@
     global.process.emit('rejectionHandled', promise);
   }
   /**
-   * @class
+   * @className
    */
 
 
@@ -608,7 +608,7 @@
   };
 
   function isReserved(name) {
-    return ~RESERVED_CLASSES.indexOf(name);
+    return ~RESERVED_classNameES.indexOf(name);
   }
 
   function bunker(fn) {
@@ -663,11 +663,11 @@
 
     return array;
   }
-  function classArray(node) {
-    if (node.classList) {
-      return toArray(node.classList);
+  function classNameArray(node) {
+    if (node.classNameList) {
+      return toArray(node.classNameList);
     } else {
-      return (node.getAttribute('class') || '').split(' ').filter(function (i) {
+      return (node.getAttribute('className') || '').split(' ').filter(function (i) {
         return i;
       });
     }
@@ -952,24 +952,24 @@
         height = _ref.height;
 
     var isUploadedIcon = prefix === 'fak';
-    var widthclassName= isUploadedIcon ? '' : "fa-w-".concat(Math.ceil(width / height * 16));
-    var attrclassName= [config.replacementClass, iconName ? "".concat(config.familyPrefix, "-").concat(iconName) : '', widthClass].filter(function (c) {
-      return extra.classes.indexOf(c) === -1;
+    var widthclassNameName= isUploadedIcon ? '' : "fa-w-".concat(Math.ceil(width / height * 16));
+    var attrclassNameName= [config.replacementclassName, iconName ? "".concat(config.familyPrefix, "-").concat(iconName) : '', widthclassName].filter(function (c) {
+      return extra.classNamees.indexOf(c) === -1;
     }).filter(function (c) {
       return c !== '' || !!c;
-    }).concat(extra.classes).join(' ');
+    }).concat(extra.classNamees).join(' ');
     var content = {
       children: [],
       attributes: _objectSpread({}, extra.attributes, {
         'data-prefix': prefix,
         'data-icon': iconName,
-        'class': attrClass,
+        'className': attrclassName,
         'role': extra.attributes.role || 'img',
         'xmlns': 'http://www.w3.org/2000/svg',
         'viewBox': "0 0 ".concat(width, " ").concat(height)
       })
     };
-    var uploadedIconWidthStyle = isUploadedIcon && !~extra.classes.indexOf('fa-fw') ? {
+    var uploadedIconWidthStyle = isUploadedIcon && !~extra.classNamees.indexOf('fa-fw') ? {
       width: "".concat(width / height * 16 * 0.0625, "em")
     } : {};
 
@@ -1022,7 +1022,7 @@
     var attributes = _objectSpread({}, extra.attributes, title ? {
       'title': title
     } : {}, {
-      'class': extra.classes.join(' ')
+      'className': extra.classNamees.join(' ')
     });
 
     if (watchable) {
@@ -1058,7 +1058,7 @@
       val.push({
         tag: 'span',
         attributes: {
-          class: 'sr-only'
+          className: 'sr-only'
         },
         children: [title]
       });
@@ -1074,7 +1074,7 @@
     var attributes = _objectSpread({}, extra.attributes, title ? {
       'title': title
     } : {}, {
-      'class': extra.classes.join(' ')
+      'className': extra.classNamees.join(' ')
     });
 
     var styleString = joinStyles(extra.styles);
@@ -1094,7 +1094,7 @@
       val.push({
         tag: 'span',
         attributes: {
-          class: 'sr-only'
+          className: 'sr-only'
         },
         children: [title]
       });
@@ -1301,7 +1301,7 @@
         var shim = acc.prefix === 'fa' ? byOldName(iconName) : {};
         acc.iconName = shim.iconName || iconName;
         acc.prefix = shim.prefix || acc.prefix;
-      } else if (cls !== config.replacementclassName&& cls.indexOf('fa-w-') !== 0) {
+      } else if (cls !== config.replacementclassNameName&& cls.indexOf('fa-w-') !== 0) {
         acc.rest.push(cls);
       }
 
@@ -1369,15 +1369,15 @@
       var abstract = mutation[1]; // If we already have a replaced node we do not want to continue nesting within it.
       // Short-circuit to the standard replacement
 
-      if (~classArray(node).indexOf(config.replacementClass)) {
+      if (~classNameArray(node).indexOf(config.replacementclassName)) {
         return mutators.replace(mutation);
       }
 
       var forSvg = new RegExp("".concat(config.familyPrefix, "-.*"));
       delete abstract[0].attributes.style;
       delete abstract[0].attributes.id;
-      var splitClasses = abstract[0].attributes.class.split(' ').reduce(function (acc, cls) {
-        if (cls === config.replacementclassName|| cls.match(forSvg)) {
+      var splitclassNamees = abstract[0].attributes.className.split(' ').reduce(function (acc, cls) {
+        if (cls === config.replacementclassNameName|| cls.match(forSvg)) {
           acc.toSvg.push(cls);
         } else {
           acc.toNode.push(cls);
@@ -1388,11 +1388,11 @@
         toNode: [],
         toSvg: []
       });
-      abstract[0].attributes.className= splitClasses.toSvg.join(' ');
+      abstract[0].attributes.classNameName= splitclassNamees.toSvg.join(' ');
       var newInnerHTML = abstract.map(function (a) {
         return toHtml(a);
       }).join('\n');
-      node.setAttribute('class', splitClasses.toNode.join(' '));
+      node.setAttribute('className', splitclassNamees.toNode.join(' '));
       node.setAttribute(DATA_FA_I2SVG, '');
       node.innerHTML = newInnerHTML;
     }
@@ -1461,8 +1461,8 @@
         }
 
         if (mutationRecord.type === 'attributes' && isWatched(mutationRecord.target) && ~ATTRIBUTES_WATCHED_FOR_MUTATION.indexOf(mutationRecord.attributeName)) {
-          if (mutationRecord.attributeName === 'class') {
-            var _getCanonicalIcon = getCanonicalIcon(classArray(mutationRecord.target)),
+          if (mutationRecord.attributeName === 'className') {
+            var _getCanonicalIcon = getCanonicalIcon(classNameArray(mutationRecord.target)),
                 prefix = _getCanonicalIcon.prefix,
                 iconName = _getCanonicalIcon.iconName;
 
@@ -1508,11 +1508,11 @@
     return val;
   }
 
-  function classParser (node) {
+  function classNameParser (node) {
     var existingPrefix = node.getAttribute('data-prefix');
     var existingIconName = node.getAttribute('data-icon');
     var innerText = node.innerText !== undefined ? node.innerText.trim() : '';
-    var val = getCanonicalIcon(classArray(node));
+    var val = getCanonicalIcon(classNameArray(node));
 
     if (existingPrefix && existingIconName) {
       val.prefix = existingPrefix;
@@ -1607,7 +1607,7 @@
 
   function attributesParser (node) {
     var extraAttributes = toArray(node.attributes).reduce(function (acc, attr) {
-      if (acc.name !== 'class' && acc.name !== 'style') {
+      if (acc.name !== 'className' && acc.name !== 'style') {
         acc[attr.name] = attr.value;
       }
 
@@ -1618,7 +1618,7 @@
 
     if (config.autoA11y) {
       if (title) {
-        extraAttributes['aria-labelledby'] = "".concat(config.replacementClass, "-title-").concat(titleId || nextUniqueId());
+        extraAttributes['aria-labelledby'] = "".concat(config.replacementclassName, "-title-").concat(titleId || nextUniqueId());
       } else {
         extraAttributes['aria-hidden'] = 'true';
         extraAttributes['focusable'] = 'false';
@@ -1651,17 +1651,17 @@
       mask: null,
       maskId: null,
       extra: {
-        classes: [],
+        classNamees: [],
         styles: {},
         attributes: {}
       }
     };
   }
   function parseMeta(node) {
-    var _classParser = classParser(node),
-        iconName = _classParser.iconName,
-        prefix = _classParser.prefix,
-        extraClasses = _classParser.rest;
+    var _classNameParser = classNameParser(node),
+        iconName = _classNameParser.iconName,
+        prefix = _classNameParser.prefix,
+        extraclassNamees = _classNameParser.rest;
 
     var extraStyles = styleParser(node);
     var transform = transformParser(node);
@@ -1678,7 +1678,7 @@
       mask: mask,
       maskId: node.getAttribute('data-fa-mask-id'),
       extra: {
-        classes: extraClasses,
+        classNamees: extraclassNamees,
         styles: extraStyles,
         attributes: extraAttributes
       }
@@ -1778,19 +1778,19 @@
       element = {
         tag: 'g',
         attributes: {
-          class: "".concat(config.familyPrefix, "-").concat(DUOTONE_CLASSES.GROUP)
+          className: "".concat(config.familyPrefix, "-").concat(DUOTONE_classNameES.GROUP)
         },
         children: [{
           tag: 'path',
           attributes: {
-            class: "".concat(config.familyPrefix, "-").concat(DUOTONE_CLASSES.SECONDARY),
+            className: "".concat(config.familyPrefix, "-").concat(DUOTONE_classNameES.SECONDARY),
             fill: 'currentColor',
             d: vectorData[0]
           }
         }, {
           tag: 'path',
           attributes: {
-            class: "".concat(config.familyPrefix, "-").concat(DUOTONE_CLASSES.PRIMARY),
+            className: "".concat(config.familyPrefix, "-").concat(DUOTONE_classNameES.PRIMARY),
             fill: 'currentColor',
             d: vectorData[1]
           }
@@ -1905,7 +1905,7 @@
   function generateMutation(node) {
     var nodeMeta = parseMeta(node);
 
-    if (~nodeMeta.extra.classes.indexOf(LAYERS_TEXT_CLASSNAME)) {
+    if (~nodeMeta.extra.classNamees.indexOf(LAYERS_TEXT_classNameNAME)) {
       return generateLayersText(node, nodeMeta);
     } else {
       return generateSvgReplacementMutation(node, nodeMeta);
@@ -1915,18 +1915,18 @@
   function onTree(root) {
     var callback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
     if (!IS_DOM) return;
-    var htmlClassList = DOCUMENT.documentElement.classList;
+    var htmlclassNameList = DOCUMENT.documentElement.classNameList;
 
     var hclAdd = function hclAdd(suffix) {
-      return htmlClassList.add("".concat(HTML_CLASS_I2SVG_BASE_CLASS, "-").concat(suffix));
+      return htmlclassNameList.add("".concat(HTML_className_I2SVG_BASE_className, "-").concat(suffix));
     };
 
     var hclRemove = function hclRemove(suffix) {
-      return htmlClassList.remove("".concat(HTML_CLASS_I2SVG_BASE_CLASS, "-").concat(suffix));
+      return htmlclassNameList.remove("".concat(HTML_className_I2SVG_BASE_className, "-").concat(suffix));
     };
 
     var prefixes = config.autoFetchSvg ? Object.keys(PREFIX_TO_STYLE) : Object.keys(styles$3);
-    var prefixesDomQuery = [".".concat(LAYERS_TEXT_CLASSNAME, ":not([").concat(DATA_FA_I2SVG, "])")].concat(prefixes.map(function (p) {
+    var prefixesDomQuery = [".".concat(LAYERS_TEXT_classNameNAME, ":not([").concat(DATA_FA_I2SVG, "])")].concat(prefixes.map(function (p) {
       return ".".concat(p, ":not([").concat(DATA_FA_I2SVG, "])");
     })).join(', ');
 
@@ -2010,7 +2010,7 @@
 
       if (alreadyProcessedPseudoElement && !fontFamily) {
         // If we've already processed it but the current computed style does not result in a font-family,
-        // that probably means that a classNamename that was previously present to make the icon has been
+        // that probably means that a classNameNamename that was previously present to make the icon has been
         // removed. So we now should delete the icon.
         node.removeChild(alreadyProcessedPseudoElement);
         return resolve();
@@ -2098,9 +2098,9 @@
 
   function css () {
     var dfp = DEFAULT_FAMILY_PREFIX;
-    var drc = DEFAULT_REPLACEMENT_CLASS;
+    var drc = DEFAULT_REPLACEMENT_className;
     var fp = config.familyPrefix;
-    var rc = config.replacementClass;
+    var rc = config.replacementclassName;
     var s = baseStyles;
 
     if (fp !== dfp || rc !== drc) {
@@ -2117,12 +2117,12 @@
   /*#__PURE__*/
   function () {
     function Library() {
-      _classCallCheck(this, Library);
+      _classNameCallCheck(this, Library);
 
       this.definitions = {};
     }
 
-    _createClass(Library, [{
+    _createclassName(Library, [{
       key: "add",
       value: function add() {
         var _this = this;
@@ -2295,8 +2295,8 @@
         title = _params$title === void 0 ? null : _params$title,
         _params$titleId = params.titleId,
         titleId = _params$titleId === void 0 ? null : _params$titleId,
-        _params$classes = params.classes,
-        classes = _params$classes === void 0 ? [] : _params$classes,
+        _params$classNamees = params.classNamees,
+        classNamees = _params$classNamees === void 0 ? [] : _params$classNamees,
         _params$attributes = params.attributes,
         attributes = _params$attributes === void 0 ? {} : _params$attributes,
         _params$styles = params.styles,
@@ -2312,7 +2312,7 @@
 
       if (config.autoA11y) {
         if (title) {
-          attributes['aria-labelledby'] = "".concat(config.replacementClass, "-title-").concat(titleId || nextUniqueId());
+          attributes['aria-labelledby'] = "".concat(config.replacementclassName, "-title-").concat(titleId || nextUniqueId());
         } else {
           attributes['aria-hidden'] = 'true';
           attributes['focusable'] = 'false';
@@ -2339,7 +2339,7 @@
         extra: {
           attributes: attributes,
           styles: styles,
-          classes: classes
+          classNamees: classNamees
         }
       });
     });
@@ -2350,8 +2350,8 @@
         transform = _params$transform2 === void 0 ? meaninglessTransform : _params$transform2,
         _params$title2 = params.title,
         title = _params$title2 === void 0 ? null : _params$title2,
-        _params$classes2 = params.classes,
-        classes = _params$classes2 === void 0 ? [] : _params$classes2,
+        _params$classNamees2 = params.classNamees,
+        classNamees = _params$classNamees2 === void 0 ? [] : _params$classNamees2,
         _params$attributes2 = params.attributes,
         attributes = _params$attributes2 === void 0 ? {} : _params$attributes2,
         _params$styles2 = params.styles,
@@ -2368,7 +2368,7 @@
         extra: {
           attributes: attributes,
           styles: styles,
-          classes: ["".concat(config.familyPrefix, "-layers-text")].concat(_toConsumableArray(classes))
+          classNamees: ["".concat(config.familyPrefix, "-layers-text")].concat(_toConsumableArray(classNamees))
         }
       });
     });
@@ -2377,8 +2377,8 @@
     var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
     var _params$title3 = params.title,
         title = _params$title3 === void 0 ? null : _params$title3,
-        _params$classes3 = params.classes,
-        classes = _params$classes3 === void 0 ? [] : _params$classes3,
+        _params$classNamees3 = params.classNamees,
+        classNamees = _params$classNamees3 === void 0 ? [] : _params$classNamees3,
         _params$attributes3 = params.attributes,
         attributes = _params$attributes3 === void 0 ? {} : _params$attributes3,
         _params$styles3 = params.styles,
@@ -2394,15 +2394,15 @@
         extra: {
           attributes: attributes,
           styles: styles,
-          classes: ["".concat(config.familyPrefix, "-layers-counter")].concat(_toConsumableArray(classes))
+          classNamees: ["".concat(config.familyPrefix, "-layers-counter")].concat(_toConsumableArray(classNamees))
         }
       });
     });
   };
   var layer = function layer(assembler) {
     var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-    var _params$classes4 = params.classes,
-        classes = _params$classes4 === void 0 ? [] : _params$classes4;
+    var _params$classNamees4 = params.classNamees,
+        classNamees = _params$classNamees4 === void 0 ? [] : _params$classNamees4;
     return apiObject({
       type: 'layer'
     }, function () {
@@ -2416,7 +2416,7 @@
       return [{
         tag: 'span',
         attributes: {
-          class: ["".concat(config.familyPrefix, "-layers")].concat(_toConsumableArray(classes)).join(' ')
+          className: ["".concat(config.familyPrefix, "-layers")].concat(_toConsumableArray(classNamees)).join(' ')
         },
         children: children
       }];

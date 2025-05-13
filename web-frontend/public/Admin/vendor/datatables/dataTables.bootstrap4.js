@@ -53,8 +53,8 @@ $.extend( true, DataTable.defaults, {
 } );
 
 
-/* Default class modification */
-$.extend( DataTable.ext.classes, {
+/* Default className modification */
+$.extend( DataTable.ext.classNamees, {
 	sWrapper:      "dataTables_wrapper dt-bootstrap4",
 	sFilterInput:  "form-control form-control-sm",
 	sLengthSelect: "custom-select custom-select-sm form-control form-control-sm",
@@ -66,16 +66,16 @@ $.extend( DataTable.ext.classes, {
 /* Bootstrap paging button renderer */
 DataTable.ext.renderer.pageButton.bootstrap = function ( settings, host, idx, buttons, page, pages ) {
 	var api     = new DataTable.Api( settings );
-	var classes = settings.oClasses;
+	var classNamees = settings.oclassNamees;
 	var lang    = settings.oLanguage.oPaginate;
 	var aria = settings.oLanguage.oAria.paginate || {};
-	var btnDisplay, btnClass, counter=0;
+	var btnDisplay, btnclassName, counter=0;
 
 	var attach = function( container, buttons ) {
 		var i, ien, node, button;
 		var clickHandler = function ( e ) {
 			e.preventDefault();
-			if ( !$(e.currentTarget).hasClass('disabled') && api.page() != e.data.action ) {
+			if ( !$(e.currentTarget).hasclassName('disabled') && api.page() != e.data.action ) {
 				api.page( e.data.action ).draw( 'page' );
 			}
 		};
@@ -88,48 +88,48 @@ DataTable.ext.renderer.pageButton.bootstrap = function ( settings, host, idx, bu
 			}
 			else {
 				btnDisplay = '';
-				btnClass = '';
+				btnclassName = '';
 
 				switch ( button ) {
 					case 'ellipsis':
 						btnDisplay = '&#x2026;';
-						btnClass = 'disabled';
+						btnclassName = 'disabled';
 						break;
 
 					case 'first':
 						btnDisplay = lang.sFirst;
-						btnClass = button + (page > 0 ?
+						btnclassName = button + (page > 0 ?
 							'' : ' disabled');
 						break;
 
 					case 'previous':
 						btnDisplay = lang.sPrevious;
-						btnClass = button + (page > 0 ?
+						btnclassName = button + (page > 0 ?
 							'' : ' disabled');
 						break;
 
 					case 'next':
 						btnDisplay = lang.sNext;
-						btnClass = button + (page < pages-1 ?
+						btnclassName = button + (page < pages-1 ?
 							'' : ' disabled');
 						break;
 
 					case 'last':
 						btnDisplay = lang.sLast;
-						btnClass = button + (page < pages-1 ?
+						btnclassName = button + (page < pages-1 ?
 							'' : ' disabled');
 						break;
 
 					default:
 						btnDisplay = button + 1;
-						btnClass = page === button ?
+						btnclassName = page === button ?
 							'active' : '';
 						break;
 				}
 
 				if ( btnDisplay ) {
 					node = $('<li>', {
-							'class': classes.sPageButton+' '+btnClass,
+							'className': classNamees.sPageButton+' '+btnclassName,
 							'id': idx === 0 && typeof button === 'string' ?
 								settings.sTableId +'_'+ button :
 								null
@@ -140,7 +140,7 @@ DataTable.ext.renderer.pageButton.bootstrap = function ( settings, host, idx, bu
 								'aria-label': aria[ button ],
 								'data-dt-idx': counter,
 								'tabindex': settings.iTabIndex,
-								'class': 'page-link'
+								'className': 'page-link'
 							} )
 							.html( btnDisplay )
 						)
@@ -170,7 +170,7 @@ DataTable.ext.renderer.pageButton.bootstrap = function ( settings, host, idx, bu
 	catch (e) {}
 
 	attach(
-		$(host).empty().html('<ul class="pagination"/>').children('ul'),
+		$(host).empty().html('<ul className="pagination"/>').children('ul'),
 		buttons
 	);
 

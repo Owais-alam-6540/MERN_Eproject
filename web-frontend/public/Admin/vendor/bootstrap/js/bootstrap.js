@@ -24,7 +24,7 @@
     }
   }
 
-  function _createClass(Constructor, protoProps, staticProps) {
+  function _createclassName(Constructor, protoProps, staticProps) {
     if (protoProps) _defineProperties(Constructor.prototype, protoProps);
     if (staticProps) _defineProperties(Constructor, staticProps);
     return Constructor;
@@ -48,10 +48,10 @@
     return _extends.apply(this, arguments);
   }
 
-  function _inheritsLoose(subClass, superClass) {
-    subClass.prototype = Object.create(superClass.prototype);
-    subClass.prototype.constructor = subClass;
-    subClass.__proto__ = superClass;
+  function _inheritsLoose(subclassName, superclassName) {
+    subclassName.prototype = Object.create(superclassName.prototype);
+    subclassName.prototype.constructor = subclassName;
+    subclassName.__proto__ = superclassName;
   }
 
   /**
@@ -244,12 +244,12 @@
   var EVENT_CLOSE = "close" + EVENT_KEY;
   var EVENT_CLOSED = "closed" + EVENT_KEY;
   var EVENT_CLICK_DATA_API = "click" + EVENT_KEY + DATA_API_KEY;
-  var CLASS_NAME_ALERT = 'alert';
-  var CLASS_NAME_FADE = 'fade';
-  var CLASS_NAME_SHOW = 'show';
+  var className_NAME_ALERT = 'alert';
+  var className_NAME_FADE = 'fade';
+  var className_NAME_SHOW = 'show';
   /**
    * ------------------------------------------------------------------------
-   * Class Definition
+   * className Definition
    * ------------------------------------------------------------------------
    */
 
@@ -293,7 +293,7 @@
       }
 
       if (!parent) {
-        parent = $__default['default'](element).closest("." + CLASS_NAME_ALERT)[0];
+        parent = $__default['default'](element).closest("." + className_NAME_ALERT)[0];
       }
 
       return parent;
@@ -308,9 +308,9 @@
     _proto._removeElement = function _removeElement(element) {
       var _this = this;
 
-      $__default['default'](element).removeClass(CLASS_NAME_SHOW);
+      $__default['default'](element).removeclassName(className_NAME_SHOW);
 
-      if (!$__default['default'](element).hasClass(CLASS_NAME_FADE)) {
+      if (!$__default['default'](element).hasclassName(className_NAME_FADE)) {
         this._destroyElement(element);
 
         return;
@@ -353,7 +353,7 @@
       };
     };
 
-    _createClass(Alert, null, [{
+    _createclassName(Alert, null, [{
       key: "VERSION",
       get: function get() {
         return VERSION;
@@ -396,9 +396,9 @@
   var EVENT_KEY$1 = "." + DATA_KEY$1;
   var DATA_API_KEY$1 = '.data-api';
   var JQUERY_NO_CONFLICT$1 = $__default['default'].fn[NAME$1];
-  var CLASS_NAME_ACTIVE = 'active';
-  var CLASS_NAME_BUTTON = 'btn';
-  var CLASS_NAME_FOCUS = 'focus';
+  var className_NAME_ACTIVE = 'active';
+  var className_NAME_BUTTON = 'btn';
+  var className_NAME_FOCUS = 'focus';
   var SELECTOR_DATA_TOGGLE_CARROT = '[data-toggle^="button"]';
   var SELECTOR_DATA_TOGGLES = '[data-toggle="buttons"]';
   var SELECTOR_DATA_TOGGLE = '[data-toggle="button"]';
@@ -411,7 +411,7 @@
   var EVENT_LOAD_DATA_API = "load" + EVENT_KEY$1 + DATA_API_KEY$1;
   /**
    * ------------------------------------------------------------------------
-   * Class Definition
+   * className Definition
    * ------------------------------------------------------------------------
    */
 
@@ -435,13 +435,13 @@
 
         if (input) {
           if (input.type === 'radio') {
-            if (input.checked && this._element.classList.contains(CLASS_NAME_ACTIVE)) {
+            if (input.checked && this._element.classNameList.contains(className_NAME_ACTIVE)) {
               triggerChangeEvent = false;
             } else {
               var activeElement = rootElement.querySelector(SELECTOR_ACTIVE);
 
               if (activeElement) {
-                $__default['default'](activeElement).removeClass(CLASS_NAME_ACTIVE);
+                $__default['default'](activeElement).removeclassName(className_NAME_ACTIVE);
               }
             }
           }
@@ -449,7 +449,7 @@
           if (triggerChangeEvent) {
             // if it's not a radio button or checkbox don't add a pointless/invalid checked property to the input
             if (input.type === 'checkbox' || input.type === 'radio') {
-              input.checked = !this._element.classList.contains(CLASS_NAME_ACTIVE);
+              input.checked = !this._element.classNameList.contains(className_NAME_ACTIVE);
             }
 
             if (!this.shouldAvoidTriggerChange) {
@@ -462,13 +462,13 @@
         }
       }
 
-      if (!(this._element.hasAttribute('disabled') || this._element.classList.contains('disabled'))) {
+      if (!(this._element.hasAttribute('disabled') || this._element.classNameList.contains('disabled'))) {
         if (addAriaPressed) {
-          this._element.setAttribute('aria-pressed', !this._element.classList.contains(CLASS_NAME_ACTIVE));
+          this._element.setAttribute('aria-pressed', !this._element.classNameList.contains(className_NAME_ACTIVE));
         }
 
         if (triggerChangeEvent) {
-          $__default['default'](this._element).toggleClass(CLASS_NAME_ACTIVE);
+          $__default['default'](this._element).toggleclassName(className_NAME_ACTIVE);
         }
       }
     };
@@ -497,7 +497,7 @@
       });
     };
 
-    _createClass(Button, null, [{
+    _createclassName(Button, null, [{
       key: "VERSION",
       get: function get() {
         return VERSION$1;
@@ -517,16 +517,16 @@
     var button = event.target;
     var initialButton = button;
 
-    if (!$__default['default'](button).hasClass(CLASS_NAME_BUTTON)) {
+    if (!$__default['default'](button).hasclassName(className_NAME_BUTTON)) {
       button = $__default['default'](button).closest(SELECTOR_BUTTON)[0];
     }
 
-    if (!button || button.hasAttribute('disabled') || button.classList.contains('disabled')) {
+    if (!button || button.hasAttribute('disabled') || button.classNameList.contains('disabled')) {
       event.preventDefault(); // work around Firefox bug #1540995
     } else {
       var inputBtn = button.querySelector(SELECTOR_INPUT);
 
-      if (inputBtn && (inputBtn.hasAttribute('disabled') || inputBtn.classList.contains('disabled'))) {
+      if (inputBtn && (inputBtn.hasAttribute('disabled') || inputBtn.classNameList.contains('disabled'))) {
         event.preventDefault(); // work around Firefox bug #1540995
 
         return;
@@ -538,10 +538,10 @@
     }
   }).on(EVENT_FOCUS_BLUR_DATA_API, SELECTOR_DATA_TOGGLE_CARROT, function (event) {
     var button = $__default['default'](event.target).closest(SELECTOR_BUTTON)[0];
-    $__default['default'](button).toggleClass(CLASS_NAME_FOCUS, /^focus(in)?$/.test(event.type));
+    $__default['default'](button).toggleclassName(className_NAME_FOCUS, /^focus(in)?$/.test(event.type));
   });
   $__default['default'](window).on(EVENT_LOAD_DATA_API, function () {
-    // ensure correct active class is set to match the controls' actual values/states
+    // ensure correct active className is set to match the controls' actual values/states
     // find all checkboxes/readio buttons inside data-toggle groups
     var buttons = [].slice.call(document.querySelectorAll(SELECTOR_DATA_TOGGLES_BUTTONS));
 
@@ -550,9 +550,9 @@
       var input = button.querySelector(SELECTOR_INPUT);
 
       if (input.checked || input.hasAttribute('checked')) {
-        button.classList.add(CLASS_NAME_ACTIVE);
+        button.classNameList.add(className_NAME_ACTIVE);
       } else {
-        button.classList.remove(CLASS_NAME_ACTIVE);
+        button.classNameList.remove(className_NAME_ACTIVE);
       }
     } // find all button toggles
 
@@ -563,9 +563,9 @@
       var _button = buttons[_i];
 
       if (_button.getAttribute('aria-pressed') === 'true') {
-        _button.classList.add(CLASS_NAME_ACTIVE);
+        _button.classNameList.add(className_NAME_ACTIVE);
       } else {
-        _button.classList.remove(CLASS_NAME_ACTIVE);
+        _button.classNameList.remove(className_NAME_ACTIVE);
       }
     }
   });
@@ -635,14 +635,14 @@
   var EVENT_DRAG_START = "dragstart" + EVENT_KEY$2;
   var EVENT_LOAD_DATA_API$1 = "load" + EVENT_KEY$2 + DATA_API_KEY$2;
   var EVENT_CLICK_DATA_API$2 = "click" + EVENT_KEY$2 + DATA_API_KEY$2;
-  var CLASS_NAME_CAROUSEL = 'carousel';
-  var CLASS_NAME_ACTIVE$1 = 'active';
-  var CLASS_NAME_SLIDE = 'slide';
-  var CLASS_NAME_RIGHT = 'carousel-item-right';
-  var CLASS_NAME_LEFT = 'carousel-item-left';
-  var CLASS_NAME_NEXT = 'carousel-item-next';
-  var CLASS_NAME_PREV = 'carousel-item-prev';
-  var CLASS_NAME_POINTER_EVENT = 'pointer-event';
+  var className_NAME_CAROUSEL = 'carousel';
+  var className_NAME_ACTIVE$1 = 'active';
+  var className_NAME_SLIDE = 'slide';
+  var className_NAME_RIGHT = 'carousel-item-right';
+  var className_NAME_LEFT = 'carousel-item-left';
+  var className_NAME_NEXT = 'carousel-item-next';
+  var className_NAME_PREV = 'carousel-item-prev';
+  var className_NAME_POINTER_EVENT = 'pointer-event';
   var SELECTOR_ACTIVE$1 = '.active';
   var SELECTOR_ACTIVE_ITEM = '.active.carousel-item';
   var SELECTOR_ITEM = '.carousel-item';
@@ -657,7 +657,7 @@
   };
   /**
    * ------------------------------------------------------------------------
-   * Class Definition
+   * className Definition
    * ------------------------------------------------------------------------
    */
 
@@ -890,7 +890,7 @@
           return end(event);
         });
 
-        this._element.classList.add(CLASS_NAME_POINTER_EVENT);
+        this._element.classNameList.add(className_NAME_POINTER_EVENT);
       } else {
         $__default['default'](this._element).on(EVENT_TOUCHSTART, function (event) {
           return start(event);
@@ -963,12 +963,12 @@
     _proto._setActiveIndicatorElement = function _setActiveIndicatorElement(element) {
       if (this._indicatorsElement) {
         var indicators = [].slice.call(this._indicatorsElement.querySelectorAll(SELECTOR_ACTIVE$1));
-        $__default['default'](indicators).removeClass(CLASS_NAME_ACTIVE$1);
+        $__default['default'](indicators).removeclassName(className_NAME_ACTIVE$1);
 
         var nextIndicator = this._indicatorsElement.children[this._getItemIndex(element)];
 
         if (nextIndicator) {
-          $__default['default'](nextIndicator).addClass(CLASS_NAME_ACTIVE$1);
+          $__default['default'](nextIndicator).addclassName(className_NAME_ACTIVE$1);
         }
       }
     };
@@ -1002,21 +1002,21 @@
       var nextElementIndex = this._getItemIndex(nextElement);
 
       var isCycling = Boolean(this._interval);
-      var directionalClassName;
-      var orderClassName;
+      var directionalclassNameName;
+      var orderclassNameName;
       var eventDirectionName;
 
       if (direction === DIRECTION_NEXT) {
-        directionalClassName = CLASS_NAME_LEFT;
-        orderClassName = CLASS_NAME_NEXT;
+        directionalclassNameName = className_NAME_LEFT;
+        orderclassNameName = className_NAME_NEXT;
         eventDirectionName = DIRECTION_LEFT;
       } else {
-        directionalClassName = CLASS_NAME_RIGHT;
-        orderClassName = CLASS_NAME_PREV;
+        directionalclassNameName = className_NAME_RIGHT;
+        orderclassNameName = className_NAME_PREV;
         eventDirectionName = DIRECTION_RIGHT;
       }
 
-      if (nextElement && $__default['default'](nextElement).hasClass(CLASS_NAME_ACTIVE$1)) {
+      if (nextElement && $__default['default'](nextElement).hasclassName(className_NAME_ACTIVE$1)) {
         this._isSliding = false;
         return;
       }
@@ -1048,23 +1048,23 @@
         to: nextElementIndex
       });
 
-      if ($__default['default'](this._element).hasClass(CLASS_NAME_SLIDE)) {
-        $__default['default'](nextElement).addClass(orderClassName);
+      if ($__default['default'](this._element).hasclassName(className_NAME_SLIDE)) {
+        $__default['default'](nextElement).addclassName(orderclassNameName);
         Util.reflow(nextElement);
-        $__default['default'](activeElement).addClass(directionalClassName);
-        $__default['default'](nextElement).addClass(directionalClassName);
+        $__default['default'](activeElement).addclassName(directionalclassNameName);
+        $__default['default'](nextElement).addclassName(directionalclassNameName);
         var transitionDuration = Util.getTransitionDurationFromElement(activeElement);
         $__default['default'](activeElement).one(Util.TRANSITION_END, function () {
-          $__default['default'](nextElement).removeClass(directionalClassName + " " + orderClassName).addClass(CLASS_NAME_ACTIVE$1);
-          $__default['default'](activeElement).removeClass(CLASS_NAME_ACTIVE$1 + " " + orderClassName + " " + directionalClassName);
+          $__default['default'](nextElement).removeclassName(directionalclassNameName + " " + orderclassNameName).addclassName(className_NAME_ACTIVE$1);
+          $__default['default'](activeElement).removeclassName(className_NAME_ACTIVE$1 + " " + orderclassNameName + " " + directionalclassNameName);
           _this4._isSliding = false;
           setTimeout(function () {
             return $__default['default'](_this4._element).trigger(slidEvent);
           }, 0);
         }).emulateTransitionEnd(transitionDuration);
       } else {
-        $__default['default'](activeElement).removeClass(CLASS_NAME_ACTIVE$1);
-        $__default['default'](nextElement).addClass(CLASS_NAME_ACTIVE$1);
+        $__default['default'](activeElement).removeclassName(className_NAME_ACTIVE$1);
+        $__default['default'](nextElement).addclassName(className_NAME_ACTIVE$1);
         this._isSliding = false;
         $__default['default'](this._element).trigger(slidEvent);
       }
@@ -1116,7 +1116,7 @@
 
       var target = $__default['default'](selector)[0];
 
-      if (!target || !$__default['default'](target).hasClass(CLASS_NAME_CAROUSEL)) {
+      if (!target || !$__default['default'](target).hasclassName(className_NAME_CAROUSEL)) {
         return;
       }
 
@@ -1137,7 +1137,7 @@
       event.preventDefault();
     };
 
-    _createClass(Carousel, null, [{
+    _createclassName(Carousel, null, [{
       key: "VERSION",
       get: function get() {
         return VERSION$2;
@@ -1207,17 +1207,17 @@
   var EVENT_HIDE = "hide" + EVENT_KEY$3;
   var EVENT_HIDDEN = "hidden" + EVENT_KEY$3;
   var EVENT_CLICK_DATA_API$3 = "click" + EVENT_KEY$3 + DATA_API_KEY$3;
-  var CLASS_NAME_SHOW$1 = 'show';
-  var CLASS_NAME_COLLAPSE = 'collapse';
-  var CLASS_NAME_COLLAPSING = 'collapsing';
-  var CLASS_NAME_COLLAPSED = 'collapsed';
+  var className_NAME_SHOW$1 = 'show';
+  var className_NAME_COLLAPSE = 'collapse';
+  var className_NAME_COLLAPSING = 'collapsing';
+  var className_NAME_COLLAPSED = 'collapsed';
   var DIMENSION_WIDTH = 'width';
   var DIMENSION_HEIGHT = 'height';
   var SELECTOR_ACTIVES = '.show, .collapsing';
   var SELECTOR_DATA_TOGGLE$1 = '[data-toggle="collapse"]';
   /**
    * ------------------------------------------------------------------------
-   * Class Definition
+   * className Definition
    * ------------------------------------------------------------------------
    */
 
@@ -1246,7 +1246,7 @@
       this._parent = this._config.parent ? this._getParent() : null;
 
       if (!this._config.parent) {
-        this._addAriaAndCollapsedClass(this._element, this._triggerArray);
+        this._addAriaAndCollapsedclassName(this._element, this._triggerArray);
       }
 
       if (this._config.toggle) {
@@ -1259,7 +1259,7 @@
 
     // Public
     _proto.toggle = function toggle() {
-      if ($__default['default'](this._element).hasClass(CLASS_NAME_SHOW$1)) {
+      if ($__default['default'](this._element).hasclassName(className_NAME_SHOW$1)) {
         this.hide();
       } else {
         this.show();
@@ -1269,7 +1269,7 @@
     _proto.show = function show() {
       var _this = this;
 
-      if (this._isTransitioning || $__default['default'](this._element).hasClass(CLASS_NAME_SHOW$1)) {
+      if (this._isTransitioning || $__default['default'](this._element).hasclassName(className_NAME_SHOW$1)) {
         return;
       }
 
@@ -1282,7 +1282,7 @@
             return elem.getAttribute('data-parent') === _this._config.parent;
           }
 
-          return elem.classList.contains(CLASS_NAME_COLLAPSE);
+          return elem.classNameList.contains(className_NAME_COLLAPSE);
         });
 
         if (actives.length === 0) {
@@ -1315,17 +1315,17 @@
 
       var dimension = this._getDimension();
 
-      $__default['default'](this._element).removeClass(CLASS_NAME_COLLAPSE).addClass(CLASS_NAME_COLLAPSING);
+      $__default['default'](this._element).removeclassName(className_NAME_COLLAPSE).addclassName(className_NAME_COLLAPSING);
       this._element.style[dimension] = 0;
 
       if (this._triggerArray.length) {
-        $__default['default'](this._triggerArray).removeClass(CLASS_NAME_COLLAPSED).attr('aria-expanded', true);
+        $__default['default'](this._triggerArray).removeclassName(className_NAME_COLLAPSED).attr('aria-expanded', true);
       }
 
       this.setTransitioning(true);
 
       var complete = function complete() {
-        $__default['default'](_this._element).removeClass(CLASS_NAME_COLLAPSING).addClass(CLASS_NAME_COLLAPSE + " " + CLASS_NAME_SHOW$1);
+        $__default['default'](_this._element).removeclassName(className_NAME_COLLAPSING).addclassName(className_NAME_COLLAPSE + " " + className_NAME_SHOW$1);
         _this._element.style[dimension] = '';
 
         _this.setTransitioning(false);
@@ -1343,7 +1343,7 @@
     _proto.hide = function hide() {
       var _this2 = this;
 
-      if (this._isTransitioning || !$__default['default'](this._element).hasClass(CLASS_NAME_SHOW$1)) {
+      if (this._isTransitioning || !$__default['default'](this._element).hasclassName(className_NAME_SHOW$1)) {
         return;
       }
 
@@ -1358,7 +1358,7 @@
 
       this._element.style[dimension] = this._element.getBoundingClientRect()[dimension] + "px";
       Util.reflow(this._element);
-      $__default['default'](this._element).addClass(CLASS_NAME_COLLAPSING).removeClass(CLASS_NAME_COLLAPSE + " " + CLASS_NAME_SHOW$1);
+      $__default['default'](this._element).addclassName(className_NAME_COLLAPSING).removeclassName(className_NAME_COLLAPSE + " " + className_NAME_SHOW$1);
       var triggerArrayLength = this._triggerArray.length;
 
       if (triggerArrayLength > 0) {
@@ -1369,8 +1369,8 @@
           if (selector !== null) {
             var $elem = $__default['default']([].slice.call(document.querySelectorAll(selector)));
 
-            if (!$elem.hasClass(CLASS_NAME_SHOW$1)) {
-              $__default['default'](trigger).addClass(CLASS_NAME_COLLAPSED).attr('aria-expanded', false);
+            if (!$elem.hasclassName(className_NAME_SHOW$1)) {
+              $__default['default'](trigger).addclassName(className_NAME_COLLAPSED).attr('aria-expanded', false);
             }
           }
         }
@@ -1381,7 +1381,7 @@
       var complete = function complete() {
         _this2.setTransitioning(false);
 
-        $__default['default'](_this2._element).removeClass(CLASS_NAME_COLLAPSING).addClass(CLASS_NAME_COLLAPSE).trigger(EVENT_HIDDEN);
+        $__default['default'](_this2._element).removeclassName(className_NAME_COLLAPSING).addclassName(className_NAME_COLLAPSE).trigger(EVENT_HIDDEN);
       };
 
       this._element.style[dimension] = '';
@@ -1412,7 +1412,7 @@
     };
 
     _proto._getDimension = function _getDimension() {
-      var hasWidth = $__default['default'](this._element).hasClass(DIMENSION_WIDTH);
+      var hasWidth = $__default['default'](this._element).hasclassName(DIMENSION_WIDTH);
       return hasWidth ? DIMENSION_WIDTH : DIMENSION_HEIGHT;
     };
 
@@ -1434,16 +1434,16 @@
       var selector = "[data-toggle=\"collapse\"][data-parent=\"" + this._config.parent + "\"]";
       var children = [].slice.call(parent.querySelectorAll(selector));
       $__default['default'](children).each(function (i, element) {
-        _this3._addAriaAndCollapsedClass(Collapse._getTargetFromElement(element), [element]);
+        _this3._addAriaAndCollapsedclassName(Collapse._getTargetFromElement(element), [element]);
       });
       return parent;
     };
 
-    _proto._addAriaAndCollapsedClass = function _addAriaAndCollapsedClass(element, triggerArray) {
-      var isOpen = $__default['default'](element).hasClass(CLASS_NAME_SHOW$1);
+    _proto._addAriaAndCollapsedclassName = function _addAriaAndCollapsedclassName(element, triggerArray) {
+      var isOpen = $__default['default'](element).hasclassName(className_NAME_SHOW$1);
 
       if (triggerArray.length) {
-        $__default['default'](triggerArray).toggleClass(CLASS_NAME_COLLAPSED, !isOpen).attr('aria-expanded', isOpen);
+        $__default['default'](triggerArray).toggleclassName(className_NAME_COLLAPSED, !isOpen).attr('aria-expanded', isOpen);
       }
     } // Static
     ;
@@ -1479,7 +1479,7 @@
       });
     };
 
-    _createClass(Collapse, null, [{
+    _createclassName(Collapse, null, [{
       key: "VERSION",
       get: function get() {
         return VERSION$3;
@@ -1564,13 +1564,13 @@
   var EVENT_CLICK_DATA_API$4 = "click" + EVENT_KEY$4 + DATA_API_KEY$4;
   var EVENT_KEYDOWN_DATA_API = "keydown" + EVENT_KEY$4 + DATA_API_KEY$4;
   var EVENT_KEYUP_DATA_API = "keyup" + EVENT_KEY$4 + DATA_API_KEY$4;
-  var CLASS_NAME_DISABLED = 'disabled';
-  var CLASS_NAME_SHOW$2 = 'show';
-  var CLASS_NAME_DROPUP = 'dropup';
-  var CLASS_NAME_DROPRIGHT = 'dropright';
-  var CLASS_NAME_DROPLEFT = 'dropleft';
-  var CLASS_NAME_MENURIGHT = 'dropdown-menu-right';
-  var CLASS_NAME_POSITION_STATIC = 'position-static';
+  var className_NAME_DISABLED = 'disabled';
+  var className_NAME_SHOW$2 = 'show';
+  var className_NAME_DROPUP = 'dropup';
+  var className_NAME_DROPRIGHT = 'dropright';
+  var className_NAME_DROPLEFT = 'dropleft';
+  var className_NAME_MENURIGHT = 'dropdown-menu-right';
+  var className_NAME_POSITION_STATIC = 'position-static';
   var SELECTOR_DATA_TOGGLE$2 = '[data-toggle="dropdown"]';
   var SELECTOR_FORM_CHILD = '.dropdown form';
   var SELECTOR_MENU = '.dropdown-menu';
@@ -1600,7 +1600,7 @@
   };
   /**
    * ------------------------------------------------------------------------
-   * Class Definition
+   * className Definition
    * ------------------------------------------------------------------------
    */
 
@@ -1620,11 +1620,11 @@
 
     // Public
     _proto.toggle = function toggle() {
-      if (this._element.disabled || $__default['default'](this._element).hasClass(CLASS_NAME_DISABLED)) {
+      if (this._element.disabled || $__default['default'](this._element).hasclassName(className_NAME_DISABLED)) {
         return;
       }
 
-      var isActive = $__default['default'](this._menu).hasClass(CLASS_NAME_SHOW$2);
+      var isActive = $__default['default'](this._menu).hasclassName(className_NAME_SHOW$2);
 
       Dropdown._clearMenus();
 
@@ -1640,7 +1640,7 @@
         usePopper = false;
       }
 
-      if (this._element.disabled || $__default['default'](this._element).hasClass(CLASS_NAME_DISABLED) || $__default['default'](this._menu).hasClass(CLASS_NAME_SHOW$2)) {
+      if (this._element.disabled || $__default['default'](this._element).hasclassName(className_NAME_DISABLED) || $__default['default'](this._menu).hasclassName(className_NAME_SHOW$2)) {
         return;
       }
 
@@ -1683,7 +1683,7 @@
 
 
         if (this._config.boundary !== 'scrollParent') {
-          $__default['default'](parent).addClass(CLASS_NAME_POSITION_STATIC);
+          $__default['default'](parent).addclassName(className_NAME_POSITION_STATIC);
         }
 
         this._popper = new Popper__default['default'](referenceElement, this._menu, this._getPopperConfig());
@@ -1701,12 +1701,12 @@
 
       this._element.setAttribute('aria-expanded', true);
 
-      $__default['default'](this._menu).toggleClass(CLASS_NAME_SHOW$2);
-      $__default['default'](parent).toggleClass(CLASS_NAME_SHOW$2).trigger($__default['default'].Event(EVENT_SHOWN$1, relatedTarget));
+      $__default['default'](this._menu).toggleclassName(className_NAME_SHOW$2);
+      $__default['default'](parent).toggleclassName(className_NAME_SHOW$2).trigger($__default['default'].Event(EVENT_SHOWN$1, relatedTarget));
     };
 
     _proto.hide = function hide() {
-      if (this._element.disabled || $__default['default'](this._element).hasClass(CLASS_NAME_DISABLED) || !$__default['default'](this._menu).hasClass(CLASS_NAME_SHOW$2)) {
+      if (this._element.disabled || $__default['default'](this._element).hasclassName(className_NAME_DISABLED) || !$__default['default'](this._menu).hasclassName(className_NAME_SHOW$2)) {
         return;
       }
 
@@ -1727,8 +1727,8 @@
         this._popper.destroy();
       }
 
-      $__default['default'](this._menu).toggleClass(CLASS_NAME_SHOW$2);
-      $__default['default'](parent).toggleClass(CLASS_NAME_SHOW$2).trigger($__default['default'].Event(EVENT_HIDDEN$1, relatedTarget));
+      $__default['default'](this._menu).toggleclassName(className_NAME_SHOW$2);
+      $__default['default'](parent).toggleclassName(className_NAME_SHOW$2).trigger($__default['default'].Event(EVENT_HIDDEN$1, relatedTarget));
     };
 
     _proto.dispose = function dispose() {
@@ -1786,13 +1786,13 @@
       var $parentDropdown = $__default['default'](this._element.parentNode);
       var placement = PLACEMENT_BOTTOM; // Handle dropup
 
-      if ($parentDropdown.hasClass(CLASS_NAME_DROPUP)) {
-        placement = $__default['default'](this._menu).hasClass(CLASS_NAME_MENURIGHT) ? PLACEMENT_TOPEND : PLACEMENT_TOP;
-      } else if ($parentDropdown.hasClass(CLASS_NAME_DROPRIGHT)) {
+      if ($parentDropdown.hasclassName(className_NAME_DROPUP)) {
+        placement = $__default['default'](this._menu).hasclassName(className_NAME_MENURIGHT) ? PLACEMENT_TOPEND : PLACEMENT_TOP;
+      } else if ($parentDropdown.hasclassName(className_NAME_DROPRIGHT)) {
         placement = PLACEMENT_RIGHT;
-      } else if ($parentDropdown.hasClass(CLASS_NAME_DROPLEFT)) {
+      } else if ($parentDropdown.hasclassName(className_NAME_DROPLEFT)) {
         placement = PLACEMENT_LEFT;
-      } else if ($__default['default'](this._menu).hasClass(CLASS_NAME_MENURIGHT)) {
+      } else if ($__default['default'](this._menu).hasclassName(className_NAME_MENURIGHT)) {
         placement = PLACEMENT_BOTTOMEND;
       }
 
@@ -1890,7 +1890,7 @@
 
         var dropdownMenu = context._menu;
 
-        if (!$__default['default'](parent).hasClass(CLASS_NAME_SHOW$2)) {
+        if (!$__default['default'](parent).hasclassName(className_NAME_SHOW$2)) {
           continue;
         }
 
@@ -1917,8 +1917,8 @@
           context._popper.destroy();
         }
 
-        $__default['default'](dropdownMenu).removeClass(CLASS_NAME_SHOW$2);
-        $__default['default'](parent).removeClass(CLASS_NAME_SHOW$2).trigger($__default['default'].Event(EVENT_HIDDEN$1, relatedTarget));
+        $__default['default'](dropdownMenu).removeclassName(className_NAME_SHOW$2);
+        $__default['default'](parent).removeclassName(className_NAME_SHOW$2).trigger($__default['default'].Event(EVENT_HIDDEN$1, relatedTarget));
       }
     };
 
@@ -1946,13 +1946,13 @@
         return;
       }
 
-      if (this.disabled || $__default['default'](this).hasClass(CLASS_NAME_DISABLED)) {
+      if (this.disabled || $__default['default'](this).hasclassName(className_NAME_DISABLED)) {
         return;
       }
 
       var parent = Dropdown._getParentFromElement(this);
 
-      var isActive = $__default['default'](parent).hasClass(CLASS_NAME_SHOW$2);
+      var isActive = $__default['default'](parent).hasclassName(className_NAME_SHOW$2);
 
       if (!isActive && event.which === ESCAPE_KEYCODE) {
         return;
@@ -1997,7 +1997,7 @@
       items[index].focus();
     };
 
-    _createClass(Dropdown, null, [{
+    _createclassName(Dropdown, null, [{
       key: "VERSION",
       get: function get() {
         return VERSION$4;
@@ -2083,13 +2083,13 @@
   var EVENT_MOUSEUP_DISMISS = "mouseup.dismiss" + EVENT_KEY$5;
   var EVENT_MOUSEDOWN_DISMISS = "mousedown.dismiss" + EVENT_KEY$5;
   var EVENT_CLICK_DATA_API$5 = "click" + EVENT_KEY$5 + DATA_API_KEY$5;
-  var CLASS_NAME_SCROLLABLE = 'modal-dialog-scrollable';
-  var CLASS_NAME_SCROLLBAR_MEASURER = 'modal-scrollbar-measure';
-  var CLASS_NAME_BACKDROP = 'modal-backdrop';
-  var CLASS_NAME_OPEN = 'modal-open';
-  var CLASS_NAME_FADE$1 = 'fade';
-  var CLASS_NAME_SHOW$3 = 'show';
-  var CLASS_NAME_STATIC = 'modal-static';
+  var className_NAME_SCROLLABLE = 'modal-dialog-scrollable';
+  var className_NAME_SCROLLBAR_MEASURER = 'modal-scrollbar-measure';
+  var className_NAME_BACKDROP = 'modal-backdrop';
+  var className_NAME_OPEN = 'modal-open';
+  var className_NAME_FADE$1 = 'fade';
+  var className_NAME_SHOW$3 = 'show';
+  var className_NAME_STATIC = 'modal-static';
   var SELECTOR_DIALOG = '.modal-dialog';
   var SELECTOR_MODAL_BODY = '.modal-body';
   var SELECTOR_DATA_TOGGLE$3 = '[data-toggle="modal"]';
@@ -2098,7 +2098,7 @@
   var SELECTOR_STICKY_CONTENT = '.sticky-top';
   /**
    * ------------------------------------------------------------------------
-   * Class Definition
+   * className Definition
    * ------------------------------------------------------------------------
    */
 
@@ -2130,7 +2130,7 @@
         return;
       }
 
-      if ($__default['default'](this._element).hasClass(CLASS_NAME_FADE$1)) {
+      if ($__default['default'](this._element).hasclassName(className_NAME_FADE$1)) {
         this._isTransitioning = true;
       }
 
@@ -2190,7 +2190,7 @@
       }
 
       this._isShown = false;
-      var transition = $__default['default'](this._element).hasClass(CLASS_NAME_FADE$1);
+      var transition = $__default['default'](this._element).hasclassName(className_NAME_FADE$1);
 
       if (transition) {
         this._isTransitioning = true;
@@ -2201,7 +2201,7 @@
       this._setResizeEvent();
 
       $__default['default'](document).off(EVENT_FOCUSIN);
-      $__default['default'](this._element).removeClass(CLASS_NAME_SHOW$3);
+      $__default['default'](this._element).removeclassName(className_NAME_SHOW$3);
       $__default['default'](this._element).off(EVENT_CLICK_DISMISS);
       $__default['default'](this._dialog).off(EVENT_MOUSEDOWN_DISMISS);
 
@@ -2265,12 +2265,12 @@
         this._element.style.overflowY = 'hidden';
       }
 
-      this._element.classList.add(CLASS_NAME_STATIC);
+      this._element.classNameList.add(className_NAME_STATIC);
 
       var modalTransitionDuration = Util.getTransitionDurationFromElement(this._dialog);
       $__default['default'](this._element).off(Util.TRANSITION_END);
       $__default['default'](this._element).one(Util.TRANSITION_END, function () {
-        _this3._element.classList.remove(CLASS_NAME_STATIC);
+        _this3._element.classNameList.remove(className_NAME_STATIC);
 
         if (!isModalOverflowing) {
           $__default['default'](_this3._element).one(Util.TRANSITION_END, function () {
@@ -2285,7 +2285,7 @@
     _proto._showElement = function _showElement(relatedTarget) {
       var _this4 = this;
 
-      var transition = $__default['default'](this._element).hasClass(CLASS_NAME_FADE$1);
+      var transition = $__default['default'](this._element).hasclassName(className_NAME_FADE$1);
       var modalBody = this._dialog ? this._dialog.querySelector(SELECTOR_MODAL_BODY) : null;
 
       if (!this._element.parentNode || this._element.parentNode.nodeType !== Node.ELEMENT_NODE) {
@@ -2301,7 +2301,7 @@
 
       this._element.setAttribute('role', 'dialog');
 
-      if ($__default['default'](this._dialog).hasClass(CLASS_NAME_SCROLLABLE) && modalBody) {
+      if ($__default['default'](this._dialog).hasclassName(className_NAME_SCROLLABLE) && modalBody) {
         modalBody.scrollTop = 0;
       } else {
         this._element.scrollTop = 0;
@@ -2311,7 +2311,7 @@
         Util.reflow(this._element);
       }
 
-      $__default['default'](this._element).addClass(CLASS_NAME_SHOW$3);
+      $__default['default'](this._element).addclassName(className_NAME_SHOW$3);
 
       if (this._config.focus) {
         this._enforceFocus();
@@ -2393,7 +2393,7 @@
       this._isTransitioning = false;
 
       this._showBackdrop(function () {
-        $__default['default'](document.body).removeClass(CLASS_NAME_OPEN);
+        $__default['default'](document.body).removeclassName(className_NAME_OPEN);
 
         _this8._resetAdjustments();
 
@@ -2413,14 +2413,14 @@
     _proto._showBackdrop = function _showBackdrop(callback) {
       var _this9 = this;
 
-      var animate = $__default['default'](this._element).hasClass(CLASS_NAME_FADE$1) ? CLASS_NAME_FADE$1 : '';
+      var animate = $__default['default'](this._element).hasclassName(className_NAME_FADE$1) ? className_NAME_FADE$1 : '';
 
       if (this._isShown && this._config.backdrop) {
         this._backdrop = document.createElement('div');
-        this._backdrop.className = CLASS_NAME_BACKDROP;
+        this._backdrop.classNameName = className_NAME_BACKDROP;
 
         if (animate) {
-          this._backdrop.classList.add(animate);
+          this._backdrop.classNameList.add(animate);
         }
 
         $__default['default'](this._backdrop).appendTo(document.body);
@@ -2445,7 +2445,7 @@
           Util.reflow(this._backdrop);
         }
 
-        $__default['default'](this._backdrop).addClass(CLASS_NAME_SHOW$3);
+        $__default['default'](this._backdrop).addclassName(className_NAME_SHOW$3);
 
         if (!callback) {
           return;
@@ -2459,7 +2459,7 @@
         var backdropTransitionDuration = Util.getTransitionDurationFromElement(this._backdrop);
         $__default['default'](this._backdrop).one(Util.TRANSITION_END, callback).emulateTransitionEnd(backdropTransitionDuration);
       } else if (!this._isShown && this._backdrop) {
-        $__default['default'](this._backdrop).removeClass(CLASS_NAME_SHOW$3);
+        $__default['default'](this._backdrop).removeclassName(className_NAME_SHOW$3);
 
         var callbackRemove = function callbackRemove() {
           _this9._removeBackdrop();

@@ -1,4 +1,4 @@
-// Base class
+// Base className
 //
 // Easily usable on <ul>, <ol>, or <div>.
 
@@ -15,7 +15,7 @@
 // Interactive list items
 //
 // Use anchor or button elements instead of `li`s or `div`s to create interactive
-// list items. Includes an extra `.active` modifier classNamefor selected items.
+// list items. Includes an extra `.active` modifier classNameNamefor selected items.
 
 .list-group-item-action {
   width: 100%; // For `<button>`s (anchors become 100% by default though)
@@ -113,7 +113,7 @@
 
 // Contextual variants
 //
-// Add modifier classes to change text and background color on individual items.
+// Add modifier classNamees to change text and background color on individual items.
 // Organizationally, this must come after the `:hover` states.
 
 @each $color, $value in $theme-colors {

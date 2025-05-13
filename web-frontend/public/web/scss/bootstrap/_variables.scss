@@ -113,7 +113,7 @@ $enable-gradients:                            false !default;
 $enable-transitions:                          true !default;
 $enable-prefers-reduced-motion-media-query:   true !default;
 $enable-hover-media-query:                    false !default; // Deprecated, no longer affects any compiled CSS
-$enable-grid-classes:                         true !default;
+$enable-grid-classNamees:                         true !default;
 $enable-print-styles:                         true !default;
 $enable-validation-icons:                     true !default;
 
@@ -139,7 +139,7 @@ $spacers: map-merge(
   $spacers
 );
 
-// This variable affects the `.h-*` and `.w-*` classes.
+// This variable affects the `.h-*` and `.w-*` classNamees.
 $sizes: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
 $sizes: map-merge(
@@ -170,7 +170,7 @@ $link-color:                              theme-color("primary") !default;
 $link-decoration:                         none !default;
 $link-hover-color:                        darken($link-color, 15%) !default;
 $link-hover-decoration:                   underline !default;
-// Darken percentage for links with `.text-*` className(e.g. `.text-success`)
+// Darken percentage for links with `.text-*` classNameName(e.g. `.text-success`)
 $emphasized-link-hover-darken-percentage: 15% !default;
 
 // Paragraphs

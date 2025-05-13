@@ -9,7 +9,7 @@
   font-style: normal;
 }
 
-[class^="icon-"], [class*=" icon-"] {
+[className^="icon-"], [className*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icomoon' !important;
   speak: none;
@@ -2640,7 +2640,7 @@
 .icon-blur_on:before {
   content: "\e3a5";
 }
-.icon-class:before {
+.icon-className:before {
   content: "\e86e";
 }
 .icon-turned_in:before {

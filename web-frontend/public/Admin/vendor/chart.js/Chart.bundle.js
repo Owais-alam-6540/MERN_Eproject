@@ -3632,7 +3632,7 @@ function unlistenArrayEvents(array, listener) {
 	delete array._chartjs;
 }
 
-// Base class for all dataset controllers (line, bar, etc)
+// Base className for all dataset controllers (line, bar, etc)
 var DatasetController = function(chart, datasetIndex) {
 	this.initialize(chart, datasetIndex);
 };
@@ -5360,7 +5360,7 @@ core_defaults._set('doughnut', {
 		var labels = data.labels;
 		var i, ilen, listItem, listItemSpan;
 
-		list.setAttribute('class', chart.id + '-legend');
+		list.setAttribute('className', chart.id + '-legend');
 		if (datasets.length) {
 			for (i = 0, ilen = datasets[0].data.length; i < ilen; ++i) {
 				listItem = list.appendChild(document.createElement('li'));
@@ -6178,7 +6178,7 @@ core_defaults._set('polarArea', {
 		var labels = data.labels;
 		var i, ilen, listItem, listItemSpan;
 
-		list.setAttribute('class', chart.id + '-legend');
+		list.setAttribute('className', chart.id + '-legend');
 		if (datasets.length) {
 			for (i = 0, ilen = datasets[0].data.length; i < ilen; ++i) {
 				listItem = list.appendChild(document.createElement('li'));
@@ -6691,7 +6691,7 @@ core_defaults._set('global', {
 var controller_scatter = controller_line;
 
 // NOTE export a map in which the key represents the controller type, not
-// the class, and so must be CamelCase in order to be correctly retrieved
+// the className, and so must be CamelCase in order to be correctly retrieved
 // by the controller in core.controller.js (`controllers[meta.type]`).
 
 var controllers = {
@@ -7579,7 +7579,7 @@ function throttled(fn, thisArg) {
 
 function createDiv(cls) {
 	var el = document.createElement('div');
-	el.className = cls || '';
+	el.classNameName = cls || '';
 	return el;
 }
 
@@ -7629,14 +7629,14 @@ function watchForRender(node, handler) {
 		addListener(node, type, proxy);
 	});
 
-	// #4737: Chrome might skip the CSS animation when the CSS_RENDER_MONITOR class
+	// #4737: Chrome might skip the CSS animation when the CSS_RENDER_MONITOR className
 	// is removed then added back immediately (same animation frame?). Accessing the
 	// `offsetParent` property will force a reflow and re-evaluate the CSS animation.
 	// https://gist.github.com/paulirish/5d52fb081b3570c81e3a#box-metrics
 	// https://github.com/chartjs/Chart.js/issues/4737
 	expando.reflow = !!node.offsetParent;
 
-	node.classList.add(CSS_RENDER_MONITOR);
+	node.classNameList.add(CSS_RENDER_MONITOR);
 }
 
 function unwatchForRender(node) {
@@ -7651,7 +7651,7 @@ function unwatchForRender(node) {
 		delete expando.renderProxy;
 	}
 
-	node.classList.remove(CSS_RENDER_MONITOR);
+	node.classNameList.remove(CSS_RENDER_MONITOR);
 }
 
 function addResizeListener(node, listener, chart) {
@@ -9528,11 +9528,11 @@ helpers$1.extend(Chart.prototype, /** @lends Chart */ {
 				scale.ctx = me.ctx;
 				scale.chart = me;
 			} else {
-				var scaleClass = core_scaleService.getScaleConstructor(scaleType);
-				if (!scaleClass) {
+				var scaleclassName = core_scaleService.getScaleConstructor(scaleType);
+				if (!scaleclassName) {
 					return;
 				}
-				scale = new scaleClass({
+				scale = new scaleclassName({
 					id: id,
 					type: scaleType,
 					options: scaleOptions,
@@ -9586,12 +9586,12 @@ helpers$1.extend(Chart.prototype, /** @lends Chart */ {
 				meta.controller.updateIndex(i);
 				meta.controller.linkScales();
 			} else {
-				var ControllerClass = controllers[meta.type];
-				if (ControllerClass === undefined) {
+				var ControllerclassName = controllers[meta.type];
+				if (ControllerclassName === undefined) {
 					throw new Error('"' + meta.type + '" is not a chart type.');
 				}
 
-				meta.controller = new ControllerClass(me, i);
+				meta.controller = new ControllerclassName(me, i);
 				newControllers.push(meta.controller);
 			}
 		}
@@ -10267,7 +10267,7 @@ var core_controller = Chart;
 
 /**
  * Provided for backward compatibility, use Chart instead.
- * @class Chart.Controller
+ * @className Chart.Controller
  * @deprecated since version 2.6
  * @todo remove at version 3
  * @private
@@ -10936,7 +10936,7 @@ function abstract() {
  */
 
 /**
- * @class
+ * @className
  */
 function DateAdapter(options) {
 	this.options = options || {};
@@ -11529,7 +11529,7 @@ var Scale = core_element.extend({
 
 		// Ticks - `this.ticks` is now DEPRECATED!
 		// Internal ticks are now stored as objects in the PRIVATE `this._ticks` member
-		// and must not be accessed directly from outside this class. `this.ticks` being
+		// and must not be accessed directly from outside this className. `this.ticks` being
 		// around for long time and not marked as private, we can't change its structure
 		// without unexpected breaking changes. If you need to access the scale ticks,
 		// use scale.getTicks() instead.
@@ -19823,7 +19823,7 @@ core_defaults._set('global', {
 		var datasets = chart.data.datasets;
 		var i, ilen, listItem, listItemSpan;
 
-		list.setAttribute('class', chart.id + '-legend');
+		list.setAttribute('className', chart.id + '-legend');
 
 		for (i = 0, ilen = datasets.length; i < ilen; i++) {
 			listItem = list.appendChild(document.createElement('li'));
@@ -19851,7 +19851,7 @@ function getBoxWidth(labelOpts, fontSize) {
 }
 
 /**
- * IMPORTANT: this class is exposed publicly as Chart.Legend, backward compatibility required!
+ * IMPORTANT: this className is exposed publicly as Chart.Legend, backward compatibility required!
  */
 var Legend = core_element.extend({
 
@@ -20390,7 +20390,7 @@ core_defaults._set('global', {
 });
 
 /**
- * IMPORTANT: this class is exposed publicly as Chart.Legend, backward compatibility required!
+ * IMPORTANT: this className is exposed publicly as Chart.Legend, backward compatibility required!
  */
 var Title = core_element.extend({
 	initialize: function(config) {

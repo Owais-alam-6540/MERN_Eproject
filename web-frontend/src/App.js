@@ -32,7 +32,7 @@ import Feedback_details from './Admin_Components/Feedback_details';
 function App() {
   return (
     <BrowserRouter>
-    <div className="App">
+    <div classNameName="App">
 
      <Routes>
       <Route path="/" element={<Index />}/>

@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 export default function Navbar() {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg  ftco_navbar ftco-navbar-light" id="ftco-navbar">
-        <div className="container">
-          <Link className="navbar-brand" to="/">EventSphere Management</Link>
+      <nav classNameName="navbar navbar-expand-lg  ftco_navbar ftco-navbar-light" id="ftco-navbar">
+        <div classNameName="container">
+          <Link classNameName="navbar-brand" to="/">EventSphere Management</Link>
           <button
-            className="navbar-toggler"
+            classNameName="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#ftco-nav"
@@ -16,22 +16,22 @@ export default function Navbar() {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span className="oi oi-menu"></span> Menu
+            <span classNameName="oi oi-menu"></span> Menu
           </button>
 
-          <div className="collapse navbar-collapse" id="ftco-nav">
-            <ul className="navbar-nav ml-auto">
-              <li className="nav-item active"><Link to="/" className="nav-link">Home</Link></li>
-              <li className="nav-item"><Link to="/about" className="nav-link">About</Link></li>
-              <li className="nav-item"><Link to="/schedule" className="nav-link">Schedule</Link></li>
-              <li className="nav-item"><Link to="/blog" className="nav-link">Events</Link></li>
-              <li className="nav-item"><Link to="/contact" className="nav-link">Contact</Link></li>
-              <li className="nav-item"><Link to="/feedback" className="nav-link">Feedback</Link></li>
+          <div classNameName="collapse navbar-collapse" id="ftco-nav">
+            <ul classNameName="navbar-nav ml-auto">
+              <li classNameName="nav-item active"><Link to="/" classNameName="nav-link">Home</Link></li>
+              <li classNameName="nav-item"><Link to="/about" classNameName="nav-link">About</Link></li>
+              <li classNameName="nav-item"><Link to="/schedule" classNameName="nav-link">Schedule</Link></li>
+              <li classNameName="nav-item"><Link to="/blog" classNameName="nav-link">Events</Link></li>
+              <li classNameName="nav-item"><Link to="/contact" classNameName="nav-link">Contact</Link></li>
+              <li classNameName="nav-item"><Link to="/feedback" classNameName="nav-link">Feedback</Link></li>
 
               {/* ✅ Fixed Dropdown Menu */}
-              <li className="nav-item dropdown">
+              <li classNameName="nav-item dropdown">
                 <a
-                  className="nav-link dropdown-toggle"
+                  classNameName="nav-link dropdown-toggle"
                   href="#"
                   id="navbarDropdown"
                   role="button"
@@ -40,16 +40,16 @@ export default function Navbar() {
                 >
                   Register
                 </a>
-                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                <ul classNameName="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li>
-                    <Link className="dropdown-item" to="/reg_exb">Register As Exhibitor</Link>
+                    <Link classNameName="dropdown-item" to="/reg_exb">Register As Exhibitor</Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="/signUp_vis">Sign Up As Visitor</Link>
+                    <Link classNameName="dropdown-item" to="/signUp_vis">Sign Up As Visitor</Link>
                   </li>
-                  <li><hr className="dropdown-divider" /></li>
+                  <li><hr classNameName="dropdown-divider" /></li>
                   <li>
-                    <a className="dropdown-item" href="#">Something else here</a>
+                    <a classNameName="dropdown-item" href="#">Something else here</a>
                   </li>
                 </ul>
               </li>

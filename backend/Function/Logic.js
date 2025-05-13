@@ -1,6 +1,7 @@
-let admin =require("../Collection/Admin")
-let feed = require("../Collection/Feedback")
-let contactUs = require("../Collection/ContactUs")
+let admin =require("../Collection/Admin");
+let feed = require("../Collection/Feedback");
+let contactUs = require("../Collection/ContactUs");
+let events = require("../Collection/Events");
 let brcypt= require("bcrypt");
 const {use}=require("../Routing/Route");
 let jwt = require("jsonwebtoken");
@@ -56,6 +57,29 @@ let main_func={
         }
     },
 
+     show_feedback : async function (req, res) {
+        try {
+            let getFeedback_data = await feed.find();
+            res.status(201).json(getFeedback_data);
+        } catch (error) {
+            res.status(501).json({msg: error.message})
+        }
+   },
+
+   delete_feedback : async function (req,res) {
+        try {
+            let {id} = req.params;
+            let find_id = await feed.findById(id);
+            if (find_id) {
+                    await feed.findByIdAndDelete(find_id);
+                    return res.status(200).json({msg: "This User Feedback Has Been Deleted Successfully"})
+            }
+        } catch (error) {
+            res.status(501).json({msg:error.message})
+        }
+   },
+
+
     contact: async function(req,res) {
         try {
             let{name,email,subject,msg}=req.body;
@@ -66,7 +90,63 @@ let main_func={
         }catch (error) {
             res.status(501).json({msg:error.message})
         }
-    }
+    },
+
+    show_contact : async function (req, res) {
+        try {
+            let getContact_data = await contactUs.find();
+            res.status(201).json(getContact_data);
+        } catch (error) {
+            res.status(501).json({msg: error.message})
+        }
+   },
+
+   delete_contact : async function (req,res) {
+        try {
+            let {id} = req.params;
+            let find_id = await contactUs.findById(id);
+            if (find_id) {
+                    await contactUs.findByIdAndDelete(find_id);
+                    return res.status(200).json({msg: "This User Contact Has Been Deleted Successfully"})
+            }
+        } catch (error) {
+            res.status(501).json({msg:error.message})
+        }
+   },
+
+    events: async function(req,res) {
+        try {
+            let{title,description,theme,location,date}=req.body;
+                let events_data=new events({title,description,theme,location,date})
+                let save_events= await events_data.save();
+            res.status(200).json({msg:"Your Event's Data Has Been Saved Successfully",data:save_events}) 
+        }catch (error) {
+            res.status(501).json({msg:error.message})
+        }
+    },
+
+    show_events : async function (req, res) {
+        try {
+            let getevents_data = await events.find();
+            res.status(201).json(getevents_data);
+        } catch (error) {
+            res.status(501).json({msg: error.message})
+        }
+   },
+
+   delete_events : async function (req,res) {
+        try {
+            let {id} = req.params;
+            let find_id = await events.findById(id);
+            if (find_id) {
+                    await events.findByIdAndDelete(find_id);
+                    return res.status(200).json({msg: "This Event Has Been Deleted Successfully"})
+            }
+        } catch (error) {
+            res.status(501).json({msg:error.message})
+        }
+   }
+
 
 
 }
