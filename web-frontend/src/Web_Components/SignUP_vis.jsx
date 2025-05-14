@@ -26,6 +26,7 @@ export default function SignUP_vis() {
         try {
             let pswd_regex=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
             let username_regex=/^[A-Za-z0-9_-]{3,15}$/
+            let p_re=/^(?:\+?\d{1,3})?[03]\d{9}$/
             if(!name || !email || !pass || age ===0){
                 toast.error("All field are required")
             }
@@ -34,8 +35,10 @@ export default function SignUP_vis() {
             }
             else if(!username_regex.test(name)){
                 toast.error("username invalid")
-            }
-            else if(age < 18){
+            }else if(!p_re.test(phone)) {
+                    toast.error("Phone no Invalid")
+                  
+            }else if(age < 18){
                 toast.error("age greater then 18")
             }
             else{
