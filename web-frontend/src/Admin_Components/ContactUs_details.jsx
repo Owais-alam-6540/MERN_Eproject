@@ -51,7 +51,7 @@ export default function ContactUs_details() {
               <div id="content">
               <Navbar/>
              <div className="row">
-             <h1 className="h3 mb-2 text-gray-800">Feedback Details</h1>
+             <h1 className="h3 mb-2 text-gray-800">Contact Details</h1>
       <div className="col-lg-6">
           {(contact_data.length === 0 ) ? (
                   <div className="col-md-12">
@@ -74,7 +74,7 @@ export default function ContactUs_details() {
                       <p>{a.msg}</p>
                   </div>
                   <hr />
-                  <button classNameName='btn btn-outline-danger' onClick={()=> {delete_data(a._id)}}><i class="bi bi-trash3-fill"></i></button>
+                  <button className='btn btn-outline-danger' onClick={()=> {delete_data(a._id)}}><i class="bi bi-trash3-fill"></i></button>
               </div>
           </div>
               ))

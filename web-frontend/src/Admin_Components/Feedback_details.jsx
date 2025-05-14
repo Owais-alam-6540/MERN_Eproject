@@ -71,7 +71,7 @@ export default function Feedback_details() {
                 <p>{a.msg}</p>
             </div>
             <hr />
-            <button classNameName='btn btn-outline-danger' onClick={()=> {delete_data(a._id)}}><i class="bi bi-trash3-fill"></i></button>
+            <button className='btn btn-outline-danger' onClick={()=> {delete_data(a._id)}}><i class="bi bi-trash3-fill"></i></button>
         </div>
     </div>
         ))
