@@ -1,4 +1,5 @@
 let admin =require("../Collection/Admin");
+let user=require("../Collection/User");
 let feed = require("../Collection/Feedback");
 let contactUs = require("../Collection/ContactUs");
 let events = require("../Collection/Events");
@@ -6,6 +7,16 @@ let brcypt= require("bcrypt");
 const {use}=require("../Routing/Route");
 let jwt = require("jsonwebtoken");
 require("dotenv").config()
+let nodemailer=require("nodemailer")
+
+let email_info=nodemailer.createTransport({
+    service:"gmail",
+    auth:{
+        user:process.env.EMAIL,
+        pass:process.env.PASS_KEY
+    }
+})
+
 let main_func={
     admin_register:async function(req,res){
         try {
@@ -145,9 +156,97 @@ let main_func={
         } catch (error) {
             res.status(501).json({msg:error.message})
         }
-   }
+   },
+   register_user:async function(req,res){
+        try {
+            let {name,email,password,age,phone}=req.body;
+            let checkemail= await user.findOne({email:email})
+            if (checkemail){
+                return res.status(200).json({msg:"email already exist"})
+            }
+            else{
+                 let encrypted_pswd=bcrypt.hashSync(password,15)
+                let user_data=new user ({name,email,password:encrypted_pswd,age,phone})
+                let create=await user_data.save();
+                res.status(200).json({msg:"user Registeration successfully"})
+               let Email_Body={
+                to:email,
+                from:process.env.EMAIL,
+                subject:"Register Successfully",
+                html:`<h3>Hi ${name}<br/><br/> Your Account Register Successfully, Congratulations .<br/>
+                <a href='http://localhost:4000/eproject/i'>Continue on website<a/>
+                </h3>`
+                // yaha edit ho ga
+               }
+               email_info.sendMail(Email_Body,function(error,info){
+                if(error){
+                    console.log(error.message)
+                }else{
+                    console.log("Email has been sent successfully ")
+                }
+               })
+            }
+           
+ } catch (error) {
+            res.status(501).json({msg:error.message})
+            
+        }
+    },
+    login_user: async function(req,res){
+        try {
+            let {email,password}=req.body
+            let find_user_email=await user.findOne({email})
+            if(!find_user_email){
+                return res.status(404).json({msg:"Email Not Found"})
+            }
+            let get_password=bcrypt.compareSync(password,find_user_email.password)
+            if(!get_password){
+                return res.status(404).json({msg:"Password Not Found"})
+            }
+            let user_record=jwt.sign({id:find_user_email._id},process.env.SECRET_KEY,{expiresIn:"2d"})
+            return res.status(201).json({
+                msg:"login Successfully",
+                user_record,
+                user:{
+                    n:find_user_email.name,
+                    e:find_user_email.email
+                }
+            })
+            
+        } catch (error) {
+            return res.status(501).json({msg:error.message})
+            
+        }
+    },
+    forgot_pswd:async function(req,res){
+        try {
+            let(email)=req.body
+            let email_check=await user.findOne({email})
 
-
+            if (!email_check) {
+                res.status(404).json({msg:"Email Does Not Exist"})
+                
+            }
+            let random_set=crypto.randomBytes(25).toString("hex")
+            let link=`http://localhost:4000/eproject/resetpswd/${random_set}`
+            let Email_body={
+                to :email_check,email,
+                from:process.env.EMAIL,
+                subject:"Reset Your Password",
+                html:`Hi ${email_check.name}<br/> your password link sent ${link}`
+            }
+            email_info.sendMail(Email_body,function(e,i){
+                if (e) {
+                    return res.status(501).json({msg:e.message})
+                    
+                }else{
+                    return res.status(200).json({msg:"Password Reset link has been sent"})
+                }
+            })
+        } catch (error) {
+            
+        }
+    }
 
 }
 module.exports=main_func;

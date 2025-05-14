@@ -45,7 +45,7 @@ export default function Navbar() {
                     <Link classNameName="dropdown-item" to="/reg_exb">Register As Exhibitor</Link>
                   </li>
                   <li>
-                    <Link classNameName="dropdown-item" to="/signUp_vis">Sign Up As Visitor</Link>
+                    <Link classNameName="dropdown-item" to="/Login_vis">Login As Visitor</Link>
                   </li>
                   <li><hr classNameName="dropdown-divider" /></li>
                   <li>

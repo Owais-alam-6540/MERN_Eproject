@@ -14,5 +14,8 @@ route.delete("/del_cont/:id",fun.delete_contact);
 route.post("/a_events",fun.events);
 route.get("/get_events",fun.show_events);
 route.delete("/del_events/:id",fun.delete_events);
+route.post("/w_reg",fun.register_user);
+route.post("/w_log",fun.login_user);
+route.get("/forgot",fun.forgot_pswd)
 
 module.exports=route

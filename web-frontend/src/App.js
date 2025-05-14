@@ -25,9 +25,9 @@ import Events_Forms from './Admin_Components/Events_Forms';
 import Feedback from './Web_Components/Feedback';
 import Reg_For_Exb from './Web_Components/Reg_For_Exb';
 import SignUP_vis from './Web_Components/SignUP_vis';
+import Login_vis from './Web_Components/Login_vis';
 import ContactUs_details from './Admin_Components/ContactUs_details';
 import Feedback_details from './Admin_Components/Feedback_details';
-
 
 function App() {
   return (
@@ -43,7 +43,8 @@ function App() {
       <Route path="/feedback" element={<Feedback />}/>
       <Route path="/reg_exb" element={<Reg_For_Exb />}/> 
       <Route path="/signUp_vis" element={<SignUP_vis />}/> 
-      
+      <Route path="/Login_vis" element={<Login_vis />}/> 
+      <Route path="/forget" element={<Forget />}/> 
 
       <Route path="/admin" element={<A_Index />}/>
       <Route path="/tables" element={<Table />}/>
@@ -54,6 +55,7 @@ function App() {
       <Route path="/event" element={<Events_Forms />}/>
       <Route path="/con_details" element={<ContactUs_details />}/>
       <Route path="/feed_details" element={<Feedback_details />}/>
+
 
 
      </Routes>
