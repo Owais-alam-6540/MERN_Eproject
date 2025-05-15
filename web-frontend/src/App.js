@@ -28,6 +28,8 @@ import SignUP_vis from './Web_Components/SignUP_vis';
 import Login_vis from './Web_Components/Login_vis';
 import ContactUs_details from './Admin_Components/ContactUs_details';
 import Feedback_details from './Admin_Components/Feedback_details';
+import Forget from "./Web_Components/Forget";
+import Rating_details from './Admin_Components/Rating_details';
 
 function App() {
   return (
@@ -55,6 +57,7 @@ function App() {
       <Route path="/event" element={<Events_Forms />}/>
       <Route path="/con_details" element={<ContactUs_details />}/>
       <Route path="/feed_details" element={<Feedback_details />}/>
+      <Route path="/rat_details" element={<Rating_details />}/>
 
 
 

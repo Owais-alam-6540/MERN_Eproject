@@ -16,9 +16,9 @@ export default function Sidebar() {
 <hr className="sidebar-divider my-0"/>
 
 <li className="nav-item active">
-    <a className="nav-link" href="index.html">
+    <Link className="nav-link" to="/admin">
         <i className="fas fa-fw fa-tachometer-alt"></i>
-        <span>Dashboard</span></a>
+        <span>Dashboard</span></Link>
 </li>
 
 <hr className="sidebar-divider"/>
@@ -40,12 +40,14 @@ export default function Sidebar() {
             <Link className="collapse-item" to="/cards">Cards</Link>
             <Link className="collapse-item" to="/event">Events Form</Link>
             <Link className="collapse-item" to="/feed_details">Feedback Details</Link> 
+            <Link className="collapse-item" to="/con_details">Contact Details</Link> 
+            <Link className="collapse-item" to="/rat_details">Rating Details</Link> 
 
         </div>
     </div>
 </li>
 
-<li className="nav-item">
+{/* <li className="nav-item">
     <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
         aria-expanded="true" aria-controls="collapseUtilities">
         <i className="fas fa-fw fa-wrench"></i>
@@ -61,7 +63,7 @@ export default function Sidebar() {
             <a className="collapse-item" href="utilities-other.html">Other</a>
         </div>
     </div>
-</li>
+</li> */}
 
 <hr className="sidebar-divider"/>
 

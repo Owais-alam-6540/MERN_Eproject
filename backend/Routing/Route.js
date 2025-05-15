@@ -5,6 +5,7 @@ let fun=require("../Function/Logic")
 
 route.post("/a_reg",fun.admin_register);
 route.post("/a_log",fun.admin_login);
+route.post("/a_hall",fun.halls);
 route.post("/a_feed",fun.feedback);
 route.get("/get_feed",fun.show_feedback);
 route.delete("/del_feed/:id",fun.delete_feedback);

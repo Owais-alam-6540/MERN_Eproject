@@ -3,6 +3,7 @@ let user=require("../Collection/User");
 let feed = require("../Collection/Feedback");
 let contactUs = require("../Collection/ContactUs");
 let events = require("../Collection/Events");
+let hall = require("../Collection/Hall");
 let brcypt= require("bcrypt");
 const {use}=require("../Routing/Route");
 let jwt = require("jsonwebtoken");
@@ -243,6 +244,13 @@ let main_func={
                     return res.status(200).json({msg:"Password Reset link has been sent"})
                 }
             })
+        } catch (error) {
+            
+        }
+    },
+    halls: async function (req,res) {
+        try {
+            
         } catch (error) {
             
         }
