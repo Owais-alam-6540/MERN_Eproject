@@ -11,15 +11,19 @@ let event_coll=mongo.Schema({
     },
     theme:{
         type:String,
-        required:true,
+        required:true
     },
     location:{
         type:String,
         default:"Expo Center, Karachi"
     },
-    date:{
+    start_date:{
         type:Date,
-        default:Date.now
+        required:true
+    },
+    end_date:{
+        type:Date,
+        required:true
     }
 })
 

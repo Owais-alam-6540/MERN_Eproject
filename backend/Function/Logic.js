@@ -128,8 +128,8 @@ let main_func={
 
     events: async function(req,res) {
         try {
-            let{title,description,theme,location,date}=req.body;
-                let events_data=new events({title,description,theme,location,date})
+            let{title,description,theme,location,start_date,end_date}=req.body;
+                let events_data=new events({title,description,theme,location,start_date,end_date})
                 let save_events= await events_data.save();
             res.status(200).json({msg:"Your Event's Data Has Been Saved Successfully",data:save_events}) 
         }catch (error) {

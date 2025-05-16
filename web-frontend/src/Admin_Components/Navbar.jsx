@@ -15,7 +15,8 @@ export default function Navbar() {
                         <i className="fa fa-bars"></i>
                     </button>
 
-                    <form
+                    <h1 className="h3 text-gray-800 text-center ms-4">EventSphere Management</h1>
+                    {/* <form
                         className="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div className="input-group">
                             <input type="text" className="form-control bg-light border-0 small" placeholder="Search for..."
@@ -26,7 +27,7 @@ export default function Navbar() {
                                 </button>
                             </div>
                         </div>
-                    </form>
+                    </form> */}
 
                     <ul className="navbar-nav ml-auto">
 
@@ -52,7 +53,7 @@ export default function Navbar() {
                             </div>
                         </li>
 
-                        <li className="nav-item dropdown no-arrow mx-1">
+                        {/* <li className="nav-item dropdown no-arrow mx-1">
                             <a className="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i className="fas fa-bell fa-fw"></i>
@@ -98,9 +99,9 @@ export default function Navbar() {
                                 </a>
                                 <a className="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
                             </div>
-                        </li>
+                        </li> */}
 
-                        <li className="nav-item dropdown no-arrow mx-1">
+                        {/* <li className="nav-item dropdown no-arrow mx-1">
                             <a className="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i className="fas fa-envelope fa-fw"></i>
@@ -161,7 +162,7 @@ export default function Navbar() {
                                 </a>
                                 <a className="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
                             </div>
-                        </li>
+                        </li> */}
 
                         <div className="topbar-divider d-none d-sm-block"></div>
 
