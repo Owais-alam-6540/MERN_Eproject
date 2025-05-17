@@ -219,6 +219,100 @@ let main_func={
             
         }
     },
+    a_forgot_pswd:async function(req,res){
+        try {
+            let(email)=req.body
+            let email_check=await user.findOne({email})
+
+            if (!email_check) {
+                res.status(404).json({msg:"Email Does Not Exist"})
+                
+            }
+            let random_set=jwt.sign({id:email_check.id},process.env,SECRET_KEY,{expiresIn:"10m"})
+            let link=`http://localhost:4000/eproject/a_forgot/${random_set}`
+            let Email_body={
+                to :email_check,email,
+                from:process.env.EMAIL,
+                subject:"Reset Your Password",
+                html:`Hi ${email_check.name}<br/> your password link sent ${link}`
+            }
+            email_info.sendMail(Email_body,function(e,i){
+                if (e) {
+                     res.status(501).json({msg:e.message})
+                    
+                }else{
+                     res.status(200).json({msg:"Password Reset link has been sent"})
+                }
+            })
+        } catch (error) {
+            res.status(501).json({msg:e.message})
+        }
+    },
+    a_reset_pswd:async function (req,res){
+        try {
+            let {password}=req.body;
+            let {token}=req.params;
+            let fetch=jwt.decode(token,process.env,SECRET_KEY)
+            if(!fetch){
+                res.status(404).json({msg:"invalid Token"})
+
+            }
+            let ecp=brcypt.hashSync(password,12);
+            await user.findByIdAndUpdate(fetch.id,{password:ecp})
+            res.status(201).json({msg:"password Reset Successfully"})
+            
+        } catch (error) {
+            res.status(501).json({msg:error.message})
+        }
+
+    },
+    exb_forgot_pswd:async function(req,res){
+        try {
+            let(email)=req.body
+            let email_check=await user.findOne({email})
+
+            if (!email_check) {
+                res.status(404).json({msg:"Email Does Not Exist"})
+                
+            }
+            let random_set=jwt.sign({id:email_check.id},process.env,SECRET_KEY,{expiresIn:"10m"})
+            let link=`http://localhost:4000/eproject/a_forgot/${random_set}`
+            let Email_body={
+                to :email_check,email,
+                from:process.env.EMAIL,
+                subject:"Reset Your Password",
+                html:`Hi ${email_check.name}<br/> your password link sent ${link}`
+            }
+            email_info.sendMail(Email_body,function(e,i){
+                if (e) {
+                     res.status(501).json({msg:e.message})
+                    
+                }else{
+                     res.status(200).json({msg:"Password Reset link has been sent"})
+                }
+            })
+        } catch (error) {
+            res.status(501).json({msg:e.message})
+        }
+    },
+    exb_reset_pswd:async function (req,res){
+        try {
+            let {password}=req.body;
+            let {token}=req.params;
+            let fetch=jwt.decode(token,process.env,SECRET_KEY)
+            if(!fetch){
+                res.status(404).json({msg:"invalid Token"})
+
+            }
+            let ecp=brcypt.hashSync(password,12);
+            await user.findByIdAndUpdate(fetch.id,{password:ecp})
+            res.status(201).json({msg:"password Reset Successfully"})
+            
+        } catch (error) {
+            res.status(501).json({msg:error.message})
+        }
+
+    },
     forgot_pswd:async function(req,res){
         try {
             let(email)=req.body
@@ -228,8 +322,8 @@ let main_func={
                 res.status(404).json({msg:"Email Does Not Exist"})
                 
             }
-            let random_set=crypto.randomBytes(25).toString("hex")
-            let link=`http://localhost:4000/eproject/resetpswd/${random_set}`
+            let random_set=jwt.sign({id:email_check.id},process.env,SECRET_KEY,{expiresIn:"10m"})
+            let link=`http://localhost:4000/eproject/forgot/${random_set}`
             let Email_body={
                 to :email_check,email,
                 from:process.env.EMAIL,
@@ -238,15 +332,33 @@ let main_func={
             }
             email_info.sendMail(Email_body,function(e,i){
                 if (e) {
-                    return res.status(501).json({msg:e.message})
+                     res.status(501).json({msg:e.message})
                     
                 }else{
-                    return res.status(200).json({msg:"Password Reset link has been sent"})
+                     res.status(200).json({msg:"Password Reset link has been sent"})
                 }
             })
         } catch (error) {
-            
+            res.status(501).json({msg:e.message})
         }
+    },
+    reset_pswd:async function (req,res){
+        try {
+            let {password}=req.body;
+            let {token}=req.params;
+            let fetch=jwt.decode(token,process.env,SECRET_KEY)
+            if(!fetch){
+                res.status(404).json({msg:"invalid Token"})
+
+            }
+            let ecp=brcypt.hashSync(password,12);
+            await user.findByIdAndUpdate(fetch.id,{password:ecp})
+            res.status(201).json({msg:"password Reset Successfully"})
+            
+        } catch (error) {
+            res.status(501).json({msg:error.message})
+        }
+
     },
     halls: async function (req,res) {
         try {

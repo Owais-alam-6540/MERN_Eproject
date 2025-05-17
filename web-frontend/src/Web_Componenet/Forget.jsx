@@ -23,10 +23,9 @@ export default function Forget() {
   return (
     <div>
         <Navbar/>
-        <h1>Forget Password</h1>
         <div className='container'>
         <h2>Forget Password</h2>
-        <p>Enter Your Email</p>
+        
         <input type="email" placeholder='Enter Email ' className='form-control my-2' value={email}
         onChange={(e)=>setEmail(e.target.value)}/>
 

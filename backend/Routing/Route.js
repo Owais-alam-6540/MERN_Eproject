@@ -17,6 +17,11 @@ route.get("/get_events",fun.show_events);
 route.delete("/del_events/:id",fun.delete_events);
 route.post("/w_reg",fun.register_user);
 route.post("/w_log",fun.login_user);
-route.get("/forgot",fun.forgot_pswd)
+route.post("/a_forgot",fun.a_forgot_pswd)
+route.post("/a_resetpswd/:token",fun.a_reset_pswd)
+route.post("/exb_forgot",fun.exb_forgot_pswd)
+route.post("/exb_resetpswd/:token",fun.exb_reset_pswd)
+route.post("/forgot",fun.forgot_pswd)
+route.post("/resetpswd/:token",fun.reset_pswd)
 
 module.exports=route

@@ -1,11 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
+import axios from 'axios';
+import {ToastContainer,toast} from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
+import Footer from './Footer';
+import Navbar from './Navbar';
+
 
 export default function A_forget() {
     let [email,setEmail]=useState("")
 
     async function fp(){
         try {
-            await axios.post(`http://localhost:4000/eproject/forgot`,{
+            await axios.post(`http://localhost:4000/eproject/a_forgot`,{
                 email:email
             }).then((a)=>{
                 toast.success(a.data.msg)
@@ -18,10 +24,8 @@ export default function A_forget() {
   return (
     <div>
     <Navbar/>
-    <h1>Forget Password</h1>
     <div className='container'>
     <h2>Forget Password</h2>
-    <p>Enter Your Email</p>
     <input type="email" placeholder='Enter Email ' className='form-control my-2' value={email}
     onChange={(e)=>setEmail(e.target.value)}/>
 
