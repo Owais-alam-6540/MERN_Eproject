@@ -946,7 +946,7 @@ export default function Register_vis() {
                   <div className="error-message"></div>
                   <div className="sent-message">Your message has been sent. Thank you!</div>
 
-                  <button type="button" onClick={save_form}>Send Message</button>
+                  <button type="submit" onClick={save_form}>Send Message</button>
                   <br />
                   <p><Link to="/log_vis">Already have an account</Link></p>
                 </div>
