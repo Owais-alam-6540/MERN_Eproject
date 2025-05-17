@@ -4,7 +4,9 @@ let route=express.Router();
 let fun=require("../Function/Logic")
 
 route.post("/a_reg",fun.admin_register);
+route.post("/exb_reg",fun.register_exb);
 route.post("/a_log",fun.admin_login);
+route.post("/exb_log",fun.exb_login);
 route.post("/a_hall",fun.halls);
 route.post("/a_feed",fun.feedback);
 route.get("/get_feed",fun.show_feedback);

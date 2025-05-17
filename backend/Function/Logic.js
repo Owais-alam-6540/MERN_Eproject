@@ -7,6 +7,7 @@ let hall = require("../Collection/Hall");
 let brcypt= require("bcrypt");
 const {use}=require("../Routing/Route");
 let jwt = require("jsonwebtoken");
+let exibitor =require("../Collection/Exibitor");
 require("dotenv").config()
 let nodemailer=require("nodemailer")
 
@@ -40,6 +41,25 @@ let main_func={
         try {
             let {email,password}=req.body;
             let check_email=await admin.findOne({email});
+            if(!check_email){
+                return res.status(404).json({msg:"Email not found"})
+            }
+            let check_password=brcypt.compareSync(password,check_email.password);
+            if(!check_password){
+                return res.status(404).json({msg:"Password is incorrect"})
+            }
+            let user_record=jwt.sign({id :check_email._id},process.env.SECRET_KEY,{expiresIn:"2d"});
+            return res.status(201).json({msg:"Login successfully",user_record,user:{n
+                :check_email.name,e:check_email.email
+            }})
+        } catch (error) {
+            return res.status(501).json({msg:error.message})
+        }
+    },
+    exb_login:async function(req,res){
+        try {
+            let {email,password}=req.body;
+            let check_email=await exibitor.findOne({email});
             if(!check_email){
                 return res.status(404).json({msg:"Email not found"})
             }
@@ -193,6 +213,7 @@ let main_func={
             
         }
     },
+
     login_user: async function(req,res){
         try {
             let {email,password}=req.body
@@ -366,7 +387,42 @@ let main_func={
         } catch (error) {
             
         }
-    }
+    },
+    register_exb:async function(req,res){
+        try {
+            let {name,email,password,age,phone}=req.body;
+            let checkemail= await exibitor.findOne({email:email})
+            if (checkemail){
+                return res.status(200).json({msg:"email already exist"})
+            }
+            else{
+                 let encrypted_pswd=bcrypt.hashSync(password,15)
+                let user_data=new exibitor ({name,email,password:encrypted_pswd,age,phone})
+                let create=await user_data.save();
+                res.status(200).json({msg:"Exibirtor Registeration successfully"})
+               let Email_Body={
+                to:email,
+                from:process.env.EMAIL,
+                subject:"Register Successfully",
+                html:`<h3>Hi ${name}<br/><br/> Your Account Register Successfully, Congratulations .<br/>
+                <a href='http://localhost:4000/eproject/i'>Continue on website<a/>
+                </h3>`
+                // yaha edit ho ga
+               }
+               email_info.sendMail(Email_Body,function(error,info){
+                if(error){
+                    console.log(error.message)
+                }else{
+                    console.log("Email has been sent successfully ")
+                }
+               })
+            }
+           
+ } catch (error) {
+            res.status(501).json({msg:error.message})
+            
+        }
+    },
 
 }
 module.exports=main_func;

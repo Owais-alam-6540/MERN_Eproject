@@ -54,6 +54,7 @@ export default function Login_vis() {
     src: `/./assets/img/event-gallery/event-gallery-${i + 1}.jpg`,
     alt: `event-gallery-${i + 1}`,
   }));
+  
   let [email,setEmail] = useState("")
     let [pass,setPass] = useState("")
     let nav=useNavigate();
@@ -68,7 +69,7 @@ export default function Login_vis() {
                 localStorage.setItem("user_data",JSON.stringify(a.data.user))
                 setEmail("")
                 setPass("")
-                nav("/get")
+                nav("/")
             })
         } catch (error) {
             toast.error(error.response.data.msg)

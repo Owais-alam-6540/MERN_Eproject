@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
 import AOS from 'aos';
@@ -8,7 +8,11 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'aos/dist/aos.css';
 import 'glightbox/dist/css/glightbox.css';
-import { Link } from 'react-router-dom';
+
+import axios from 'axios';
+import React, {useEffect, useState } from 'react'
+import {Link,useNavigate} from "react-router-dom"
+import { ToastContainer, toast } from 'react-toastify';
 
 import Navbar from './Navbar';
 import Footer from './Footer';
@@ -50,6 +54,27 @@ export default function Login_exb() {
     src: `/./assets/img/event-gallery/event-gallery-${i + 1}.jpg`,
     alt: `event-gallery-${i + 1}`,
   }));
+
+  let [email,setEmail] = useState("")
+      let [pass,setPass] = useState("")
+      let nav=useNavigate();
+  
+      async function login_work(){
+          try {
+              await axios.post("http://localhost:4000/eproject/exb_log",{
+                  email :email,
+                  password:pass
+              }).then((a)=>{
+                  toast.success(a.data.msg);
+                  localStorage.setItem("user_data",JSON.stringify(a.data.user))
+                  setEmail("")
+                  setPass("")
+                  nav("/")
+              })
+          } catch (error) {
+              toast.error(error.response.data.msg)
+          }
+      }
 
   return (
      <div>
@@ -848,28 +873,30 @@ export default function Login_exb() {
                 <form action="forms/contact.php" method="post" className="php-email-form" data-aos="fade-up" data-aos-delay="400">
                   <div className="row gy-4">
     
-                    <div className="col-md-6">
+                    {/* <div className="col-md-6">
                       <input type="text" name="name" className="form-control" placeholder="Your Name" required=""/>
-                    </div>
+                    </div> */}
     
                     <div className="col-md-6 ">
-                      <input type="email" className="form-control" name="email" placeholder="Your Email" required=""/>
+                      <input type="email" className="form-control" name="email" placeholder="Your Email" required=""  value={email}
+    onChange={(e)=>setEmail(e.target.value)}/>
                     </div>
     
                     <div className="col-md-12">
-                      <input type="text" className="form-control" name="subject" placeholder="Subject" required=""/>
+                      <input type="password" className="form-control" name="subject" placeholder="Your Password" required="" value={pass} 
+    onChange={(e)=>setPass(e.target.value)}/>
                     </div>
     
-                    <div className="col-md-12">
+                    {/* <div className="col-md-12">
                       <textarea className="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
-                    </div>
+                    </div> */}
     
                     <div className="col-md-12 text-center">
                       <div className="loading">Loading</div>
                       <div className="error-message"></div>
                       <div className="sent-message">Your message has been sent. Thank you!</div>
     
-                      <button type="submit">Send Message</button>
+                      <button type="button" onClick={login_work}>Send Message</button>
                       <p><Link to="/reg_exb">Registor now as Exibitor</Link></p>
                       <p><Link to="/exb_forget">Forget Password</Link></p>
                     </div>
@@ -879,11 +906,10 @@ export default function Login_exb() {
               </div>
     
             </div>
-    
           </div>
     
         </section>
-    
+    <ToastContainer/>
       </main>
       <Footer/>
      </div>

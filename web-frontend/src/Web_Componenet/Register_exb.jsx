@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
 import AOS from 'aos';
@@ -9,6 +9,10 @@ import 'aos/dist/aos.css';
 import 'glightbox/dist/css/glightbox.css';
 import { Link } from 'react-router-dom';
 
+
+import { toast ,ToastContainer} from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
+import axios from "axios"
 import Navbar from './Navbar';
 import Footer from './Footer';
 export default function Register_exb() {
@@ -49,6 +53,65 @@ export default function Register_exb() {
     src: `/./assets/img/event-gallery/event-gallery-${i + 1}.jpg`,
     alt: `event-gallery-${i + 1}`,
   }));
+
+   let [name,setName] = useState("")
+  let [email,setEmail] = useState("")
+  let [pass,setPass] = useState("")
+  let [age,setAge]= useState(0)
+  let [phone,setPhone]= useState(0)
+
+  function clear(){
+      setName("") 
+      setEmail("")
+      setPass("")
+      setAge(0)
+      setPhone(0)
+
+  }
+ async function save_form(){
+      try {
+          let pswd_regex=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
+          let username_regex=/^[A-Za-z0-9_-]{3,15}$/
+          let p_re=/^(?:\+?\d{1,3})?[03]\d{9}$/
+          if(!name || !email || !pass || age ===0){
+              toast.error("All field are required")
+          }
+          else if(!pswd_regex.test(pass)){
+              toast.error("password invalid")
+          }
+          else if(!username_regex.test(name)){
+              toast.error("username invalid")
+          }else if(!p_re.test(phone)) {
+                  toast.error("Phone no Invalid")
+                
+          }else if(age < 18){
+              toast.error("age greater then 18")
+          }
+          else{
+              await  axios.post("http://localhost:4000/eproject/w_reg",{
+                  name:name,
+                  email:email,
+                  password:pass,
+                  age:age,
+                  phone:phone
+              })
+              console.log("data save succesfully")
+              toast.success("data enter successfully")
+              clear()
+
+          }
+    
+      } catch (error) {
+          if(error.status ===409){
+              toast.error('email already exist')
+          }
+          toast.error(error)
+          console.log(error)
+          
+      }
+
+  }
+
 
   return (
     <div>
@@ -843,32 +906,45 @@ export default function Register_exb() {
                 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus" frameborder="0" style={{border:0, width: `100%`, height: `400px`}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
               </div>
     
-              <div className="col-lg-6">
-                <form action="forms/contact.php" method="post" className="php-email-form" data-aos="fade-up" data-aos-delay="400">
-                  <div className="row gy-4">
+             <div className="col-lg-6">
+            <form action="forms/contact.php" method="post" className="php-email-form" data-aos="fade-up" data-aos-delay="400">
+              <div className="row gy-4">
+
+                <div className="col-md-6">
+                  <input type="text" name="name" className="form-control" placeholder="Your Name" required="" value={name} 
+    onChange={(e)=>setName(e.target.value)}/>
+                </div>
+
+                <div className="col-md-6 ">
+                  <input type="email" className="form-control" name="email" placeholder="Your Email" required="" value={email}
+    onChange={(e)=>setEmail(e.target.value)} />
+                </div>
+
+                <div className="col-md-6">
+                  <input type="text" name="name" className="form-control" placeholder="Your Phone" required="" value={phone}
+    onChange={(e)=>setPhone(e.target.value)}/>
+                </div>
+
+                <div className="col-md-6 ">
+                  <input type="number" className="form-control" name="email" placeholder="Your Age" required="" value={age}
+    onChange={(e)=>setAge(e.target.value)}/>
+                </div>
+
+                <div className="col-md-12">
+                  <input type="password" className="form-control" name="subject" placeholder="Password" required="" value={pass} 
+    onChange={(e)=>setPass(e.target.value)}/>
+                </div>
     
-                    <div className="col-md-6">
-                      <input type="text" name="name" className="form-control" placeholder="Your Name" required=""/>
-                    </div>
-    
-                    <div className="col-md-6 ">
-                      <input type="email" className="form-control" name="email" placeholder="Your Email" required=""/>
-                    </div>
-    
-                    <div className="col-md-12">
-                      <input type="text" className="form-control" name="subject" placeholder="Subject" required=""/>
-                    </div>
-    
-                    <div className="col-md-12">
+                    {/* <div className="col-md-12">
                       <textarea className="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
-                    </div>
+                    </div> */}
     
                     <div className="col-md-12 text-center">
                       <div className="loading">Loading</div>
                       <div className="error-message"></div>
                       <div className="sent-message">Your message has been sent. Thank you!</div>
     
-                      <button type="submit">Send Message</button>
+                      <button type="submit" onClick={save_form}>Send Message</button>
                       <br />
                       <p><Link to="/log_exb">Already have an account</Link></p>
                     </div>
@@ -882,7 +958,7 @@ export default function Register_exb() {
           </div>
     
         </section>
-    
+    <ToastContainer/>
       </main>
       <Footer/>
     </div>
