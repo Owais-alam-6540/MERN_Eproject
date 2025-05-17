@@ -1,7 +1,17 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 
 export default function Sidebar() {
+    let nav = useNavigate();
+
+
+    useEffect(() => {
+       let condintion =JSON.parse(localStorage.getItem("users-data")) ;
+       if (!condintion) {
+            nav("/login")
+       }
+      }, []);
+      
   return (
     <div>
       <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">

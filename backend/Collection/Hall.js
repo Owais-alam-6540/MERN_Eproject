@@ -8,7 +8,11 @@ let hall_coll=mongo.Schema({
     no_of_booth:{
         type:String,
         required:true
-    } 
+    },
+    events:{
+        refrences:{model:"Expo_Events"},
+        type:String
+    }
 })
 
 module.exports=mongo.model("Halls",hall_coll);

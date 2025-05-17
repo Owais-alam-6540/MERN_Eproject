@@ -4,16 +4,7 @@ import "bootstrap/dist/css/bootstrap.css"
 import "bootstrap/dist/js/bootstrap.bundle.js";
 // import "bootstrap-icons/font/bootstrap.icons.css"
 
-
-import Index from './Web_Components/Index';
-
-import Contact from './Web_Components/Contact';
-import About from './Web_Components/About';
-import Blog from './Web_Components/Blog';
-import Schedule from './Web_Components/Schedule';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-
-
 
 import A_Index from './Admin_Components/A_Index';
 import Table from './Admin_Components/Table';
@@ -22,14 +13,21 @@ import Login from './Admin_Components/Login';
 import Register from './Admin_Components/Register';
 import Blank from './Admin_Components/Blank';
 import Events_Forms from './Admin_Components/Events_Forms';
-import Feedback from './Web_Components/Feedback';
-import Reg_For_Exb from './Web_Components/Reg_For_Exb';
-import SignUP_vis from './Web_Components/SignUP_vis';
-import Login_vis from './Web_Components/Login_vis';
 import ContactUs_details from './Admin_Components/ContactUs_details';
 import Feedback_details from './Admin_Components/Feedback_details';
-import Forget from "./Web_Components/Forget";
 import Rating_details from './Admin_Components/Rating_details';
+import Feedback from './Web_Componenet/Feedback';
+import Index from './Web_Componenet/Index';
+import Login_exb from './Web_Componenet/Login_exb';
+import Login_vis from './Web_Componenet/Login_vis';
+import Register_vis from './Web_Componenet/Register_vis';
+import Register_exb from './Web_Componenet/Register_exb';
+import Forget from './Web_Componenet/Forget';
+import Forget_as_exb from './Web_Componenet/Forget_as_exb';
+import A_forget from './Admin_Components/A_forget';
+
+
+
 
 function App() {
   return (
@@ -37,16 +35,8 @@ function App() {
     <div classNameName="App">
 
      <Routes>
-      <Route path="/" element={<Index />}/>
-      <Route path="/contact" element={<Contact />}/>
-      <Route path="/about" element={<About />}/>
-      <Route path="/blog" element={<Blog />}/>
-      <Route path="/schedule" element={<Schedule />}/>
-      <Route path="/feedback" element={<Feedback />}/>
-      <Route path="/reg_exb" element={<Reg_For_Exb />}/> 
-      <Route path="/signUp_vis" element={<SignUP_vis />}/> 
-      <Route path="/Login_vis" element={<Login_vis />}/> 
-      <Route path="/forget" element={<Forget />}/> 
+     
+     
 
       <Route path="/admin" element={<A_Index />}/>
       <Route path="/tables" element={<Table />}/>
@@ -58,6 +48,19 @@ function App() {
       <Route path="/con_details" element={<ContactUs_details />}/>
       <Route path="/feed_details" element={<Feedback_details />}/>
       <Route path="/rat_details" element={<Rating_details />}/>
+      <Route path="/a_forget" element={<A_forget />}/>
+
+
+
+
+      <Route path='/' element={<Index/>}/>
+        <Route path='/feedback' element={<Feedback/>}/>
+        <Route path='/reg_vis' element={<Register_vis/>}/>
+        <Route path='/reg_exb' element={<Register_exb/>}/>
+        <Route path='/log_vis' element={<Login_vis/>}/>
+        <Route path='/log_exb' element={<Login_exb/>}/>
+        <Route path='/forget' element={<Forget/>}/>
+        <Route path='/exb_forget' element={<Forget_as_exb/>}/>
 
 
 

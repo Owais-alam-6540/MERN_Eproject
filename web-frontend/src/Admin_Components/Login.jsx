@@ -6,7 +6,7 @@ import {toast,ToastContainer} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import React, { useState } from 'react'
 import axios from 'axios'
-import {useNavigate } from 'react-router-dom'
+import {Link, useNavigate } from 'react-router-dom'
 
 
 export default function Login() {
@@ -84,7 +84,7 @@ export default function Login() {
                             </form>
                             <hr/>
                             <div className="text-center">
-                                <a className="small" href="forgot-password.html">Forgot Password?</a>
+                                <Link className="small" to="/a_forget">Forgot Password?</Link>
                             </div>
                             {/* <div className="text-center">
                                 <a className="small" href="register.html">Create an Account!</a>
