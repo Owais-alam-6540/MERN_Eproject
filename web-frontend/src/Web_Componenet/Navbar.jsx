@@ -1,7 +1,41 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 export default function Navbar () {
+  const [showModal, setShowModal] = useState(false);
+const [email, setEmail] = useState(""); // from auth context or state
+const [rating, setRating] = useState(0);
+
+// Assume you have auth state or context like this
+const isLoggedIn = Boolean(localStorage.getItem("userEmail")); // or useContext(AuthContext)
+
+const handleRateUsClick = () => {
+  if (!isLoggedIn) {
+    window.location.href = "/log_vis"; // redirect to visitor login
+  } else {
+    setEmail(localStorage.getItem("userEmail")); // get email from storage
+    setShowModal(true);
+  }
+};
+
+const handleSubmitRating = async () => {
+  try {
+    const res = await fetch("http://localhost:4000/api/rate", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ email, stars: rating })
+    });
+    const data = await res.json();
+    alert("Thank you for rating us!");
+    setShowModal(false);
+  } catch (err) {
+    console.error(err);
+    alert("Error submitting rating.");
+  }
+};
+
   return (
     <div>
          <header id="header" className="header d-flex align-items-center fixed-top">
@@ -35,11 +69,19 @@ export default function Navbar () {
               </li> */}
               <li><Link to="/Log_vis">Login As Visitor</Link></li>
               <li><Link to="/feedback">Feedback</Link></li>
-              <li><a href="#">Rating Us</a></li>
-              <li><a href="#">Dropdown 4</a></li>
+              {/* <li><a href="#">Rating Us</a></li> */}
+              {/* <li><a href="#">Dropdown 4</a></li> */}
             </ul>
           </li>
           <li><a href="#contact">Contact</a></li>
+          <li className="nav-item">
+  <button
+    className="btn btn-outline-warning rounded-pill ms-2"
+    onClick={handleRateUsClick}
+  >
+    Rate Us
+  </button>
+</li>
         </ul>
         <i className="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -48,6 +90,38 @@ export default function Navbar () {
 
     </div>
   </header>
+
+  {showModal && (
+  <div className="modal show fade d-block" tabIndex="-1">
+    <div className="modal-dialog modal-dialog-centered">
+      <div className="modal-content">
+        <div className="modal-header">
+          <h5 className="modal-title">Rate Our Event</h5>
+          <button type="button" className="btn-close" onClick={() => setShowModal(false)}></button>
+        </div>
+        <div className="modal-body text-center">
+          <p>Your Email: <strong>{email}</strong></p>
+          <div className="mb-3">
+            {[1, 2, 3, 4, 5].map((star) => (
+              <i
+                key={star}
+                className={`bi bi-star${star <= rating ? "-fill" : ""} fs-3 text-warning`}
+                onClick={() => setRating(star)}
+                style={{ cursor: "pointer" }}
+              ></i>
+            ))}
+          </div>
+        </div>
+        <div className="modal-footer">
+          <button className="btn btn-primary" onClick={handleSubmitRating}>
+            Submit Rating
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+)}
+
     </div>
   )
 }

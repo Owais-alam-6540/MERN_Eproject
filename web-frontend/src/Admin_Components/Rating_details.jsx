@@ -24,6 +24,8 @@ export default function Rating_details() {
             console.log(e)
         })
     }
+
+    
   return (
     <div>
     <div id="wrapper">

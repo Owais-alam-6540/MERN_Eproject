@@ -7,7 +7,7 @@ let hall = require("../Collection/Hall");
 let brcypt= require("bcrypt");
 const {use}=require("../Routing/Route");
 let jwt = require("jsonwebtoken");
-let exibitor =require("../Collection/Exibitor");
+let exibitor =require("../Collection/Exhibitor");
 require("dotenv").config()
 let nodemailer=require("nodemailer")
 
@@ -178,6 +178,22 @@ let main_func={
             res.status(501).json({msg:error.message})
         }
    },
+
+   update_events : async function (req,res) {
+    try {
+        let {id} = req.params;
+        let {title,description,theme,location,start_date,end_date} = req.body;
+
+        let find_id = await events.findById(id);
+        if (find_id) {
+            await events.findByIdAndUpdate(id,{title: title,description: description,theme: theme,location:location,start_date:start_date,end_date:end_date});
+            res.status(200).json({msg: "This Event's Data Has Been Updated Successfully"})
+        }
+    } catch (error) {
+        res.status(501).json({msg:error.message})
+        }
+    },
+
    register_user:async function(req,res){
         try {
             let {name,email,password,age,phone}=req.body;
@@ -423,6 +439,5 @@ let main_func={
             
         }
     },
-
 }
 module.exports=main_func;

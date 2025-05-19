@@ -1,6 +1,6 @@
 let mongo= require("mongoose");
 
-let exibitor_collection=mongo.Schema({
+let exhibitor_collection=mongo.Schema({
     name:{
         type:String,
         required:true
@@ -28,4 +28,4 @@ let exibitor_collection=mongo.Schema({
         default:Date.now
     }
 })
-module.exports=mongo.model("exbitor",exibitor_collection)
+module.exports=mongo.model("exhibitor",exhibitor_collection)

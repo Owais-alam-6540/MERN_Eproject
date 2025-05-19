@@ -17,6 +17,7 @@ route.delete("/del_cont/:id",fun.delete_contact);
 route.post("/a_events",fun.events);
 route.get("/get_events",fun.show_events);
 route.delete("/del_events/:id",fun.delete_events);
+route.put("/update_events/:id",fun.update_events);
 route.post("/w_reg",fun.register_user);
 route.post("/w_log",fun.login_user);
 route.post("/a_forgot",fun.a_forgot_pswd)
@@ -25,5 +26,10 @@ route.post("/exb_forgot",fun.exb_forgot_pswd)
 route.post("/exb_resetpswd/:token",fun.exb_reset_pswd)
 route.post("/forgot",fun.forgot_pswd)
 route.post("/resetpswd/:token",fun.reset_pswd)
+
+route.get("/rate", async (req, res) => {
+  const ratings = await req.find().sort({ date: -1 });
+  res.json(ratings);
+})
 
 module.exports=route

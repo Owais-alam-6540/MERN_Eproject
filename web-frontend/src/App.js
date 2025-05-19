@@ -25,6 +25,7 @@ import Register_exb from './Web_Componenet/Register_exb';
 import Forget from './Web_Componenet/Forget';
 import Forget_as_exb from './Web_Componenet/Forget_as_exb';
 import A_forget from './Admin_Components/A_forget';
+import Event_details from './Admin_Components/Event_details';
 
 
 
@@ -45,6 +46,7 @@ function App() {
       <Route path="/register" element={<Register />}/> 
       <Route path="/blank" element={<Blank />}/>
       <Route path="/event" element={<Events_Forms />}/>
+      <Route path="/event_details" element={<Event_details />}/>
       <Route path="/con_details" element={<ContactUs_details />}/>
       <Route path="/feed_details" element={<Feedback_details />}/>
       <Route path="/rat_details" element={<Rating_details />}/>

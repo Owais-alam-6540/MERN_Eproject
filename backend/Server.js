@@ -3,7 +3,8 @@ let r=require("./Routing/Route");
 let db =require("./Connect");
 // let admin=require("./Collection/Admin");
 let cors= require("cors");
-require("dotenv").config()
+require("dotenv").config();
+const ratingRoutes = require("./routes/rating");
 
 let port=process.env.PORT || 4000
 let app = express();
@@ -11,6 +12,7 @@ let app = express();
 app.use(express.json());
 app.use(cors());
 app.use("/eproject/",r);
+app.use("/api/rate", ratingRoutes);
 
 db().then(()=>{
     app.listen(port,()=>{

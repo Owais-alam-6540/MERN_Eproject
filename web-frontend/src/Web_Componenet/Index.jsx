@@ -835,7 +835,7 @@ export default function Index() {
 </section>
 
 
-<section id="contact" className="contact section">
+<section id="contact" className="section">
 
   <div className="container section-title" data-aos="fade-up">
     <h2>Contact</h2>
@@ -902,7 +902,10 @@ export default function Index() {
               <div className="error-message"></div>
               <div className="sent-message">Your message has been sent. Thank you!</div>
 
-              <button onClick={save_contact} type='button'>Send Message</button>
+              <button onClick={save_contact} type="submit" className="btn btn-outline-danger px-4 py-2 rounded-pill shadow-sm">
+  Submit
+</button>
+
             </div>
 
           </div>
