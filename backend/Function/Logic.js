@@ -8,6 +8,7 @@ let brcypt= require("bcrypt");
 const {use}=require("../Routing/Route");
 let jwt = require("jsonwebtoken");
 let exibitor =require("../Collection/Exhibitor");
+let Rating = require("../Collection/RateUs")
 require("dotenv").config()
 let nodemailer=require("nodemailer")
 
@@ -199,11 +200,12 @@ let main_func={
             let {name,email,password,age,phone}=req.body;
             let checkemail= await user.findOne({email:email})
             if (checkemail){
-                return res.status(200).json({msg:"email already exist"})
+                return res.status(404).json({msg:"email already exist"})
             }
             else{
-                 let encrypted_pswd=bcrypt.hashSync(password,15)
+                 let encrypted_pswd=brcypt.hashSync(password,15)
                 let user_data=new user ({name,email,password:encrypted_pswd,age,phone})
+                console.log(req.body)
                 let create=await user_data.save();
                 res.status(200).json({msg:"user Registeration successfully"})
                let Email_Body={
@@ -237,7 +239,7 @@ let main_func={
             if(!find_user_email){
                 return res.status(404).json({msg:"Email Not Found"})
             }
-            let get_password=bcrypt.compareSync(password,find_user_email.password)
+            let get_password=brcypt.compareSync(password,find_user_email.password)
             if(!get_password){
                 return res.status(404).json({msg:"Password Not Found"})
             }
@@ -412,7 +414,7 @@ let main_func={
                 return res.status(200).json({msg:"email already exist"})
             }
             else{
-                 let encrypted_pswd=bcrypt.hashSync(password,15)
+                 let encrypted_pswd=brcypt.hashSync(password,15)
                 let user_data=new exibitor ({name,email,password:encrypted_pswd,age,phone})
                 let create=await user_data.save();
                 res.status(200).json({msg:"Exibirtor Registeration successfully"})
@@ -439,5 +441,30 @@ let main_func={
             
         }
     },
+    rate : async (req, res) => {
+        const { email, stars } = req.body;
+      
+        // Validation
+        if (!email || !stars || stars < 1 || stars > 5) {
+          return res.status(400).json({
+            success: false,
+            message: "Invalid data. Ensure email and stars (1-5) are provided."
+          });
+        }
+      
+        try {
+          // Assuming you have a Rating model to save the rating data
+          const newRating = new Rating({ email, stars });
+          await newRating.save();
+      
+          return res.status(200).json({
+            success: true,
+            message: "Rating submitted successfully!"
+          });
+        } catch (err) {
+          console.error("Error submitting rating:", err);
+          return res.status(500).json({ success: false, message: "Server error" });
+        }
+    }
 }
 module.exports=main_func;

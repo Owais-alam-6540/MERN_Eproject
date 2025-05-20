@@ -26,6 +26,8 @@ route.post("/exb_forgot",fun.exb_forgot_pswd)
 route.post("/exb_resetpswd/:token",fun.exb_reset_pswd)
 route.post("/forgot",fun.forgot_pswd)
 route.post("/resetpswd/:token",fun.reset_pswd)
+route.post("/rate",fun.rate)
+
 
 route.get("/rate", async (req, res) => {
   const ratings = await req.find().sort({ date: -1 });

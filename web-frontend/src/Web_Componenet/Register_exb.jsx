@@ -68,8 +68,9 @@ export default function Register_exb() {
       setPhone("")
 
   }
- async function save_form(){
+ async function save_form(e){
       try {
+        e.preventDefault();
           let pswd_regex=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
           let username_regex=/^[A-Za-z0-9_-]{3,15}$/
           let p_re=/^(?:\+?\d{1,3})?[03]\d{9}$/

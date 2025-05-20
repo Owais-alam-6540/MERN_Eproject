@@ -59,12 +59,14 @@ export default function Login_vis() {
     let [pass,setPass] = useState("")
     let nav=useNavigate();
 
-    async function login_work(){
+    async function login_work(e){
         try {
+          e.preventDefault()
             await axios.post("http://localhost:4000/eproject/w_log",{
                 email :email,
                 password:pass
             }).then((a)=>{
+               console.log(a.data.msg)
                 toast.success(a.data.msg);
                 localStorage.setItem("user_data",JSON.stringify(a.data.user))
                 setEmail("")
@@ -72,6 +74,7 @@ export default function Login_vis() {
                 nav("/")
             })
         } catch (error) {
+          console.log(error.response.data.msg)
             toast.error(error.response.data.msg)
         }
     }

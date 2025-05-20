@@ -1,18 +1,19 @@
 let express =require('express');
 let r=require("./Routing/Route");
 let db =require("./Connect");
+const bodyParser = require('body-parser');
 // let admin=require("./Collection/Admin");
 let cors= require("cors");
 require("dotenv").config();
-const ratingRoutes = require("./routes/rating");
+// const ratingRoutes = require("./routes/rating");
 
 let port=process.env.PORT || 4000
 let app = express();
-
+app.use(bodyParser.json());
 app.use(express.json());
 app.use(cors());
 app.use("/eproject/",r);
-app.use("/api/rate", ratingRoutes);
+// app.use("/api/rate", ratingRoutes);
 
 db().then(()=>{
     app.listen(port,()=>{

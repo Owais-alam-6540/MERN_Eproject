@@ -59,8 +59,9 @@ export default function Login_exb() {
       let [pass,setPass] = useState("")
       let nav=useNavigate();
   
-      async function login_work(){
+      async function login_work(e){
           try {
+            e.preventDefault();
               await axios.post("http://localhost:4000/eproject/exb_log",{
                   email :email,
                   password:pass
