@@ -1,9 +1,50 @@
-import React from 'react'
 import Navbar from './Navbar'
 import Footer from './Footer'
 import Sidebar from './Sidebar'
+import {toast,ToastContainer} from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import axios from 'axios';
+import React, { useState } from 'react';
+
 
 export default function Events_Forms() {
+  let[ename,setEname]=useState("");
+  let[theam,setTheam]=useState("");
+  let[msg,setMsg]=useState("");
+  let[location,setLocation]=useState("");
+  let[sdate,setSdate]=useState(0);
+  let[edate,setEdate]=useState(0);
+
+  function clear(){
+    setEname("");
+    setTheam("");
+    setLocation("");
+    setMsg("");
+    setSdate(0);
+    setEdate(0);
+}
+
+async function save_event(e) {
+  try {     
+      e.preventDefault();
+      await axios.post("http://localhost:4000/eproject/a_events", {
+         title:ename,
+         theme:theam,
+         location:location,
+         description:msg,
+         start_date:sdate,
+         end_date:edate
+  })
+  console.log("send event Successfully");
+  toast.success("send event Successfully");
+  clear();
+    } catch (error) {
+      toast.error(error)
+    }
+  }
+
+
+
   return (
     <div>
       <div id="wrapper">
@@ -32,31 +73,36 @@ export default function Events_Forms() {
                         <div className="row mb-3">
                           <div className="col-sm-6">
                             <label className="form-label">Event Title</label>
-                            <input type="text" className="form-control" placeholder="Enter event title" />
+                            <input type="text" className="form-control" placeholder="Enter event title"  value={ename} onChange={(e)=> setEname(e.target.value)}/>
                           </div>
                           <div className="col-sm-6">
                             <label className="form-label">Event Theme</label>
-                            <input type="text" className="form-control" placeholder="Enter event theme" />
+                            <input type="text" className="form-control" placeholder="Enter event theme"  value={theam} onChange={(e)=> setTheam(e.target.value)}/>
                           </div>
                         </div>
 
                         <div className="mb-3">
+                          <label className="form-label">Event Location</label>
+                            <input type="text" className="form-control" placeholder="Enter event theme"  value={location} onChange={(e)=> setLocation(e.target.value)}/>
+                        </div>
+
+                        <div className="mb-3">
                           <label className="form-label">Event Description</label>
-                          <textarea className="form-control" rows="4" placeholder="Enter event description"></textarea>
+                          <textarea className="form-control" rows="4" placeholder="Enter event description" value={msg} onChange={(e)=> setMsg(e.target.value)}></textarea>
                         </div>
 
                         <div className="row mb-3">
                           <div className="col-sm-6">
                             <label className="form-label">Start Date</label>
-                            <input type="date" className="form-control" />
+                            <input type="date" className="form-control"  value={sdate} onChange={(e)=> setSdate(e.target.value)}/>
                           </div>
                           <div className="col-sm-6">
                             <label className="form-label">End Date</label>
-                            <input type="date" className="form-control" />
+                            <input type="date" className="form-control"  value={edate} onChange={(e)=> setEdate(e.target.value)}/>
                           </div>
                         </div>
 
-                        <button type="submit" className="btn btn-primary w-100">
+                        <button type="submit" onClick={save_event} className="btn btn-primary w-100">
                           Submit Event
                         </button>
                       </form>
@@ -68,6 +114,7 @@ export default function Events_Forms() {
             </div>
           </div>
         </div>
+        <ToastContainer/>
       </div >
       <Footer />
     </div >
