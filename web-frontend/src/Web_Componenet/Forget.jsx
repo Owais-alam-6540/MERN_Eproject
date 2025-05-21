@@ -6,7 +6,7 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 
 export default function Forget() {
-    let [email,setEmail]=useState("")
+    let [email,setEmail]=useState("");
 
     async function fp(){
         try {

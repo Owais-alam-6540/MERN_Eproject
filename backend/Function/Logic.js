@@ -260,7 +260,7 @@ let main_func={
     },
     a_forgot_pswd:async function(req,res){
         try {
-            let(email)=req.body
+            let(email)=req.body.email
             let email_check=await user.findOne({email})
 
             if (!email_check) {
@@ -307,7 +307,7 @@ let main_func={
     },
     exb_forgot_pswd:async function(req,res){
         try {
-            let(email)=req.body
+            let(email)=req.body.email;
             let email_check=await user.findOne({email})
 
             if (!email_check) {
@@ -354,7 +354,7 @@ let main_func={
     },
     forgot_pswd:async function(req,res){
         try {
-            let(email)=req.body
+            let(email)=req.body.email;
             let email_check=await user.findOne({email})
 
             if (!email_check) {

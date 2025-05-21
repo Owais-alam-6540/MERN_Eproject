@@ -9,7 +9,7 @@ export default function Forget_as_exb() {
 
   async function fp(){
       try {
-          await axios.post(`http://localhost:4000/eproject/exb_forgot`,{
+          await axios.post(`shttp://localhot:4000/eproject/exb_forgot`,{
               email:email
           }).then((a)=>{
               toast.success(a.data.msg)
