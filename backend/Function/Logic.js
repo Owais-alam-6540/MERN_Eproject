@@ -331,7 +331,7 @@ let main_func={
                 }
             })
         } catch (error) {
-            res.status(501).json({msg:e.message})
+            res.status(501).json({msg:error.message})
         }
     },
     exb_reset_pswd:async function (req,res){
@@ -371,14 +371,14 @@ let main_func={
             }
             email_info.sendMail(Email_body,function(e,i){
                 if (e) {
-                     res.status(501).json({msg:e.message})
+                     res.status(501).json({msg:error.message})
                     
                 }else{
                      res.status(200).json({msg:"Password Reset link has been sent"})
                 }
             })
         } catch (error) {
-            res.status(501).json({msg:e.message})
+            res.status(501).json({msg:error.message})
         }
     },
     reset_pswd:async function (req,res){
