@@ -26,6 +26,9 @@ import Forget from './Web_Componenet/Forget';
 import Forget_as_exb from './Web_Componenet/Forget_as_exb';
 import A_forget from './Admin_Components/A_forget';
 import Event_details from './Admin_Components/Event_details';
+import Reset_as_exb from  './Web_Componenet/Reset_as_exb';
+import Reset from  './Web_Componenet/Reset';
+import Reset_as_vis from  './Web_Componenet/Resert_as_vis';
 
 
 
@@ -33,7 +36,7 @@ import Event_details from './Admin_Components/Event_details';
 function App() {
   return (
     <BrowserRouter>
-    <div classNameName="App">
+    <div className="App">
 
      <Routes>
      
@@ -50,7 +53,7 @@ function App() {
       <Route path="/con_details" element={<ContactUs_details />}/>
       <Route path="/feed_details" element={<Feedback_details />}/>
       <Route path="/rat_details" element={<Rating_details />}/>
-      <Route path="/a_forget" element={<A_forget />}/>
+      <Route path="/a_forgot" element={<A_forget />}/>
 
 
 
@@ -62,7 +65,11 @@ function App() {
         <Route path='/log_vis' element={<Login_vis/>}/>
         <Route path='/log_exb' element={<Login_exb/>}/>
         <Route path='/forget' element={<Forget/>}/>
+        <Route path='/reset' element={<Reset/>}/>
+
         <Route path='/exb_forget' element={<Forget_as_exb/>}/>
+        <Route path='/exb_reset/:token' element={<Reset_as_exb/>}/>
+        <Route path='/vis_reset/:token' element={<Reset_as_vis/>}/>
 
 
 

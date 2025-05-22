@@ -23,7 +23,7 @@ export default function A_Resetpass() {
         }
 
         try {
-            const response = await axios.post(`http://localhost:4000/eproject/exb_resetpswd/${token}`, { password: pswd });
+            const response = await axios.post(`http://localhost:4000/eproject/vis_resetpswd/${token}`, { password: pswd });
             toast.success(response.data.msg || "Password reset successful");
             setPswd("");
             setCpswd("");

@@ -4,12 +4,12 @@ import {ToastContainer,toast} from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import Footer from './Footer';
 import Navbar from './Navbar';
-export default function Forget_as_exb() {
+export default function Forget_as_vis() {
   let [email,setEmail]=useState("")
 
   async function fp(){
       try {
-          await axios.post(`http://localhost:4000/eproject/exb_forgot`,{
+          await axios.post(`http://localhost:4000/eproject/vis_forgot`,{
               email:email
           }).then((a)=>{
               toast.success(a.data.msg)
