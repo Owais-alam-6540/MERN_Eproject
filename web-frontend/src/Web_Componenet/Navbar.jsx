@@ -65,7 +65,7 @@ export default function Navbar() {
               <li><Link to="/">Hotels</Link></li>
               <li><Link to="/">Gallery</Link></li>
               <li className="dropdown">
-                <a href="#"><span>Dropdown</span> <i className="bi bi-chevron-down toggle-dropdown"></i></a>
+                <a href="#"><span>Forms</span> <i className="bi bi-chevron-down toggle-dropdown"></i></a>
                 <ul>
                   <li><Link to="/log_exb">Login As Exhibitor</Link></li>
                   <li><Link to="/Log_vis">Login As Visitor</Link></li>
@@ -75,7 +75,7 @@ export default function Navbar() {
               <li><a href="#contact">Contact</a></li>
               <li className="nav-item">
                 <button
-                  className="btn btn-outline-warning rounded-pill ms-2"
+                  className="btn btn-outline-danger rounded-pill ms-2"
                   onClick={handleRateUsClick}
                 >
                   Rate Us
@@ -85,7 +85,7 @@ export default function Navbar() {
             <i className="mobile-nav-toggle d-xl-none bi bi-list"></i>
           </nav>
 
-          <a className="cta-btn d-none d-sm-block" href="#buy-tickets">Buy Tickets</a>
+          {/* <a className="cta-btn d-none d-sm-block" href="#buy-tickets">Buy Tickets</a> */}
         </div>
       </header>
 

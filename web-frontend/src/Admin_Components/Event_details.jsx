@@ -57,12 +57,12 @@ export default function Event_details() {
 
     function fetch_data (a,b,c,d,e,f,g) {
         setTitle(a);
-        setDis(b);
+        setThe(b);
         setLoc(c);
-        setThe(d);
-        setId(e);
-        setSd(f);
-        setEd(g)
+        setDis(d);
+        setSd(e);
+        setEd(f)
+        setId(g);
     }
 
     async function update_data() {
@@ -112,13 +112,18 @@ export default function Event_details() {
                                                 <div className="collapse show" id={`feedback${a._id}`}>
                                                     <div className="card-body">
                                                         <p><strong>Location:</strong> {a.location}</p>
+                                                        <p><strong>Theme:</strong> {a.theme}</p>
                                                         <p><strong>Start Date:</strong> {a.start_date}</p>
                                                         <p><strong>End Date:</strong> {a.end_date}</p>
                                                         <p><strong>Description:</strong> {a.description}</p>
                                                         <hr />
-                                                        <button className='btn btn-outline-success'>
-                                                            <i className="bi bi-pencil-square" onClick={()=>fetch_data(a.title,a.theme,a.location,a.start_date,a.end_date,a.description,a._id)} ></i> Update
-                                                        </button>
+                                                        {/* <button className='btn btn-outline-warning'>
+                                                            <i className="bi bi-pencil-square"  ></i> Update
+                                                        </button> */}
+                                                        <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={()=>fetch_data
+                                                            (a.title,a.theme,a.location,a.description,a.start_date,a.end_date,a._id)}>
+                                                        <i className="bi bi-pencil-square"  ></i> Update</button>
+                                                        &nbsp;&nbsp;&nbsp;
                                                         <button className='btn btn-outline-danger' onClick={() => delete_data(a._id)}>
                                                             <i className="bi bi-trash3-fill"></i> Delete
                                                         </button>
@@ -136,12 +141,12 @@ export default function Event_details() {
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <input type="text" className='form-control mt-2' value={title} onChange={(e)=> {setTitle(e.target.value)}} />
-        <input type="text" className='form-control mt-2' value={the} onChange={(e)=> {setThe(e.target.value)}} />
-        <input type="text" className='form-control mt-2' value={loc} onChange={(e)=> {setLoc(e.target.value)}} />
-        <textarea className="form-control mt-2" rows="4" value={dis} onChange={(e)=> setDis(e.target.value)}></textarea>
-        <input type="text" className='form-control mt-2' value={sd} onChange={(e)=> {setSd(e.target.value)}} />
-        <input type="text" className='form-control mt-2' value={ed} onChange={(e)=> {setEd(e.target.value)}} />
+        <input type="text" className='form-control mt-2' placeholder='Title' value={title} onChange={(e)=> {setTitle(e.target.value)}} />
+        <input type="text" className='form-control mt-2' placeholder='Theam' value={the} onChange={(e)=> {setThe(e.target.value)}} />
+        <input type="text" className='form-control mt-2' placeholder='Location' value={loc} onChange={(e)=> {setLoc(e.target.value)}} />
+        <textarea className="form-control mt-2" rows="4" placeholder='Descripation' value={dis} onChange={(e)=> setDis(e.target.value)}></textarea>
+        <input type="text" className='form-control mt-2' placeholder='Start date' value={sd} onChange={(e)=> {setSd(e.target.value)}} />
+        <input type="text" className='form-control mt-2' placeholder='End date' value={ed} onChange={(e)=> {setEd(e.target.value)}} />
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary close" data-bs-dismiss="modal">Close</button>
