@@ -260,17 +260,17 @@ let main_func={
     },
     a_forgot_pswd:async function(req,res){
         try {
-            let(email)=req.body.email
+            let {email}=req.body
             let email_check=await user.findOne({email})
 
             if (!email_check) {
                 res.status(404).json({msg:"Email Does Not Exist"})
                 
             }
-            let random_set=jwt.sign({id:email_check.id},process.env,SECRET_KEY,{expiresIn:"10m"})
-            let link=`http://localhost:4000/eproject/a_forgot/${random_set}`
+            let random_set=jwt.sign({id:email_check.id},process.env.SECRET_KEY,{expiresIn:"10m"})
+            let link=`http://localhost:3000/reset/${random_set}`
             let Email_body={
-                to :email_check,email,
+                to :email_check.email,
                 from:process.env.EMAIL,
                 subject:"Reset Your Password",
                 html:`Hi ${email_check.name}<br/> your password link sent ${link}`
@@ -284,6 +284,7 @@ let main_func={
                 }
             })
         } catch (error) {
+
             res.status(501).json({msg:e.message})
         }
     },
@@ -307,17 +308,17 @@ let main_func={
     },
     exb_forgot_pswd:async function(req,res){
         try {
-            let(email)=req.body.email;
+            let {email}=req.body
             let email_check=await user.findOne({email})
 
             if (!email_check) {
                 res.status(404).json({msg:"Email Does Not Exist"})
                 
             }
-            let random_set=jwt.sign({id:email_check.id},process.env,SECRET_KEY,{expiresIn:"10m"})
-            let link=`http://localhost:4000/eproject/a_forgot/${random_set}`
+            let random_set=jwt.sign({id:email_check.id},process.env.SECRET_KEY,{expiresIn:"10m"})
+            let link=`http://localhost:3000/exb_reset/${random_set}`
             let Email_body={
-                to :email_check,email,
+                to :email_check.email,
                 from:process.env.EMAIL,
                 subject:"Reset Your Password",
                 html:`Hi ${email_check.name}<br/> your password link sent ${link}`
@@ -338,7 +339,7 @@ let main_func={
         try {
             let {password}=req.body;
             let {token}=req.params;
-            let fetch=jwt.decode(token,process.env,SECRET_KEY)
+            let fetch=jwt.decode(token,process.env.SECRET_KEY)
             if(!fetch){
                 res.status(404).json({msg:"invalid Token"})
 
@@ -354,15 +355,15 @@ let main_func={
     },
     forgot_pswd:async function(req,res){
         try {
-            let(email)=req.body.email;
+            let{email}=req.body.email;
             let email_check=await user.findOne({email})
 
             if (!email_check) {
                 res.status(404).json({msg:"Email Does Not Exist"})
                 
             }
-            let random_set=jwt.sign({id:email_check.id},process.env,SECRET_KEY,{expiresIn:"10m"})
-            let link=`http://localhost:4000/eproject/forgot/${random_set}`
+            let random_set=jwt.sign({id:email_check.id},process.env.SECRET_KEY,{expiresIn:"10m"})
+            let link=`http://localhost:3000/vis_reset/${random_set}`
             let Email_body={
                 to :email_check,email,
                 from:process.env.EMAIL,
@@ -385,7 +386,7 @@ let main_func={
         try {
             let {password}=req.body;
             let {token}=req.params;
-            let fetch=jwt.decode(token,process.env,SECRET_KEY)
+            let fetch=jwt.decode(token,process.env.SECRET_KEY)
             if(!fetch){
                 res.status(404).json({msg:"invalid Token"})
 
@@ -423,7 +424,7 @@ let main_func={
                 from:process.env.EMAIL,
                 subject:"Register Successfully",
                 html:`<h3>Hi ${name}<br/><br/> Your Account Register Successfully, Congratulations .<br/>
-                <a href='http://localhost:4000/eproject/i'>Continue on website<a/>
+                <a href='http://localhost:4000/eproject/exb_log'>Continue on website<a/>
                 </h3>`
                 // yaha edit ho ga
                }

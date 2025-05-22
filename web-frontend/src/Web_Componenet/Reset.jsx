@@ -4,6 +4,7 @@ import {ToastContainer,toast} from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import Footer from './Footer';
 import Navbar from './Navbar';
+import { useParams } from 'react-router-dom';
 
 export default function A_Resetpass() {
     let [pswd,setPswd]=useState("")
@@ -23,7 +24,7 @@ export default function A_Resetpass() {
     }
   return (
     <div>
-        <Navbar/>
+        {/* <Navbar/> */}
     <div className='container'>
     {/* <h2>Reset Password</h2> */}
     <p>Enter Your Password</p>
@@ -36,7 +37,7 @@ export default function A_Resetpass() {
     <button className='btn btn-primary my-2' onClick={arp}>Sent Link</button>
     <ToastContainer/>
 </div>
-<Footer/>
+{/* <Footer/> */}
     </div>
   )
 }
