@@ -89,7 +89,7 @@ export default function Register_exb() {
               toast.error("age greater then 18")
           }
           else{
-              await  axios.post("http://localhost:4000/eproject/w_reg",{
+              await  axios.post("http://localhost:4000/eproject/exb_reg",{
                   name:name,
                   email:email,
                   password:pass,
