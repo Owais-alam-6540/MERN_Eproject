@@ -4,12 +4,13 @@ import { ToastContainer, toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import Footer from './Footer';
 import Navbar from './Navbar';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 export default function A_Resetpass() {
     const [pswd, setPswd] = useState("");
     const [cpswd, setCpswd] = useState("");
     const { token } = useParams();
+    let nav = useNavigate()
 
     async function handleResetPassword() {
         if (!pswd || !cpswd) {
@@ -23,12 +24,13 @@ export default function A_Resetpass() {
         }
 
         try {
-            const response = await axios.post(`http://localhost:4000/eproject/vis_resetpswd/${token}`, { password: pswd });
+            const response = await axios.post(`http://localhost:4000/eproject/resetpswd/${token}`, { password: pswd });
             toast.success(response.data.msg || "Password reset successful");
             setPswd("");
             setCpswd("");
+            nav("/log_vis")
         } catch (error) {
-            const errorMsg = error.response?.data?.msg || "Something went wrong";
+            const errorMsg = error.response?.data?.msg ;
             toast.error(errorMsg);
         }
     }

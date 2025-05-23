@@ -228,7 +228,7 @@ let main_func={
             }
            
  } catch (error) {
-            res.status(501).json({msg:error.message})
+            res.status(501).json({msg: error.message})
             
         }
     },
@@ -356,7 +356,7 @@ let main_func={
     },
     forgot_pswd:async function(req,res){
         try {
-            let{email}=req.body.email;
+            let{email}=req.body;
             let email_check=await user.findOne({email})
 
             if (!email_check) {
@@ -366,14 +366,14 @@ let main_func={
             let random_set=jwt.sign({id:email_check.id},process.env.SECRET_KEY,{expiresIn:"10m"})
             let link=`http://localhost:3000/vis_reset/${random_set}`
             let Email_body={
-                to :email_check,email,
+                to :email_check.email,
                 from:process.env.EMAIL,
                 subject:"Reset Your Password",
                 html:`Hi ${email_check.name}<br/> your password link sent ${link}`
             }
             email_info.sendMail(Email_body,function(e,i){
                 if (e) {
-                     res.status(501).json({msg:error.message})
+                     res.status(501).json({msg:e.message})
                     
                 }else{
                      res.status(200).json({msg:"Password Reset link has been sent"})
