@@ -4,13 +4,13 @@ import { ToastContainer, toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import Footer from './Footer';
 import Navbar from './Navbar';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 export default function A_Resetpass() {
     const [pswd, setPswd] = useState("");
     const [cpswd, setCpswd] = useState("");
     const { token } = useParams();
-
+let nav = useNavigate();
     async function handleResetPassword() {
         if (!pswd || !cpswd) {
             toast.error("Both fields are required");
@@ -27,6 +27,7 @@ export default function A_Resetpass() {
             toast.success(response.data.msg || "Password reset successful");
             setPswd("");
             setCpswd("");
+            nav("/log_exb");
         } catch (error) {
             const errorMsg = error.response?.data?.msg || "Something went wrong";
             toast.error(errorMsg);

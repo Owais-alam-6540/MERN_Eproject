@@ -10,7 +10,8 @@ let jwt = require("jsonwebtoken");
 let exibitor =require("../Collection/Exhibitor");
 let Rating = require("../Collection/RateUs")
 require("dotenv").config()
-let nodemailer=require("nodemailer")
+let nodemailer=require("nodemailer");
+const Exhibitor = require("../Collection/Exhibitor");
 
 let email_info=nodemailer.createTransport({
     service:"gmail",
@@ -309,7 +310,7 @@ let main_func={
     exb_forgot_pswd:async function(req,res){
         try {
             let {email}=req.body
-            let email_check=await user.findOne({email})
+            let email_check=await exibitor.findOne({email})
 
             if (!email_check) {
                 res.status(404).json({msg:"Email Does Not Exist"})
@@ -345,7 +346,7 @@ let main_func={
 
             }
             let ecp=brcypt.hashSync(password,12);
-            await user.findByIdAndUpdate(fetch.id,{password:ecp})
+            await exibitor.findByIdAndUpdate(fetch.id,{password:ecp})
             res.status(201).json({msg:"password Reset Successfully"})
             
         } catch (error) {
