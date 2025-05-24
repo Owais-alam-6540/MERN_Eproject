@@ -29,6 +29,8 @@ import Event_details from './Admin_Components/Event_details';
 import Reset_as_exb from  './Web_Componenet/Reset_as_exb';
 import Reset from  './Web_Componenet/Reset';
 import Reset_as_vis from  './Web_Componenet/Resert_as_vis';
+import Stall from './Web_Componenet/Stall';
+
 
 
 
@@ -70,6 +72,9 @@ function App() {
         <Route path='/exb_forget' element={<Forget_as_exb/>}/>
         <Route path='/exb_reset/:token' element={<Reset_as_exb/>}/>
         <Route path='/vis_reset/:token' element={<Reset_as_vis/>}/>
+        <Route path='/stall' element={<Stall/>}/>
+
+
 
 
 

@@ -29,6 +29,7 @@ route.post("/resetpswd/:token",fun.reset_pswd)
 route.post("/rate",fun.rate)
 
 
+
 route.get("/rate", async (req, res) => {
   const ratings = await req.find().sort({ date: -1 });
   res.json(ratings);
