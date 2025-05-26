@@ -15,6 +15,7 @@ import axios from 'axios';
 
 import Navbar from './Navbar';
 import Footer from './Footer';
+
 export default function Feedback() {
     useEffect(() => {
     AOS.init({ duration: 600, easing: 'ease-in-out', once: true });

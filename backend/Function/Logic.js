@@ -443,6 +443,7 @@ let main_func={
             
         }
     },
+    
     rate : async (req, res) => {
         const { email, stars } = req.body;
       
