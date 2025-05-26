@@ -67,22 +67,34 @@ export default function Index() {
   }
 
   async function save_contact(e) {
-    try {     
-      e.preventDefault();
-        await axios.post("http://localhost:4000/eproject/a_cont", {
-            name:name,
-            email:email,
-            subject:sub,
-            msg:msg
-    })
-    console.log("Thank You For Contacting Us");
-    toast.success("Thank You For Contacting Us");
-    clear();
- 
-      } catch (error) {
-        toast.error(error)
-      }
+    e.preventDefault();
+  
+    // Basic validation: check if any field is empty (trim to ignore spaces)
+    if (!name.trim() || !email.trim() || !sub.trim() || !msg.trim()) {
+      toast.error("Please fill in all fields before submitting.");
+      return; // stop form submission
     }
+  
+    // Email format validation (simple regex)
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      toast.error("Please enter a valid email address.");
+      return;
+    }
+  
+    try {
+      await axios.post("http://localhost:4000/eproject/a_cont", {
+        name: name,
+        email: email,
+        subject: sub,
+        msg: msg
+      });
+      toast.success("Thank You For Contacting Us");
+      clear();
+    } catch (error) {
+      toast.error("Failed to send message. Please try again later.");
+    }
+  }
   
   return (
    <div>
