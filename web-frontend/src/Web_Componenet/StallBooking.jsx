@@ -17,9 +17,19 @@ import axios from 'axios';
 
 import Navbar from './Navbar';
 import Footer from './Footer';
+import { useNavigate } from 'react-router-dom';
 // import './StallBooking.css'; // Add custom styles
 
 const StallBooking = () => {
+  const navigate = useNavigate();
+  
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (!user || user.role !== 'exhibitor') {
+      navigate('/log_exb');
+    }
+  }, []);
+
   const rows = {
     Bronze: ['A', 'B'],
     Silver: ['C', 'D', 'E', 'F'],
@@ -31,13 +41,43 @@ const StallBooking = () => {
   const [selectedSeats, setSelectedSeats] = useState([]);
 
   const handleSelect = (seatId) => {
+    console.log("Clicked Seat:", seatId); // ✅ Print to console
+  
     if (bookedSeats.includes(seatId)) return;
-
+  
     setSelectedSeats((prev) =>
       prev.includes(seatId)
         ? prev.filter((id) => id !== seatId)
         : [...prev, seatId]
     );
+  };
+
+  const handleConfirm = async () => {
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (!user || !user.email) {
+      toast.error("Login required to book");
+      return;
+    }
+  
+    try {
+      const res = await axios.post(
+        'http://localhost:5000/api/stalls/book',
+        {
+          email: user.email,
+          selectedStalls: selectedSeats,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
+      );
+      toast.success("Stalls booked successfully!");
+      setBookedSeats((prev) => [...prev, ...selectedSeats]);
+      setSelectedSeats([]);
+    } catch (err) {
+      toast.error("Booking failed.");
+    }
   };
 
   const renderSeats = (row) => {
@@ -101,7 +141,7 @@ const StallBooking = () => {
       </div>
 
     </section><br />
-      <h3 className="text-center bg-danger text-white p-2">SCREEN THIS WAY</h3>
+      <h3 className="text-center bg-danger text-white p-2">Book Your Stalls Or booth</h3>
       <div className="legend d-flex justify-content-center my-3">
         <div className="me-3"><span className="seat available"></span> Available</div>
         <div className="me-3 text-danger"><span className="seat booked"></span> Booked</div>
@@ -121,7 +161,7 @@ const StallBooking = () => {
       ))}
 
       <div className="text-center">
-        <button className="btn btn-success mt-3" onClick={() => alert(`Selected: ${selectedSeats.join(', ')}`)}>
+        <button className="btn btn-success mt-3" onClick={handleConfirm}>
           Confirm Selection
         </button>
       </div><br /><br /><br />

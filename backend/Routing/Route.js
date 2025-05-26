@@ -35,4 +35,7 @@ route.get("/rate", async (req, res) => {
   res.json(ratings);
 })
 
+
+
+
 module.exports=route

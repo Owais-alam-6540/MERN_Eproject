@@ -72,7 +72,7 @@ export default function Login_exb() {
                   localStorage.setItem("user_data",JSON.stringify(a.data.user))
                   setEmail("")
                   setPass("")
-                  nav("/")
+                  nav("/book_panel")
               })
           } catch (error) {
               toast.error(error.response.data.msg)
