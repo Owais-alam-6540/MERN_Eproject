@@ -29,6 +29,10 @@ import Event_details from './Admin_Components/Event_details';
 import Reset_as_exb from  './Web_Componenet/Reset_as_exb';
 import Reset from  './Web_Componenet/Reset';
 import Reset_as_vis from  './Web_Componenet/Resert_as_vis';
+import Events_show from './Web_Componenet/Events_show';
+import StallBooking from './Web_Componenet/StallBooking';
+// import Stall from './Web_Componenet/Stall';
+
 
 
 
@@ -60,6 +64,7 @@ function App() {
 
       <Route path='/' element={<Index/>}/>
         <Route path='/feedback' element={<Feedback/>}/>
+        <Route path='/event_show' element={<Events_show/>}/>
         <Route path='/reg_vis' element={<Register_vis/>}/>
         <Route path='/reg_exb' element={<Register_exb/>}/>
         <Route path='/log_vis' element={<Login_vis/>}/>
@@ -70,6 +75,11 @@ function App() {
         <Route path='/exb_forget' element={<Forget_as_exb/>}/>
         <Route path='/exb_reset/:token' element={<Reset_as_exb/>}/>
         <Route path='/vis_reset/:token' element={<Reset_as_vis/>}/>
+        {/* <Route path='/book_panel' element={<Stall/>}/> */}
+        <Route path='/book_panel' element={<StallBooking/>}/>
+
+
+
 
 
 

@@ -1,110 +1,143 @@
-// import React from 'react'
-// import Navbar from './Navbar'
-// import Footer from './Footer'
-// import Sidebar from './Sidebar'
-import {toast,ToastContainer} from "react-toastify";
+import React, { useState } from "react";
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import React, { useState } from 'react'
-import axios from 'axios'
-import {Link, useNavigate } from 'react-router-dom'
-
 
 export default function Login() {
-     let[email,setEmail]=useState("")
-    let[pswd,setPswd]=useState("")
-    let nav=useNavigate();
+  let [email, setEmail] = useState("");
+  let [pswd, setPswd] = useState("");
+  let [showPassword, setShowPassword] = useState(false);
+  let nav = useNavigate();
 
-    async function admin_login(){
-        try {
-            await axios.post("http://localhost:4000/eproject/a_log",{
-                email:email,
-                password:pswd
-            }).then((a)=>{
-                toast.success(a.data.msg)
-                localStorage.setItem("users-data",JSON.stringify(a.data.user))
-                setEmail("")
-                setPswd("")
-                nav("/admin")
-            })
-
-        } catch (error) {
-            toast.error(error.response.data.msg)
-        }
+  async function admin_login(e) {
+    e.preventDefault();
+    try {
+      const response = await axios.post("http://localhost:4000/eproject/a_log", {
+        email: email,
+        password: pswd,
+      });
+      toast.success(response.data.msg);
+      localStorage.setItem("users-data", JSON.stringify(response.data.user));
+      setEmail("");
+      setPswd("");
+      nav("/admin");
+    } catch (error) {
+      toast.error(error.response?.data?.msg || "Login failed");
     }
+  }
+
   return (
     <div>
-        <div id="wrapper">
-        {/* <Sidebar/> */}
+      <div id="wrapper">
         <div id="content-wrapper" className="d-flex flex-column">
-        
-        <div id="content">
-        {/* <Navbar/> */}
-       <div className="container">
-
-<div className="row justify-content-center">
-
-    <div className="col-xl-10 col-lg-12 col-md-9">
-
-        <div className="card o-hidden border-0 shadow-lg my-5">
-            <div className="card-body p-0">
-                <div className="row">
-                    <div className="col-lg-6 d-none d-lg-block bg-login-image"></div>
-                    <div className="col-lg-6">
-                        <div className="p-5">
-                            <div className="text-center">
-                                <h1 className="h4 text-gray-900 mb-4">Welcome Back!</h1>
+          <div id="content">
+            <div className="container my-5">
+              <div className="row justify-content-center">
+                <div className="col-xl-10 col-lg-12 col-md-9">
+                  <div className="card shadow-lg border-0">
+                    <div className="row g-0">
+                      <div
+                        className="col-lg-6 d-none d-lg-block"
+                        style={{
+                          backgroundImage:
+                            "url('https://source.unsplash.com/600x800/?login,technology')",
+                          backgroundSize: "cover",
+                          backgroundPosition: "center",
+                          borderTopLeftRadius: ".25rem",
+                          borderBottomLeftRadius: ".25rem",
+                        }}
+                      ></div>
+                      <div className="col-lg-6">
+                        <div className="card-body p-5">
+                          <h1 className="h4 text-center text-gray-900 mb-4">
+                            Welcome Back!
+                          </h1>
+                          <form onSubmit={admin_login}>
+                            <div className="mb-3">
+                              <label htmlFor="email" className="form-label">
+                                Email Address
+                              </label>
+                              <input
+                                type="email"
+                                className="form-control"
+                                id="email"
+                                placeholder="Enter Email Address..."
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                required
+                              />
                             </div>
-                            <form className="user">
-                                <div className="form-group">
-                                    <input type="email" className="form-control form-control-user"
-                                        id="exampleInputEmail" aria-describedby="emailHelp"
-                                        placeholder="Enter Email Address..." value={email} onChange={(e)=>setEmail(e.target.value)}/>
-                                </div>
-                                <div className="form-group">
-                                    <input type="password" className="form-control form-control-user"
-                                        id="exampleInputPassword" placeholder="Password" value={pswd} onChange={(e)=>setPswd(e.target.value)}/>
-                                </div>
-                                <div className="form-group">
-                                    <div className="custom-control custom-checkbox small">
-                                        <input type="checkbox" className="custom-control-input" id="customCheck"/>
-                                        <label className="custom-control-label" for="customCheck">Remember
-                                            Me</label>
-                                    </div>
-                                </div>
-                                <a className="btn btn-primary btn-user btn-block" onClick={admin_login}>
-                                    Login
-                                </a>
-                                {/* <hr/>
-                                <a href="index.html" className="btn btn-google btn-user btn-block">
-                                    <i className="fab fa-google fa-fw"></i> Login with Google
-                                </a>
-                                <a href="index.html" className="btn btn-facebook btn-user btn-block">
-                                    <i className="fab fa-facebook-f fa-fw"></i> Login with Facebook
-                                </a> */}
-                            </form>
-                            <hr/>
-                            <div className="text-center">
-                                <Link className="small" to="/a_forget">Forgot Password?</Link>
+                            <div className="mb-3 position-relative">
+                              <label htmlFor="password" className="form-label">
+                                Password
+                              </label>
+                              <div className="input-group">
+                                <input
+                                  type={showPassword ? "text" : "password"}
+                                  className="form-control"
+                                  id="password"
+                                  placeholder="Password"
+                                  value={pswd}
+                                  onChange={(e) => setPswd(e.target.value)}
+                                  required
+                                />
+                                <button
+                                  type="button"
+                                  className="btn btn-outline-secondary"
+                                  onClick={() =>
+                                    setShowPassword((prev) => !prev)
+                                  }
+                                  tabIndex={-1}
+                                  aria-label={
+                                    showPassword ? "Hide password" : "Show password"
+                                  }
+                                >
+                                  {showPassword ? (
+                                    <i className="bi bi-eye-slash-fill"></i>
+                                  ) : (
+                                    <i className="bi bi-eye-fill"></i>
+                                  )}
+                                </button>
+                              </div>
                             </div>
-                            {/* <div className="text-center">
-                                <a className="small" href="register.html">Create an Account!</a>
-                            </div> */}
+                            <div className="form-check mb-3">
+                              <input
+                                type="checkbox"
+                                className="form-check-input"
+                                id="rememberMe"
+                              />
+                              <label
+                                className="form-check-label"
+                                htmlFor="rememberMe"
+                              >
+                                Remember Me
+                              </label>
+                            </div>
+                            <button
+                              type="submit"
+                              className="btn btn-primary w-100 py-2"
+                            >
+                              Login
+                            </button>
+                          </form>
+                          <hr />
+                          <div className="text-center">
+                            <Link className="small" to="/a_forget">
+                              Forgot Password?
+                            </Link>
+                          </div>
                         </div>
+                      </div>
                     </div>
+                  </div>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
-
+      </div>
+      <ToastContainer />
     </div>
-
-</div>
-
-</div>
-</div>
-</div>
-</div>
- <ToastContainer/>
-{/* <Footer/> */}
-    </div>
-  )
+  );
 }

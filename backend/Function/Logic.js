@@ -151,7 +151,14 @@ let main_func={
     events: async function(req,res) {
         try {
             let{title,description,theme,location,start_date,end_date}=req.body;
-                let events_data=new events({title,description,theme,location,start_date,end_date})
+
+            const image = req.file ? req.file.filename : null; 
+          if (!image) {
+            console.log("image is required")
+            return res.status(400).json({ msg: "Image is required" });
+          }
+
+                let events_data=new events({title,description,theme,location,start_date,end_date,image})
                 let save_events= await events_data.save();
             res.status(200).json({msg:"Your Event's Data Has Been Saved Successfully",data:save_events}) 
         }catch (error) {
@@ -443,6 +450,7 @@ let main_func={
             
         }
     },
+    
     rate : async (req, res) => {
         const { email, stars } = req.body;
       
@@ -467,6 +475,23 @@ let main_func={
           console.error("Error submitting rating:", err);
           return res.status(500).json({ success: false, message: "Server error" });
         }
-    }
+    },
+
+    verifyExhibitor:  (req, res, next) => {
+        const token = req.headers.authorization?.split(' ')[1];
+        if (!token) return res.status(401).json({ message: 'Unauthorized' });
+      
+        try {
+          const decoded = jwt.verify(token, process.env.JWT_SECRET);
+          if (decoded.role !== 'exhibitor') {
+            return res.status(403).json({ message: 'Only exhibitors can access this route' });
+          }
+          req.user = decoded;
+          next();
+        } catch (err) {
+          return res.status(401).json({ message: 'Invalid token' });
+        }
+      }
+    
 }
 module.exports=main_func;

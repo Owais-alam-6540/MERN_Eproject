@@ -63,7 +63,8 @@ export default function Navbar() {
               <li><Link to="/">Schedule</Link></li>
               <li><Link to="/">Venue</Link></li>
               <li><Link to="/">Hotels</Link></li>
-              <li><Link to="/">Gallery</Link></li>
+              <li><Link to="/event_show">Events</Link></li>
+              <li><Link to="/book_panel">Booking_Stall's_Panel</Link></li>
               <li className="dropdown">
                 <a href="#"><span>Forms</span> <i className="bi bi-chevron-down toggle-dropdown"></i></a>
                 <ul>

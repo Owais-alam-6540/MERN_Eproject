@@ -14,12 +14,16 @@ export default function Events_Forms() {
   let[location,setLocation]=useState("");
   let[sdate,setSdate]=useState(0);
   let[edate,setEdate]=useState(0);
+  let [image, setImage] = useState(null);
+  let [preview, setPreview] = useState(null);
 
   function clear(){
     setEname("");
     setTheam("");
     setLocation("");
     setMsg("");
+    setImage(null);
+    setPreview(null);
     setSdate(0);
     setEdate(0);
 }
@@ -77,7 +81,7 @@ async function save_event(e) {
                           </div>
                           <div className="col-sm-6">
                             <label className="form-label">Event Theme</label>
-                            <input type="text" className="form-control" placeholder="Enter event theme"  value={theam} onChange={(e)=> setTheam(e.target.value)}/>
+                            <input type="file" className="form-control" placeholder="Enter event theme"  value={theam} onChange={(e)=>{const file = e.target.files[0]; setImage(file); setPreview(file ? URL.createObjectURL(file) : null);}}/>
                           </div>
                         </div>
 
