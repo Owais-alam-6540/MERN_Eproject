@@ -28,7 +28,7 @@ export default function A_Resetpass() {
             toast.success(response.data.msg || "Password reset successful");
             setPswd("");
             setCpswd("");
-            nav("/log_vis")
+            nav("/log_vis   ")
         } catch (error) {
             const errorMsg = error.response?.data?.msg ;
             toast.error(errorMsg);
