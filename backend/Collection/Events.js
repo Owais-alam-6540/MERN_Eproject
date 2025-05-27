@@ -13,6 +13,10 @@ let event_coll=mongo.Schema({
         type:String,
         required:true
     },
+    image:{
+        type:String,
+        required:true
+    },
     location:{
         type:String,
         required:true
