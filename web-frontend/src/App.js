@@ -70,7 +70,7 @@ function App() {
         <Route path='/log_vis' element={<Login_vis/>}/>
         <Route path='/log_exb' element={<Login_exb/>}/>
         <Route path='/forget' element={<Forget/>}/>
-        <Route path='/reset' element={<Reset/>}/>
+        <Route path='/reset/:token' element={<Reset/>}/>
 
         <Route path='/exb_forget' element={<Forget_as_exb/>}/>
         <Route path='/exb_reset/:token' element={<Reset_as_exb/>}/>

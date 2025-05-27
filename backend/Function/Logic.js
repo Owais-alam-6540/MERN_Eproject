@@ -269,7 +269,7 @@ let main_func={
     a_forgot_pswd:async function(req,res){
         try {
             let {email}=req.body
-            let email_check=await user.findOne({email})
+            let email_check=await admin.findOne({email})
 
             if (!email_check) {
                 res.status(404).json({msg:"Email Does Not Exist"})
@@ -306,7 +306,7 @@ let main_func={
 
             }
             let ecp=brcypt.hashSync(password,12);
-            await user.findByIdAndUpdate(fetch.id,{password:ecp})
+            await admin.findByIdAndUpdate(fetch.id,{password:ecp})
             res.status(201).json({msg:"password Reset Successfully"})
             
         } catch (error) {
