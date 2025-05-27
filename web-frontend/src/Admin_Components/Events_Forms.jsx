@@ -15,7 +15,7 @@ export default function Events_Forms() {
   let[sdate,setSdate]=useState(0);
   let[edate,setEdate]=useState(0);
   let [image, setImage] = useState(null);
-  // let [preview, setPreview] = useState(null);
+  let [preview, setPreview] = useState(null);
 
   function clear(){
     setEname("");

@@ -57,7 +57,7 @@ function App() {
       <Route path="/con_details" element={<ContactUs_details />}/>
       <Route path="/feed_details" element={<Feedback_details />}/>
       <Route path="/rat_details" element={<Rating_details />}/>
-      <Route path="/a_forgot" element={<A_forget />}/>
+      <Route path="/a_forget" element={<A_forget />}/>
 
 
 
