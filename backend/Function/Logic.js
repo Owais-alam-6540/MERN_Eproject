@@ -151,7 +151,14 @@ let main_func={
     events: async function(req,res) {
         try {
             let{title,description,theme,location,start_date,end_date}=req.body;
-                let events_data=new events({title,description,theme,location,start_date,end_date})
+
+            const image = req.file ? req.file.filename : null; 
+          if (!image) {
+            console.log("image is required")
+            return res.status(400).json({ msg: "Image is required" });
+          }
+
+                let events_data=new events({title,description,theme,location,start_date,end_date,image})
                 let save_events= await events_data.save();
             res.status(200).json({msg:"Your Event's Data Has Been Saved Successfully",data:save_events}) 
         }catch (error) {
