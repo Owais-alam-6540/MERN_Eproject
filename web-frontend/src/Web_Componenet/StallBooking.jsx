@@ -24,8 +24,8 @@ const StallBooking = () => {
   const navigate = useNavigate();
   
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem('user'));
-    if (!user || user.role !== 'exhibitor') {
+    const user = JSON.parse(localStorage.getItem('user_data'));
+    if (!user) {
       navigate('/log_exb');
     }
   }, []);
@@ -53,8 +53,8 @@ const StallBooking = () => {
   };
 
   const handleConfirm = async () => {
-    const user = JSON.parse(localStorage.getItem('user'));
-    if (!user || !user.email) {
+    const user = JSON.parse(localStorage.getItem('user_data'));
+    if (!user || !user.e) {
       toast.error("Login required to book");
       return;
     }
