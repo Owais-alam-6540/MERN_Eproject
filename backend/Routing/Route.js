@@ -27,7 +27,10 @@ route.post("/exb_resetpswd/:token",fun.exb_reset_pswd)
 route.post("/forgot",fun.forgot_pswd)
 route.post("/resetpswd/:token",fun.reset_pswd)
 route.post("/rate",fun.rate)
-
+route.post("/a_schedule",fun.schedule);
+route.get("/get_schedule",fun.show_schedule);
+route.delete("/del_schedule/:id",fun.delete_schedule);
+route.put("/update_schedule/:id",fun.update_schedule);
 
 
 route.get("/rate", async (req, res) => {

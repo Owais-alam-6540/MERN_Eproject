@@ -12,6 +12,7 @@ let Rating = require("../Collection/RateUs")
 require("dotenv").config()
 let nodemailer=require("nodemailer");
 const Exhibitor = require("../Collection/Exhibitor");
+let schedule = require("../Collection/Schedule");
 
 let email_info=nodemailer.createTransport({
     service:"gmail",
@@ -491,7 +492,53 @@ let main_func={
         } catch (err) {
           return res.status(401).json({ message: 'Invalid token' });
         }
-      }
+      },
+      
+      schedule: async function(req,res) {
+        try {
+            let{speaker,topic,location,start_date,end_date}=req.body;
+                let schedule_data=new schedule({speaker,topic,location,start_date,end_date})
+                let save_schedule= await schedule_data.save();
+            res.status(200).json({msg:"Your Schedule's Data Has Been Saved Successfully",data:save_schedule}) 
+        }catch (error) {
+            res.status(501).json({msg:error.message})
+        }
+    },
+    show_schedule : async function (req, res) {
+        try {
+            let getschedule_data = await schedule.find();
+            res.status(201).json(getschedule_data);
+        } catch (error) {
+            res.status(501).json({msg: error.message})
+        }
+   },
+   delete_schedule : async function (req,res) {
+    try {
+        let {id} = req.params;
+        let find_id = await schedule.findById(id);
+        if (find_id) {
+                await schedule.findByIdAndDelete(find_id);
+                return res.status(200).json({msg: "This schedule Has Been Deleted Successfully"})
+        }
+    } catch (error) {
+        res.status(501).json({msg:error.message})
+    }
+},
+
+update_schedule : async function (req,res) {
+try {
+    let {id} = req.params;
+    let {speaker,topic,location,start_date,end_date} = req.body;
+
+    let find_id = await schedule.findById(id);
+    if (find_id) {
+        await schedule.findByIdAndUpdate(id,{speaker:speaker,topic:topic,location:location,start_date:start_date,end_date:end_date});
+        res.status(200).json({msg: "This Schedule's Data Has Been Updated Successfully"})
+    }
+} catch (error) {
+    res.status(501).json({msg:error.message})
+    }
+},
     
 }
 module.exports=main_func;

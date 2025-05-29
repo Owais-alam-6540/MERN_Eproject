@@ -31,7 +31,8 @@ import Reset from  './Web_Componenet/Reset';
 import Reset_as_vis from  './Web_Componenet/Resert_as_vis';
 import Events_show from './Web_Componenet/Events_show';
 import StallBooking from './Web_Componenet/StallBooking';
-
+import Schedule_details from './Admin_Components/Schedule_details';
+import Schedule_forms from './Admin_Components/Schedule_forms';
 // import Stall from './Web_Componenet/Stall';
 
 

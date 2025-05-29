@@ -117,9 +117,6 @@ export default function Event_details() {
                                                         <p><strong>End Date:</strong> {a.end_date}</p>
                                                         <p><strong>Description:</strong> {a.description}</p>
                                                         <hr />
-                                                        {/* <button className='btn btn-outline-warning'>
-                                                            <i className="bi bi-pencil-square"  ></i> Update
-                                                        </button> */}
                                                         <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={()=>fetch_data
                                                             (a.title,a.theme,a.location,a.description,a.start_date,a.end_date,a._id)}>
                                                         <i className="bi bi-pencil-square"  ></i> Update</button>

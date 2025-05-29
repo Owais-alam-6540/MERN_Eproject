@@ -15,6 +15,9 @@ import axios from 'axios';
 import Navbar from './Navbar';
 import Footer from './Footer';
 
+import "bootstrap-icons/font/bootstrap-icons.css"
+import "react-toastify/dist/ReactToastify.css";
+
 export default function Index() {
   useEffect(() => {
     AOS.init({ duration: 600, easing: 'ease-in-out', once: true });
@@ -95,7 +98,24 @@ export default function Index() {
       toast.error("Failed to send message. Please try again later.");
     }
   }
-  
+  // shedule start
+  const [schedule_data, setSchedule_data] = useState([]);
+
+  useEffect(() => {
+    get_data();
+}, []);
+
+async function get_data() {
+    try {
+        const response = await axios.get("http://localhost:4000/eproject/get_schedule");
+        setSchedule_data(response.data);
+    } catch (e) {
+        console.error(e);
+    }
+}
+
+
+  // shedule end
   return (
    <div>
     <Navbar/>
@@ -258,80 +278,18 @@ export default function Index() {
 
      
       <div role="tabpanel" className="col-lg-9 tab-pane fade show active" id="day-1">
-
-        <div className="row schedule-item">
-          <div className="col-md-2"><time>09:30 AM</time></div>
-          <div className="col-md-10">
-            <h4>Registration</h4>
-            <p>Fugit voluptas iusto maiores temporibus autem numquam magnam.</p>
-          </div>
-        </div>
-
-        <div className="row schedule-item">
-          <div className="col-md-2"><time>10:00 AM</time></div>
-          <div className="col-md-10">
-            <div className="speaker">
-              <img src="./assets/img/speakers/speaker-1-2.jpg" alt="Brenden Legros"/>
-            </div>
-            <h4>Keynote <span>Brenden Legros</span></h4>
-            <p>Facere provident incidunt quos voluptas.</p>
-          </div>
-        </div>
-
-        <div className="row schedule-item">
-          <div className="col-md-2"><time>11:00 AM</time></div>
-          <div className="col-md-10">
-            <div className="speaker">
-              <img src="./assets/img/speakers/speaker-2-2.jpg" alt="Hubert Hirthe"/>
-            </div>
-            <h4>Et voluptatem iusto dicta nobis. <span>Hubert Hirthe</span></h4>
-            <p>Maiores dignissimos neque qui cum accusantium ut sit sint inventore.</p>
-          </div>
-        </div>
-
-        <div className="row schedule-item">
-          <div className="col-md-2"><time>12:00 AM</time></div>
-          <div className="col-md-10">
-            <div className="speaker">
-              <img src="./assets/img/speakers/speaker-3-2.jpg" alt="Cole Emmerich"/>
-            </div>
-            <h4>Explicabo et rerum quis et ut ea. <span>Cole Emmerich</span></h4>
-            <p>Veniam accusantium laborum nihil eos eaque accusantium aspernatur.</p>
-          </div>
-        </div>
-
-        <div className="row schedule-item">
-          <div className="col-md-2"><time>02:00 PM</time></div>
-          <div className="col-md-10">
-            <div className="speaker">
-              <img src="./assets/img/speakers/speaker-4-2.jpg" alt="Jack Christiansen"/>
-            </div>
-            <h4>Qui non qui vel amet culpa sequi. <span>Jack Christiansen</span></h4>
-            <p>Nam ex distinctio voluptatem doloremque suscipit iusto.</p>
-          </div>
-        </div>
-
-        <div className="row schedule-item">
-          <div className="col-md-2"><time>03:00 PM</time></div>
-          <div className="col-md-10">
-            <div className="speaker">
-              <img src="./assets/img/speakers/speaker-5.jpg" alt="Alejandrin Littel"/>
-            </div>
-            <h4>Quos ratione neque expedita asperiores. <span>Alejandrin Littel</span></h4>
-            <p>Eligendi quo eveniet est nobis et ad temporibus odio quo.</p>
-          </div>
-        </div>
-
-        <div className="row schedule-item">
-          <div className="col-md-2"><time>04:00 PM</time></div>
-          <div className="col-md-10">
-            <div className="speaker">
-              <img src="./assets/img/speakers/speaker-6.jpg" alt="Willow Trantow"/>
-            </div>
-            <h4>Quo qui praesentium nesciunt <span>Willow Trantow</span></h4>
-            <p>Voluptatem et alias dolorum est aut sit enim neque veritatis.</p>
-          </div>
-        </div>
+        {schedule_data.map((a)=>(
+             <div className="row schedule-item" key={a._id}>
+             <div className="col-md-2"><strong>Start Date:</strong> {a.start_date}</div>
+             <div className="col-md-2"><strong>End Date:</strong> {a.end_date}</div>
+             <div className="col-md-10">
+               <h4><strong>Speaker:</strong> {a.speaker}</h4>
+               <h6><strong>Topic:</strong> {a.topic}</h6>
+               <p><strong>Location:</strong> {a.location}</p>
+             </div>
+           </div>
+        ))}
+       
 
       </div>
 
@@ -348,7 +306,7 @@ export default function Index() {
           </div>
         </div>
 
-        <div className="row schedule-item">
+        {/* <div className="row schedule-item">
           <div className="col-md-2"><time>11:00 AM</time></div>
           <div className="col-md-10">
             <div className="speaker">
@@ -401,7 +359,7 @@ export default function Index() {
             <h4>Quo qui praesentium nesciunt <span>Willow Trantow</span></h4>
             <p>Voluptatem et alias dolorum est aut sit enim neque veritatis.</p>
           </div>
-        </div>
+        </div> */}
 
       </div>
 
@@ -419,7 +377,7 @@ export default function Index() {
           </div>
         </div>
 
-        <div className="row schedule-item">
+        {/* <div className="row schedule-item">
           <div className="col-md-2"><time>11:00 AM</time></div>
           <div className="col-md-10">
             <div className="speaker">
@@ -472,7 +430,7 @@ export default function Index() {
             <h4>Quo qui praesentium nesciunt <span>Willow Trantow</span></h4>
             <p>Voluptatem et alias dolorum est aut sit enim neque veritatis.</p>
           </div>
-        </div>
+        </div> */}
 
       </div>
 
