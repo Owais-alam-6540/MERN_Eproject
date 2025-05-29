@@ -31,6 +31,7 @@ import Reset from  './Web_Componenet/Reset';
 import Reset_as_vis from  './Web_Componenet/Resert_as_vis';
 import Events_show from './Web_Componenet/Events_show';
 import StallBooking from './Web_Componenet/StallBooking';
+
 // import Stall from './Web_Componenet/Stall';
 
 
@@ -53,7 +54,9 @@ function App() {
       <Route path="/register" element={<Register />}/> 
       <Route path="/blank" element={<Blank />}/>
       <Route path="/event" element={<Events_Forms />}/>
+      <Route path="/schedule" element={<Schedule_forms />}/>
       <Route path="/event_details" element={<Event_details />}/>
+      <Route path="/schedule_details" element={<Schedule_details />}/>
       <Route path="/con_details" element={<ContactUs_details />}/>
       <Route path="/feed_details" element={<Feedback_details />}/>
       <Route path="/rat_details" element={<Rating_details />}/>

@@ -49,7 +49,9 @@ export default function Sidebar() {
             <a className="collapse-item" href="buttons.html">Buttons</a>
             <Link className="collapse-item" to="/cards">Cards</Link>
             <Link className="collapse-item" to="/event">Events Form</Link>
+            <Link className="collapse-item" to="/schedule">Schedule Form</Link>
             <Link className="collapse-item" to="/event_details">Event's Details</Link>
+            <Link className="collapse-item" to="/schedule_details">Schedule's Details</Link>
             <Link className="collapse-item" to="/feed_details">Feedback's Details</Link> 
             <Link className="collapse-item" to="/con_details">Contact's Details</Link> 
             <Link className="collapse-item" to="/rat_details">Rating's Details</Link> 
