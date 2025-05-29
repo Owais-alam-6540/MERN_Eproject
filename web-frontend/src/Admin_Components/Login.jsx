@@ -101,19 +101,6 @@ export default function Login() {
                                 </button>
                               </div>
                             </div>
-                            <div className="form-check mb-3">
-                              <input
-                                type="checkbox"
-                                className="form-check-input"
-                                id="rememberMe"
-                              />
-                              <label
-                                className="form-check-label"
-                                htmlFor="rememberMe"
-                              >
-                                Remember Me
-                              </label>
-                            </div>
                             <button
                               type="submit"
                               className="btn btn-primary w-100 py-2"

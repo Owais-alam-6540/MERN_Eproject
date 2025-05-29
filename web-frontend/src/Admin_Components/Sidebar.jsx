@@ -11,6 +11,11 @@ export default function Sidebar() {
             nav("/login")
        }
       }, []);
+
+      function logout() {
+        localStorage.removeItem("users-data");
+        nav("/login")
+      }
       
   return (
     <div>
@@ -46,8 +51,8 @@ export default function Sidebar() {
     <div id="collapseTwo" className="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div className="bg-white py-2 collapse-inner rounded">
             <h6 className="collapse-header">Custom Components:</h6> 
-            <a className="collapse-item" href="buttons.html">Buttons</a>
-            <Link className="collapse-item" to="/cards">Cards</Link>
+            {/* <a className="collapse-item" href="buttons.html">Buttons</a>
+            <Link className="collapse-item" to="/cards">Cards</Link> */}
             <Link className="collapse-item" to="/event">Events Form</Link>
             <Link className="collapse-item" to="/schedule">Schedule Form</Link>
             <Link className="collapse-item" to="/event_details">Event's Details</Link>
@@ -95,26 +100,25 @@ export default function Sidebar() {
             <h6 className="collapse-header">Login Screens:</h6>
             <Link className="collapse-item" to="/login">Login</Link>
             <Link className="collapse-item" to="/register">Register</Link>
-            <a className="collapse-item" href="forgot-password.html">Forgot Password</a>
             <div className="collapse-divider"></div>
-            <h6 className="collapse-header">Other Pages:</h6>
+            {/* <h6 className="collapse-header">Other Pages:</h6>
             <a className="collapse-item" href="404.html">404 Page</a>
-            <Link className="collapse-item" to="/blank">Blank Page</Link>
+            <Link className="collapse-item" to="/blank">Blank Page</Link> */}
         </div>
     </div>
 </li>
 
 <li className="nav-item">
-    <a className="nav-link" href="charts.html">
+    <button className="nav-link " type='button' onClick={logout}>
         <i className="fas fa-fw fa-chart-area"></i>
-        <span>Charts</span></a>
+        <span>Logout</span></button>
 </li>
 
-<li className="nav-item">
+{/* <li className="nav-item">
     <Link className="nav-link" to="/tables">
         <i className="fas fa-fw fa-table"></i>
         <span>Tables</span></Link>
-</li>
+</li> */}
 
 <hr className="sidebar-divider d-none d-md-block"/>
 

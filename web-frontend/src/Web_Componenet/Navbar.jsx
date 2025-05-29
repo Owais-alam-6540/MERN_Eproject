@@ -59,20 +59,19 @@ export default function Navbar() {
           <nav id="navmenu" className="navmenu">
             <ul>
               <li><Link to="/" className="active">Home<br /></Link></li>
-              <li><Link to="/">Speakers</Link></li>
+              {/* <li><Link to="/">Speakers</Link></li>
               <li><Link to="/">Schedule</Link></li>
-              <li><Link to="/">Venue</Link></li>
-              <li><Link to="/">Hotels</Link></li>
-              <li><Link to="/event_show">Events</Link></li>
+              <li><Link to="/">Venue</Link></li> */}
               <li><Link to="/book_panel">Booking_Stall's_Panel</Link></li>
               <li className="dropdown">
                 <a href="#"><span>Forms</span> <i className="bi bi-chevron-down toggle-dropdown"></i></a>
                 <ul>
                   <li><Link to="/log_exb">Login As Exhibitor</Link></li>
-                  <li><Link to="/Log_vis">Login As Visitor</Link></li>
-                  <li><Link to="/feedback">Feedback</Link></li>
+                  <li><Link to="/Log_vis">SignIn As Visitor</Link></li>
+                  {/* <li><Link to="/feedback">Feedback</Link></li> */}
                 </ul>
               </li>
+              <li><Link to="/feedback">Feedback</Link></li>
               <li><a href="#contact">Contact</a></li>
               <li className="nav-item">
                 <button

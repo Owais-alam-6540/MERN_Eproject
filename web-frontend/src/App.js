@@ -7,11 +7,8 @@ import "bootstrap/dist/js/bootstrap.bundle.js";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import A_Index from './Admin_Components/A_Index';
-import Table from './Admin_Components/Table';
-import Card from './Admin_Components/Card';
 import Login from './Admin_Components/Login';
 import Register from './Admin_Components/Register';
-import Blank from './Admin_Components/Blank';
 import Events_Forms from './Admin_Components/Events_Forms';
 import ContactUs_details from './Admin_Components/ContactUs_details';
 import Feedback_details from './Admin_Components/Feedback_details';
@@ -29,11 +26,9 @@ import Event_details from './Admin_Components/Event_details';
 import Reset_as_exb from  './Web_Componenet/Reset_as_exb';
 import Reset from  './Web_Componenet/Reset';
 import Reset_as_vis from  './Web_Componenet/Resert_as_vis';
-import Events_show from './Web_Componenet/Events_show';
 import StallBooking from './Web_Componenet/StallBooking';
 import Schedule_details from './Admin_Components/Schedule_details';
 import Schedule_forms from './Admin_Components/Schedule_forms';
-// import Stall from './Web_Componenet/Stall';
 
 
 
@@ -49,11 +44,10 @@ function App() {
      
 
       <Route path="/admin" element={<A_Index />}/>
-      <Route path="/tables" element={<Table />}/>
-      <Route path="/cards" element={<Card />}/>
+
       <Route path="/login" element={<Login />}/> 
       <Route path="/register" element={<Register />}/> 
-      <Route path="/blank" element={<Blank />}/>
+    
       <Route path="/event" element={<Events_Forms />}/>
       <Route path="/schedule" element={<Schedule_forms />}/>
       <Route path="/event_details" element={<Event_details />}/>
@@ -68,7 +62,6 @@ function App() {
 
       <Route path='/' element={<Index/>}/>
         <Route path='/feedback' element={<Feedback/>}/>
-        <Route path='/event_show' element={<Events_show/>}/>
         <Route path='/reg_vis' element={<Register_vis/>}/>
         <Route path='/reg_exb' element={<Register_exb/>}/>
         <Route path='/log_vis' element={<Login_vis/>}/>
@@ -79,7 +72,6 @@ function App() {
         <Route path='/exb_forget' element={<Forget_as_exb/>}/>
         <Route path='/exb_reset/:token' element={<Reset_as_exb/>}/>
         <Route path='/vis_reset/:token' element={<Reset_as_vis/>}/>
-        {/* <Route path='/book_panel' element={<Stall/>}/> */}
         <Route path='/book_panel' element={<StallBooking/>}/>
 
 

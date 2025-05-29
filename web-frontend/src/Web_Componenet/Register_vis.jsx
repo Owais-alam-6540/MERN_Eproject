@@ -165,7 +165,7 @@ export default function Register_vis() {
   <div className="container">
     {/* Title */}
     <div className="section-title text-center mb-5" data-aos="fade-up">
-      <h2 className="fw-bold text-dark">Register As Visitor</h2>
+      <h2 className="fw-bold text-dark">SignUp As Visitor</h2>
       <p className="text-muted">Please fill in your details to register for the best features.</p>
     </div>
 

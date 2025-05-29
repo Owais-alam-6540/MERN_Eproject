@@ -278,20 +278,25 @@ async function get_data() {
 
      
       <div role="tabpanel" className="col-lg-9 tab-pane fade show active" id="day-1">
-        {schedule_data.map((a)=>(
-             <div className="row schedule-item" key={a._id}>
-             <div className="col-md-2"><strong>Start Date:</strong> {a.start_date}</div>
-             <div className="col-md-2"><strong>End Date:</strong> {a.end_date}</div>
-             <div className="col-md-10">
-               <h4><strong>Speaker:</strong> {a.speaker}</h4>
-               <h6><strong>Topic:</strong> {a.topic}</h6>
-               <p><strong>Location:</strong> {a.location}</p>
-             </div>
-           </div>
-        ))}
-       
-
+  {schedule_data.map((a) => (
+    <div className="row schedule-item py-4 mb-4 border rounded shadow-sm bg-light" key={a._id}>
+      <div className="col-md-3 mb-3 mb-md-0">
+        <p className="mb-1"><strong>Start Date:</strong></p>
+        <p className="text-muted">{a.start_date}</p>
       </div>
+      <div className="col-md-3 mb-3 mb-md-0">
+        <p className="mb-1"><strong>End Date:</strong></p>
+        <p className="text-muted">{a.end_date}</p>
+      </div>
+      <div className="col-md-6">
+        <h5 className="mb-1"><strong>Speaker:</strong> {a.speaker}</h5>
+        <h6 className="text-primary"><strong>Topic:</strong> {a.topic}</h6>
+        <p className="mb-0"><strong>Location:</strong> <span className="text-muted">{a.location}</span></p>
+      </div>
+    </div>
+  ))}
+</div>
+
 
       <div role="tabpanel" className="col-lg-9  tab-pane fade" id="day-2">
 
@@ -306,60 +311,7 @@ async function get_data() {
           </div>
         </div>
 
-        {/* <div className="row schedule-item">
-          <div className="col-md-2"><time>11:00 AM</time></div>
-          <div className="col-md-10">
-            <div className="speaker">
-              <img src="./assets/img/speakers/speaker-2-2.jpg" alt="Hubert Hirthe"/>
-            </div>
-            <h4>Et voluptatem iusto dicta nobis. <span>Hubert Hirthe</span></h4>
-            <p>Maiores dignissimos neque qui cum accusantium ut sit sint inventore.</p>
-          </div>
-        </div>
-
-        <div className="row schedule-item">
-          <div className="col-md-2"><time>12:00 AM</time></div>
-          <div className="col-md-10">
-            <div className="speaker">
-              <img src="./assets/img/speakers/speaker-3-2.jpg" alt="Cole Emmerich"/>
-            </div>
-            <h4>Explicabo et rerum quis et ut ea. <span>Cole Emmerich</span></h4>
-            <p>Veniam accusantium laborum nihil eos eaque accusantium aspernatur.</p>
-          </div>
-        </div>
-
-        <div className="row schedule-item">
-          <div className="col-md-2"><time>02:00 PM</time></div>
-          <div className="col-md-10">
-            <div className="speaker">
-              <img src="./assets/img/speakers/speaker-4-2.jpg" alt="Jack Christiansen"/>
-            </div>
-            <h4>Qui non qui vel amet culpa sequi. <span>Jack Christiansen</span></h4>
-            <p>Nam ex distinctio voluptatem doloremque suscipit iusto.</p>
-          </div>
-        </div>
-
-        <div className="row schedule-item">
-          <div className="col-md-2"><time>03:00 PM</time></div>
-          <div className="col-md-10">
-            <div className="speaker">
-              <img src="./assets/img/speakers/speaker-5.jpg" alt="Alejandrin Littel"/>
-            </div>
-            <h4>Quos ratione neque expedita asperiores. <span>Alejandrin Littel</span></h4>
-            <p>Eligendi quo eveniet est nobis et ad temporibus odio quo.</p>
-          </div>
-        </div>
-
-        <div className="row schedule-item">
-          <div className="col-md-2"><time>04:00 PM</time></div>
-          <div className="col-md-10">
-            <div className="speaker">
-              <img src="./assets/img/speakers/speaker-6.jpg" alt="Willow Trantow"/>
-            </div>
-            <h4>Quo qui praesentium nesciunt <span>Willow Trantow</span></h4>
-            <p>Voluptatem et alias dolorum est aut sit enim neque veritatis.</p>
-          </div>
-        </div> */}
+      
 
       </div>
 
@@ -377,60 +329,7 @@ async function get_data() {
           </div>
         </div>
 
-        {/* <div className="row schedule-item">
-          <div className="col-md-2"><time>11:00 AM</time></div>
-          <div className="col-md-10">
-            <div className="speaker">
-              <img src="./assets/img/speakers/speaker-3-2.jpg" alt="Cole Emmerich"/>
-            </div>
-            <h4>Explicabo et rerum quis et ut ea. <span>Cole Emmerich</span></h4>
-            <p>Veniam accusantium laborum nihil eos eaque accusantium aspernatur.</p>
-          </div>
-        </div>
-
-        <div className="row schedule-item">
-          <div className="col-md-2"><time>12:00 AM</time></div>
-          <div className="col-md-10">
-            <div className="speaker">
-              <img src="./assets/img/speakers/speaker-1-2.jpg" alt="Brenden Legros"/>
-            </div>
-            <h4>Libero corrupti explicabo itaque. <span>Brenden Legros</span></h4>
-            <p>Facere provident incidunt quos voluptas.</p>
-          </div>
-        </div>
-
-        <div className="row schedule-item">
-          <div className="col-md-2"><time>02:00 PM</time></div>
-          <div className="col-md-10">
-            <div className="speaker">
-              <img src="./assets/img/speakers/speaker-4-2.jpg" alt="Jack Christiansen"/>
-            </div>
-            <h4>Qui non qui vel amet culpa sequi. <span>Jack Christiansen</span></h4>
-            <p>Nam ex distinctio voluptatem doloremque suscipit iusto.</p>
-          </div>
-        </div>
-
-        <div className="row schedule-item">
-          <div className="col-md-2"><time>03:00 PM</time></div>
-          <div className="col-md-10">
-            <div className="speaker">
-              <img src="./assets/img/speakers/speaker-5.jpg" alt="Alejandrin Littel"/>
-            </div>
-            <h4>Quos ratione neque expedita asperiores. <span>Alejandrin Littel</span></h4>
-            <p>Eligendi quo eveniet est nobis et ad temporibus odio quo.</p>
-          </div>
-        </div>
-
-        <div className="row schedule-item">
-          <div className="col-md-2"><time>04:00 PM</time></div>
-          <div className="col-md-10">
-            <div className="speaker">
-              <img src="./assets/img/speakers/speaker-6.jpg" alt="Willow Trantow"/>
-            </div>
-            <h4>Quo qui praesentium nesciunt <span>Willow Trantow</span></h4>
-            <p>Voluptatem et alias dolorum est aut sit enim neque veritatis.</p>
-          </div>
-        </div> */}
+      
 
       </div>
 
@@ -588,31 +487,6 @@ async function get_data() {
 
 </section>
 
-<section id="gallery" className="gallery section">
-  <div className="container section-title" data-aos="fade-up">
-    <h2>Gallery</h2>
-    <p>
-      Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit
-    </p>
-  </div>
-
-  <div className="container" data-aos="fade-up" data-aos-delay="100">
-    <Swiper {...swiperConfig} className="align-items-center">
-      {images.map((image, index) => (
-        <SwiperSlide key={index}>
-          <a
-            className="glightbox"
-            data-gallery="images-gallery"
-            href={image.src}
-          >
-            <img src={image.src} className="img-fluid" alt={image.alt} />
-          </a>
-        </SwiperSlide>
-      ))}
-    </Swiper>
-    <div className="swiper-pagination" />
-  </div>
-</section>
 <section id="sponsors" className="sponsors section light-background">
 
 
@@ -732,79 +606,6 @@ async function get_data() {
   </div>
 
 </section>
-
-
-<section id="buy-tickets" className="buy-tickets section light-background">
-
-
-  <div className="container section-title" data-aos="fade-up">
-    <h2>Buy Tickets<br/></h2>
-    <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-  </div>
-
-  <div className="container">
-
-    <div className="row gy-4 pricing-item" data-aos="fade-up" data-aos-delay="100">
-      <div className="col-lg-3 d-flex align-items-center justify-content-center">
-        <h3>Standard Access</h3>
-      </div>
-      <div className="col-lg-3 d-flex align-items-center justify-content-center">
-        <h4><sup>$</sup>150<span> / month</span></h4>
-      </div>
-      <div className="col-lg-3 d-flex align-items-center justify-content-center">
-        <ul>
-          <li><i className="bi bi-check"></i> <span>Quam adipiscing vitae proin</span></li>
-          <li><i className="bi bi-check"></i> <span>Nulla at volutpat diam uteera</span></li>
-          <li className="na"><i className="bi bi-x"></i> <span>Pharetra massa massa ultricies</span></li>
-        </ul>
-      </div>
-      <div className="col-lg-3 d-flex align-items-center justify-content-center">
-        <div className="text-center"><a href="#" className="buy-btn">Buy Now</a></div>
-      </div>
-    </div>
-
-    <div className="row gy-4 pricing-item featured mt-4" data-aos="fade-up" data-aos-delay="200">
-      <div className="col-lg-3 d-flex align-items-center justify-content-center">
-        <h3>Premium Access<br/></h3>
-      </div>
-      <div className="col-lg-3 d-flex align-items-center justify-content-center">
-        <h4><sup>$</sup>250<span> / month</span></h4>
-      </div>
-      <div className="col-lg-3 d-flex align-items-center justify-content-center">
-        <ul>
-          <li><i className="bi bi-check"></i> <span>Quam adipiscing vitae proin</span></li>
-          <li><i className="bi bi-check"></i> <strong>Nec feugiat nisl pretium</strong></li>
-          <li><i className="bi bi-check"></i> <span>Nulla at volutpat diam uteera</span></li>
-        </ul>
-      </div>
-      <div className="col-lg-3 d-flex align-items-center justify-content-center">
-        <div className="text-center"><a href="#" className="buy-btn">Buy Now</a></div>
-      </div>
-    </div>
-
-    <div className="row gy-4 pricing-item mt-4" data-aos="fade-up" data-aos-delay="300">
-      <div className="col-lg-3 d-flex align-items-center justify-content-center">
-        <h3>Pro Access<br/></h3>
-      </div>
-      <div className="col-lg-3 d-flex align-items-center justify-content-center">
-        <h4><sup>$</sup>350<span> / month</span></h4>
-      </div>
-      <div className="col-lg-3 d-flex align-items-center justify-content-center">
-        <ul>
-          <li><i className="bi bi-check"></i> <span>Quam adipiscing vitae proin</span></li>
-          <li><i className="bi bi-check"></i> <span>Nec feugiat nisl pretium</span></li>
-          <li><i className="bi bi-check"></i> <span>Nulla at volutpat diam uteera</span></li>
-        </ul>
-      </div>
-      <div className="col-lg-3 d-flex align-items-center justify-content-center">
-        <div className="text-center"><a href="#" className="buy-btn">Buy Now</a></div>
-      </div>
-    </div>
-
-  </div>
-
-</section>
-
 
 <section id="contact" className="section">
 
