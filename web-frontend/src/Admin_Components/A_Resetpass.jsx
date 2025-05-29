@@ -4,20 +4,24 @@ import {ToastContainer,toast} from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import Footer from './Footer';
 import Navbar from './Navbar';
+import { useNavigate, useParams } from 'react-router-dom';
 
 export default function A_Resetpass() {
     let [pswd,setPswd]=useState("")
     let [cpswd,setCpswd]=useState("")
     let {token}=useParams();
-
+    let nav = useNavigate()
     async function arp(){
         try {
-            await axios.post(`http://localhost:4000/eproject/a_resetpswd/${token}`,pswd).
+            await axios.post(`http://localhost:4000/eproject/a_resetpswd/${token}`,{
+                password:pswd
+            }).
             then((A)=>{
                 toast.success(A.data.msg)
+                nav("/login")
             })
         } catch (error) {
-            toast.error(error.data.response.msg)
+            toast.error(error.response.data.msg)
             
         }
     }

@@ -29,6 +29,7 @@ import Reset_as_vis from  './Web_Componenet/Resert_as_vis';
 import StallBooking from './Web_Componenet/StallBooking';
 import Schedule_details from './Admin_Components/Schedule_details';
 import Schedule_forms from './Admin_Components/Schedule_forms';
+import A_Resetpass from './Admin_Components/A_Resetpass';
 
 
 
@@ -67,7 +68,7 @@ function App() {
         <Route path='/log_vis' element={<Login_vis/>}/>
         <Route path='/log_exb' element={<Login_exb/>}/>
         <Route path='/forget' element={<Forget/>}/>
-        <Route path='/reset/:token' element={<Reset/>}/>
+        <Route path='/reset/:token' element={<A_Resetpass/>}/>
 
         <Route path='/exb_forget' element={<Forget_as_exb/>}/>
         <Route path='/exb_reset/:token' element={<Reset_as_exb/>}/>

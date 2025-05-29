@@ -301,7 +301,7 @@ let main_func={
         try {
             let {password}=req.body;
             let {token}=req.params;
-            let fetch=jwt.decode(token,process.env,SECRET_KEY)
+            let fetch=jwt.decode(token,process.env.SECRET_KEY)
             if(!fetch){
                 res.status(404).json({msg:"invalid Token"})
 
