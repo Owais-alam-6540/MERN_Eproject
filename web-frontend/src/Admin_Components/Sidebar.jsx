@@ -122,9 +122,9 @@ export default function Sidebar() {
 
 <hr className="sidebar-divider d-none d-md-block"/>
 
-<div className="text-center d-none d-md-inline">
+{/* <div className="text-center d-none d-md-inline">
     <button className="rounded-circle border-0" id="sidebarToggle"></button>
-</div>
+</div> */}
 
 {/* <div className="sidebar-card d-none d-lg-flex">
     <img className="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="..."/>
