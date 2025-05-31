@@ -4,9 +4,10 @@ let hall_coll=mongo.Schema({
     hall_no:{
         type:String,
         required:true
+        
     },
     no_of_booth:{
-        type:String,
+        type:Number,
         required:true
     },
     events:{
