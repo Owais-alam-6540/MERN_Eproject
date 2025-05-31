@@ -33,6 +33,7 @@ import Add_Halls from "./Admin_Components/Add_Halls";
 import HallList from './Admin_Components/ShowHalls';
 import AddStallForm from './Admin_Components/Add_Stall';
 import ShowStalls from './Admin_Components/ShowStalls';
+import BookedStallsPage from './Admin_Components/AllBookedStalls';
 
 
 
@@ -63,6 +64,8 @@ function App() {
       <Route path="/Show_halls" element={<HallList />}/>
       <Route path="/add_stall" element={<AddStallForm />}/>
       <Route path="/show_stall" element={<ShowStalls />}/>
+      <Route path="/show_bstall" element={<BookedStallsPage />}/>
+
 
 
 

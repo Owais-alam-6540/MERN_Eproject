@@ -72,7 +72,8 @@ let main_func={
             }
             let user_record=jwt.sign({id :check_email._id},process.env.SECRET_KEY,{expiresIn:"2d"});
             return res.status(201).json({msg:"Login successfully",user_record,user:{n
-                :check_email.name,e:check_email.email
+                :check_email.name,e:check_email.email,
+                id:check_email._id
             }})
         } catch (error) {
             return res.status(501).json({msg:error.message})

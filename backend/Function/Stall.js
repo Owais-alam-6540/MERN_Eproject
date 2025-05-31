@@ -1,15 +1,32 @@
 const Stall = require("../Collection/Stall"); // adjust path as needed
 
-// Create Stall
+
 exports.createStall = async (req, res) => {
   try {
+    // Check if stall_no already exists in the given hall
+    const existing = await Stall.findOne({
+      stall_no: req.body.stall_no,
+      hall: req.body.hall,
+    });
+
+    if (existing) {
+      return res.status(400).json({
+        error: `Stall number "${req.body.stall_no}" already exists in this hall.`,
+      });
+    }
+
+    // Create and save the new stall
     const stall = new Stall(req.body);
     const savedStall = await stall.save();
     res.status(201).json(savedStall);
   } catch (err) {
-    res.status(501).json({ error: err.message });
+    console.error("Error creating stall:", err);
+    res.status(500).json({
+      error: "An unexpected error occurred while creating the stall.",
+    });
   }
 };
+
 
 // Get all stalls
 exports.getAllStalls = async (req, res) => {

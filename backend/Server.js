@@ -7,8 +7,8 @@ const bodyParser = require('body-parser');
 let cors= require("cors");
 require("dotenv").config();
 const stallRoutes = require("./routing/Stall"); // adjust path
+const stallBookingRoutes = require('./Function/StalledBook');
 
-// const ratingRoutes = require("./routes/rating");
 
 let port=process.env.PORT || 4000
 let app = express();
@@ -17,10 +17,9 @@ app.use(express.json());
 app.use(cors());
 app.use("/eproject/",r);
 app.use("/eproject/halls/", hallroute);
-
-// Mount routes
+app.use('/api/stalls/', stallBookingRoutes);
 app.use("/eproject/stalls/", stallRoutes);
-// app.use("/api/rate", ratingRoutes);
+
 
 db().then(()=>{
     app.listen(port,()=>{
