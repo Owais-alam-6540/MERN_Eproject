@@ -113,9 +113,26 @@ async function get_data() {
         console.error(e);
     }
 }
-
-
   // shedule end
+
+  // event start
+  const [event_data, setEvent_data] = useState([]);
+
+  useEffect(() => {
+    get_data_event();
+}, []);
+
+
+  async function get_data_event() {
+    try {
+        const response = await axios.get("http://localhost:4000/eproject/get_events");
+        setEvent_data(response.data);
+    } catch (e) {
+        console.error(e);
+    }
+}
+
+  // event end
   return (
    <div>
     <Navbar/>
@@ -448,7 +465,7 @@ async function get_data() {
 
     <div className="row gy-4">
 
-      <div className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+      {/* <div className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
         <div className="card h-100">
           <div className="card-img">
             <img src="./assets/img/hotels-1.jpg" alt="" className="img-fluid"/>
@@ -457,20 +474,25 @@ async function get_data() {
           <div className="stars"><i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i></div>
           <p>0.4 Mile from the Venue</p>
         </div>
-      </div>
-
-      <div className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+      </div> */}
+      {event_data.map((a)=>(
+        <div className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200" key={a._id}>
         <div className="card h-100">
           <div className="card-img">
             <img src="./assets/img/hotels-2.jpg" alt="" className="img-fluid"/>
           </div>
-          <h3><a href="#" className="stretched-link">Aspernatur assumenda</a></h3>
-          <div className="stars"><i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i></div>
-          <p>0.5 Mile from the Venue</p>
+          <h2><a href="#" className="stretched-link">{a.title}</a></h2>
+          <h3><a href="#" className="stretched-link">{a.theme}</a></h3>
+          {/* <div className="stars"><i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i></div> */}
+          <p>{a.start_date}</p>
+          <p>{a.end_date}</p>
+          <p> {a.description}</p>
         </div>
       </div>
+      ))}
+      
 
-      <div className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+      {/* <div className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
         <div className="card h-100">
           <div className="card-img">
             <img src="./assets/img/hotels-3.jpg" alt="" className="img-fluid"/>
@@ -479,7 +501,7 @@ async function get_data() {
           <div className="stars"><i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i></div>
           <p>0.6 Mile from the Venue</p>
         </div>
-      </div>
+      </div> */}
 
     </div>
 

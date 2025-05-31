@@ -14,16 +14,12 @@ export default function Events_Forms() {
   let[location,setLocation]=useState("");
   let[sdate,setSdate]=useState(0);
   let[edate,setEdate]=useState(0);
-  let [image, setImage] = useState(null);
-  let [preview, setPreview] = useState(null);
 
   function clear(){
     setEname("");
     setTheam("");
     setLocation("");
     setMsg("");
-    setImage(null);
-    setPreview(null);
     setSdate(0);
     setEdate(0);
 }
@@ -34,7 +30,6 @@ async function save_event(e) {
       await axios.post("http://localhost:4000/eproject/a_events", {
          title:ename,
          theme:theam,
-         image:image,
          location:location,
          description:msg,
          start_date:sdate,
@@ -84,11 +79,6 @@ async function save_event(e) {
                             <label className="form-label">Event Theme</label>
                             <input type="text" className="form-control" placeholder="Enter event theme"  value={theam} onChange={(e)=>setTheam(e.target.value)}/>
                           </div>
-                        </div>
-
-                        <div className="mb-3">
-                          <label className="form-label">Event Image</label>
-                            <input type="file" className="form-control" placeholder="Enter event theme"  onChange={(e)=>{const file = e.target.files[0]; setImage(file); setPreview(file ? URL.createObjectURL(file) : null);}}/>
                         </div>
 
                         <div className="mb-3">
