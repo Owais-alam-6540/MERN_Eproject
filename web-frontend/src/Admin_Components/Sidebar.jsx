@@ -61,6 +61,8 @@ export default function Sidebar() {
             <Link className="collapse-item" to="/con_details">Contact's Details</Link> 
             <Link className="collapse-item" to="/rat_details">Rating's Details</Link> 
             <Link className="collapse-item" to="/add_hall">Add Halls</Link> 
+            <Link className="collapse-item" to="/Show_halls">Halls Details</Link> 
+
 
 
         </div>

@@ -3,34 +3,36 @@ const Hall = require("../Collection/Hall");
 
 exports.createHall = async (req, res) => {
     try {
-        const { hallNumber, event } = req.body;
-
-        // Check if the hallNumber already exists for this event
-        const existingHall = await Hall.findOne({ hallNumber, event });
-
-        if (existingHall) {
-            return res.status(400).json({ error: "This hall is already assigned to the event." });
-        }
-
-        const hall = new Hall(req.body);
-        const savedHall = await hall.save();
-
-        res.status(201).json(savedHall);
+      const { hall_no, events } = req.body;
+  
+      // Check if this hall_no already exists for the given event
+      const existingHall = await Hall.findOne({ hall_no, events });
+  
+      if (existingHall) {
+        return res.status(400).json({ error: "This hall is already assigned to the event." });
+      }
+  
+      const hall = new Hall(req.body);
+      const savedHall = await hall.save();
+  
+      res.status(201).json(savedHall);
     } catch (err) {
-        res.status(400).json({ error: err.message });
+      res.status(400).json({ error: err.message });
     }
-};
+  };
+  
 
 
 
 exports.getAllHalls = async (req, res) => {
     try {
-        const halls = await Hall.find();
+        const halls = await Hall.find().populate("events", "title").sort({ _id: -1 });
         res.json(halls);
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
 };
+
 
 exports.getHallById = async (req, res) => {
     try {
