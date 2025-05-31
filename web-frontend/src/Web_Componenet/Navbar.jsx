@@ -1,8 +1,10 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Navbar() {
+  let nav = useNavigate();
+
   const [showModal, setShowModal] = useState(false);
   const [email, setEmail] = useState(""); // from auth context or state
   const [rating, setRating] = useState(0);
@@ -48,6 +50,11 @@ export default function Navbar() {
     }
   };
 
+  function logout() {
+    localStorage.removeItem("user_data");
+    nav("/log_exb")
+  }
+
   return (
     <div>
       <header id="header" className="header d-flex align-items-center fixed-top">
@@ -64,7 +71,7 @@ export default function Navbar() {
               <li><Link to="/">Venue</Link></li> */}
               <li><Link to="/book_panel">Booking_Stall's_Panel</Link></li>
               <li className="dropdown">
-                <a href="#"><span>Forms</span> <i className="bi bi-chevron-down toggle-dropdown"></i></a>
+                <a href="#"><span>Registrations</span> <i className="bi bi-chevron-down toggle-dropdown"></i></a>
                 <ul>
                   <li><Link to="/log_exb">Login As Exhibitor</Link></li>
                   <li><Link to="/Log_vis">SignIn As Visitor</Link></li>
@@ -74,11 +81,11 @@ export default function Navbar() {
               <li><Link to="/feedback">Feedback</Link></li>
               <li><a href="#contact">Contact</a></li>
               <li className="nav-item">
-                <button
+                <button type='button'
                   className="btn btn-outline-danger rounded-pill ms-2"
-                  onClick={handleRateUsClick}
+                  onClick={logout}
                 >
-                  Rate Us
+                  Logout
                 </button>
               </li>
             </ul>
@@ -89,7 +96,7 @@ export default function Navbar() {
         </div>
       </header>
 
-      {showModal && (
+      {/* {showModal && (
         <div className="modal show fade d-block" tabIndex="-1">
           <div className="modal-dialog modal-dialog-centered">
             <div className="modal-content">
@@ -118,7 +125,7 @@ export default function Navbar() {
             </div>
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 }

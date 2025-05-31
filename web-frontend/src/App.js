@@ -12,7 +12,6 @@ import Register from './Admin_Components/Register';
 import Events_Forms from './Admin_Components/Events_Forms';
 import ContactUs_details from './Admin_Components/ContactUs_details';
 import Feedback_details from './Admin_Components/Feedback_details';
-import Rating_details from './Admin_Components/Rating_details';
 import Feedback from './Web_Componenet/Feedback';
 import Index from './Web_Componenet/Index';
 import Login_exb from './Web_Componenet/Login_exb';
@@ -56,7 +55,6 @@ function App() {
       <Route path="/schedule_details" element={<Schedule_details />}/>
       <Route path="/con_details" element={<ContactUs_details />}/>
       <Route path="/feed_details" element={<Feedback_details />}/>
-      <Route path="/rat_details" element={<Rating_details />}/>
       <Route path="/a_forget" element={<A_forget />}/>
       <Route path="/add_hall" element={<Add_Halls />}/>
 
