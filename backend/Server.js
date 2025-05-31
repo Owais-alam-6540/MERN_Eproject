@@ -6,6 +6,8 @@ const bodyParser = require('body-parser');
 // let admin=require("./Collection/Admin");
 let cors= require("cors");
 require("dotenv").config();
+const stallRoutes = require("./routing/Stall"); // adjust path
+
 // const ratingRoutes = require("./routes/rating");
 
 let port=process.env.PORT || 4000
@@ -15,6 +17,9 @@ app.use(express.json());
 app.use(cors());
 app.use("/eproject/",r);
 app.use("/eproject/halls/", hallroute);
+
+// Mount routes
+app.use("/eproject/stalls/", stallRoutes);
 // app.use("/api/rate", ratingRoutes);
 
 db().then(()=>{
