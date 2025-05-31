@@ -29,6 +29,7 @@ import StallBooking from './Web_Componenet/StallBooking';
 import Schedule_details from './Admin_Components/Schedule_details';
 import Schedule_forms from './Admin_Components/Schedule_forms';
 import A_Resetpass from './Admin_Components/A_Resetpass';
+import Add_Halls from "./Admin_Components/Add_Halls";
 
 
 
@@ -55,6 +56,8 @@ function App() {
       <Route path="/con_details" element={<ContactUs_details />}/>
       <Route path="/feed_details" element={<Feedback_details />}/>
       <Route path="/a_forget" element={<A_forget />}/>
+      <Route path="/add_hall" element={<Add_Halls />}/>
+
 
 
 
