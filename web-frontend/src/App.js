@@ -31,6 +31,8 @@ import Schedule_forms from './Admin_Components/Schedule_forms';
 import A_Resetpass from './Admin_Components/A_Resetpass';
 import Add_Halls from "./Admin_Components/Add_Halls";
 import HallList from './Admin_Components/ShowHalls';
+import AddStallForm from './Admin_Components/Add_Stall';
+import ShowStalls from './Admin_Components/ShowStalls';
 
 
 
@@ -59,6 +61,10 @@ function App() {
       <Route path="/a_forget" element={<A_forget />}/>
       <Route path="/add_hall" element={<Add_Halls />}/>
       <Route path="/Show_halls" element={<HallList />}/>
+      <Route path="/add_stall" element={<AddStallForm />}/>
+      <Route path="/show_stall" element={<ShowStalls />}/>
+
+
 
 
 
