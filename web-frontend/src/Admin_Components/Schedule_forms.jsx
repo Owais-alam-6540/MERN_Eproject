@@ -70,17 +70,17 @@ async function save_event(e) {
                         <div className="row mb-3">
                           <div className="col-sm-6">
                             <label className="form-label">Speaker</label>
-                            <input type="text" className="form-control" placeholder="Enter event title"  value={speaker} onChange={(e)=> setSpeaker(e.target.value)}/>
+                            <input type="text" className="form-control" placeholder="Enter speaker name"  value={speaker} onChange={(e)=> setSpeaker(e.target.value)}/>
                           </div>
                           <div className="col-sm-6">
                             <label className="form-label">Topic</label>
-                            <input type="text" className="form-control" placeholder="Enter event theme"  value={topic} onChange={(e)=>setTopic(e.target.value)}/>
+                            <input type="text" className="form-control" placeholder="Enter topic"  value={topic} onChange={(e)=>setTopic(e.target.value)}/>
                           </div>
                         </div>
 
                         <div className="mb-3">
                           <label className="form-label">Location</label>
-                            <input type="text" className="form-control" placeholder="Enter event theme"  value={location} onChange={(e)=> setLocation(e.target.value)}/>
+                            <input type="text" className="form-control" placeholder="Enter location"  value={location} onChange={(e)=> setLocation(e.target.value)}/>
                         </div>
 
                         <div className="row mb-3">

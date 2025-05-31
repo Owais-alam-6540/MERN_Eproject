@@ -482,7 +482,7 @@ async function get_data() {
             <img src="./assets/img/hotels-2.jpg" alt="" className="img-fluid"/>
           </div>
           <h2><a href="#" className="stretched-link">{a.title}</a></h2>
-          <h3><a href="#" className="stretched-link">{a.theme}</a></h3>
+          <h3>{a.theme}</h3>
           {/* <div className="stars"><i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i></div> */}
           <p>{a.start_date}</p>
           <p>{a.end_date}</p>
@@ -556,7 +556,7 @@ async function get_data() {
 
 </section>
 
-<section id="faq" className="faq section">
+{/* <section id="faq" className="faq section">
 
 
   <div className="container section-title" data-aos="fade-up">
@@ -627,7 +627,7 @@ async function get_data() {
 
   </div>
 
-</section>
+</section> */}
 
 <section id="contact" className="section">
 

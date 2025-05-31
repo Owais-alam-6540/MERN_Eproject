@@ -83,7 +83,7 @@ async function save_event(e) {
 
                         <div className="mb-3">
                           <label className="form-label">Event Location</label>
-                            <input type="text" className="form-control" placeholder="Enter event theme"  value={location} onChange={(e)=> setLocation(e.target.value)}/>
+                            <input type="text" className="form-control" placeholder="Enter event location"  value={location} onChange={(e)=> setLocation(e.target.value)}/>
                         </div>
 
                         <div className="mb-3">
