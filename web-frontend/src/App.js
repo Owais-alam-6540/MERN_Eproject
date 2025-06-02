@@ -34,6 +34,7 @@ import HallList from './Admin_Components/ShowHalls';
 import AddStallForm from './Admin_Components/Add_Stall';
 import ShowStalls from './Admin_Components/ShowStalls';
 import BookedStallsPage from './Admin_Components/AllBookedStalls';
+import ContactUs from './Web_Componenet/ContactUs';
 
 
 
@@ -76,6 +77,7 @@ function App() {
 
       <Route path='/' element={<Index/>}/>
         <Route path='/feedback' element={<Feedback/>}/>
+        <Route path='/contact' element={<ContactUs/>}/>
         <Route path='/reg_vis' element={<Register_vis/>}/>
         <Route path='/reg_exb' element={<Register_exb/>}/>
         <Route path='/log_vis' element={<Login_vis/>}/>

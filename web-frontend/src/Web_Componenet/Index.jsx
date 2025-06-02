@@ -98,6 +98,7 @@ export default function Index() {
       toast.error("Failed to send message. Please try again later.");
     }
   }
+
   // shedule start
   const [schedule_data, setSchedule_data] = useState([]);
 
@@ -457,7 +458,7 @@ async function get_data() {
 <section id="hotels" className="hotels section">
 
   <div className="container section-title" data-aos="fade-up">
-    <h2>Hotels</h2>
+    <h2>Events</h2>
     <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
   </div>
 
@@ -479,7 +480,7 @@ async function get_data() {
         <div className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200" key={a._id}>
         <div className="card h-100">
           <div className="card-img">
-            <img src="./assets/img/hotels-2.jpg" alt="" className="img-fluid"/>
+            <img src="./assets/img/expo-img2.jpg" alt="" className="img-fluid"/>
           </div>
           <h2><a href="#" className="stretched-link">{a.title}</a></h2>
           <h3>{a.theme}</h3>
@@ -629,7 +630,7 @@ async function get_data() {
 
 </section> */}
 
-<section id="contact" className="section">
+{/* <section id="contact" className="section">
 
   <div className="container section-title" data-aos="fade-up">
     <h2>Contact</h2>
@@ -710,7 +711,7 @@ async function get_data() {
 
   </div>
 
-</section>
+</section> */}
 <ToastContainer/>
 </main>
 <Footer/>

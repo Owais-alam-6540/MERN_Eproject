@@ -79,7 +79,7 @@ export default function Navbar() {
                 </ul>
               </li>
               <li><Link to="/feedback">Feedback</Link></li>
-              <li><a href="#contact">Contact</a></li>
+              <li><Link to="/contact">Contact</Link></li>
               <li className="nav-item">
                 <button type='button'
                   className="btn btn-outline-danger rounded-pill ms-2"

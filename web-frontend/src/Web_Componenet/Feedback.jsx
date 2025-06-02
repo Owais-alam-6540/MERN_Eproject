@@ -108,10 +108,10 @@ async function save_feed(e) {
       <img src="./assets/img/hero-bg.jpg" alt="" data-aos="fade-in" className=""/>
 
       <div className="container d-flex flex-column align-items-center text-center mt-auto">
-        <h2 data-aos="fade-up" data-aos-delay="100" className="">THE ANNUAL<br/><span>MARKETING</span> CONFERENCE</h2>
-        <p data-aos="fade-up" data-aos-delay="200">10-12 December, Downtown Conference Center, New York</p>
+        <h2 data-aos="fade-up" data-aos-delay="100" className="">The Event<br/><span>SphereManagement</span> System</h2>
+        <p data-aos="fade-up" data-aos-delay="200">Expo Center, Pakistan</p>
         <div data-aos="fade-up" data-aos-delay="300" className="">
-          <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" className="glightbox pulsating-play-btn mt-3"></a>
+          <a href="./assets/img/eproject.mp4" className="glightbox pulsating-play-btn mt-3"></a>
         </div>
       </div>
 
@@ -127,7 +127,7 @@ async function save_feed(e) {
             </div>
             <div className="col-lg-3">
               <h3>Where</h3>
-              <p>Downtown Conference Center, New York</p>
+              <p>Expo Center, Pakistan</p>
             </div>
             <div className="col-lg-3">
               <h3>When</h3>
@@ -155,7 +155,7 @@ async function save_feed(e) {
           <div className="info-item text-center p-4 bg-white shadow rounded" data-aos="fade-up" data-aos-delay="100">
             <i className="bi bi-geo-alt fs-3 text-danger mb-2"></i>
             <h5>Address</h5>
-            <p className="mb-0">A108 Adam Street, New York, NY 535022</p>
+            <p className="mb-0">A108 Adam Street, Pakistan, PAK 535022</p>
           </div>
 
           <div className="info-item text-center p-4 bg-white shadow rounded" data-aos="fade-up" data-aos-delay="200">

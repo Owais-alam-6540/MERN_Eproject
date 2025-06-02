@@ -3,11 +3,54 @@ import axios from 'axios';
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination } from 'swiper/modules';
+import AOS from 'aos';
+import GLightbox from 'glightbox';
+
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'aos/dist/aos.css';
+import 'glightbox/dist/css/glightbox.css';
+
 import Navbar from './Navbar';
 import Footer from './Footer';
 import { useNavigate } from 'react-router-dom';
 
 const StallBooking = () => {
+  const swiperConfig = {
+      modules: [Autoplay, Pagination],
+      loop: true,
+      speed: 600,
+      autoplay: {
+        delay: 5000,
+      },
+      slidesPerView: 'auto',
+      centeredSlides: true,
+      pagination: {
+        clickable: true,
+      },
+      breakpoints: {
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 0,
+        },
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 20,
+        },
+        1200: {
+          slidesPerView: 5,
+          spaceBetween: 20,
+        },
+      },
+    };
+  
+    const images = Array.from({ length: 8 }, (_, i) => ({
+      src: `/./assets/img/event-gallery/event-gallery-${i + 1}.jpg`,
+      alt: `event-gallery-${i + 1}`,
+    }));
+
   const navigate = useNavigate();
 
   const [stalls, setStalls] = useState([]);
@@ -104,6 +147,44 @@ const StallBooking = () => {
   return (
     <>
       <Navbar />
+       <main className="main">
+
+            <section id="hero" className="hero section dark-background">
+
+      <img src="./assets/img/hero-bg.jpg" alt="" data-aos="fade-in" className=""/>
+
+      <div className="container d-flex flex-column align-items-center text-center mt-auto">
+        <h2 data-aos="fade-up" data-aos-delay="100" className="">The Event<br/><span>SphereManagement</span> System</h2>
+        <p data-aos="fade-up" data-aos-delay="200">Expo Center, Pakistan</p>
+        <div data-aos="fade-up" data-aos-delay="300" className="">
+          <a href="./assets/img/eproject.mp4" className="glightbox pulsating-play-btn mt-3"></a>
+        </div>
+      </div>
+
+      <div className="about-info mt-auto position-relative">
+
+        <div className="container position-relative" data-aos="fade-up">
+          <div className="row">
+            <div className="col-lg-6">
+              <h2>About The Event</h2>
+              <p>Sed nam ut dolor qui repellendus iusto odit. Possimus inventore eveniet accusamus error amet eius aut
+                accusantium et. Non odit consequatur repudiandae sequi ea odio molestiae. Enim possimus sunt inventore in
+                est ut optio sequi unde.</p>
+            </div>
+            <div className="col-lg-3">
+              <h3>Where</h3>
+              <p>Expo Center, Pakistan</p>
+            </div>
+            <div className="col-lg-3">
+              <h3>When</h3>
+              <p>Monday to Wednesday<br/>10-12 December</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
       <div className="container py-4">
         <h3 className="text-center bg-danger text-white p-2">Book Your Stalls Or Booth</h3>
 
@@ -171,6 +252,7 @@ const StallBooking = () => {
         </div>
         <ToastContainer />
       </div>
+      </main>
       <Footer />
     </>
   );
